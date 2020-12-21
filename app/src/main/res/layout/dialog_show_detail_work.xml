@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="280dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:background="@color/Background_EditText">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        tools:ignore="MissingConstraints">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end">
+
+
+            <LinearLayout
+                android:id="@+id/dialog_show_detail_container_report_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="end"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/dialog_show_detail_report_number_work"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="15dp"
+                    android:textAlignment="textEnd"
+                    android:hint="Report Number" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:textColor="@color/Background_screen"
+                    android:text="@string/textView_report_number" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/dialog_show_detail_container_work_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="end"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dialog_show_detail_container_report_number"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/dialog_show_detail_work_number_work"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="15dp"
+                    android:textAlignment="textEnd"
+                    android:hint="Work Number" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:textColor="@color/Background_screen"
+                    android:text="@string/textView_work_number" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/dialog_show_detail_container_work_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="end"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dialog_show_detail_container_work_number"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/dialog_show_detail_work_name_work"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="15dp"
+                    android:textAlignment="textEnd"
+                    android:hint="Work Name" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:textColor="@color/Background_screen"
+                    android:text="@string/textView_work_name" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/dialog_show_detail_container_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="end"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dialog_show_detail_container_work_name"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/dialog_show_detail_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="15dp"
+                    android:textAlignment="textEnd"
+                    android:hint="Account" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:textColor="@color/Background_screen"
+                    android:text="@string/textView_account" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/dialog_show_detail_container_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="end"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dialog_show_detail_container_account"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/dialog_show_detail_price_work"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="15dp"
+                    android:textAlignment="textEnd"
+                    android:hint="Price" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:textColor="@color/Background_screen"
+                    android:text="@string/textView_price_2" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/dialog_show_detail_container_date_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="end"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dialog_show_detail_container_price"
+                tools:ignore="MissingConstraints">
+
+
+                <TextView
+                    android:id="@+id/dialog_show_detail_date_work"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="15dp"
+                    android:textAlignment="textEnd"
+                    android:hint="Date" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:textColor="@color/Background_screen"
+                    android:text="@string/textView_date" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/dialog_show_detail_container_person"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="end"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dialog_show_detail_container_date_time">
+
+
+                <TextView
+                    android:id="@+id/dialog_show_detail_person_work"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="15dp"
+                    android:textAlignment="textEnd"
+                    android:hint="Person" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:textColor="@color/Background_screen"
+                    android:text="@string/textView_person" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/dialog_show_detail_container_attach_count"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="end"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dialog_show_detail_container_person"
+                tools:ignore="MissingConstraints">
+
+
+                <TextView
+                    android:id="@+id/dialog_show_detail_attach_count_work"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:textAlignment="textEnd"
+                    android:layout_marginEnd="15dp"
+                    android:hint="Attach Count" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:textColor="@color/Background_screen"
+                    android:text="@string/textView_attach_count" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/dialog_show_detail_container_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="end"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dialog_show_detail_container_attach_count"
+                tools:ignore="MissingConstraints">
+
+
+                <TextView
+                    android:id="@+id/dialog_show_detail_comment_work"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="15dp"
+                    android:textAlignment="textEnd"
+                    android:hint="Comment" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:textColor="@color/Background_screen"
+                    android:text="@string/textView_comment" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/dialog_show_detail_container_image_work"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dialog_show_detail_container_comment">
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/dialog_show_detail_container_cancel_update_button_work"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dialog_show_detail_container_image_work"
+                tools:ignore="MissingConstraints">
+
+
+                <Button
+                    android:id="@+id/dialog_show_detail_button_ok"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/Background_screen"
+                    android:text="@string/button_name_ok" />
+
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

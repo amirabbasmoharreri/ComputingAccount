@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="subLayoutDynamic" type="id" />
+    <item name="imageViewDynamic" type="id" />
+    <item name="buttonDynamic" type="id" />
+</resources>

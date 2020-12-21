@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+
+    <color name="Background_Button">#e8b081</color>
+    <color name="Background_screen">#26292e</color>
+    <color name="Background_EditText">#464B53</color>
+    <color name="text_second">#E3E3E3</color>
+
+
+
+
+
+    <color name="me_black">#000000</color>
+    <color name="me_white">#FFFFFF</color>
+    <color name="me_white_2">#E3E3E3</color>
+    <color name="me_gray">#464B53</color>
+    <color name="me_yellow">#e8b081</color>
+    <color name="me_gray_2">#82848A</color>
+
+
+    <!--                        WHITE                  MODE                    THEME                          -->
+
+
+
+
+
+
+
+
+    <!--                        DARK                  MODE                    THEME                          -->
+
+
+    <!--      Button       -->
+
+    <color name="Dark_Button_background_yellow">#e8b081</color>
+    <color name="Dark_Button_background_black">#26292e</color>
+    <color name="Dark_Button_text">#FFFFFF</color>
+
+
+
+
+    <!--     TextView      -->
+
+    <color name="Dark_TextView_text_yellow">#e8b081</color>
+    <color name="Dark_TextView_text_white">#E3E3E3</color>
+
+
+
+
+
+    <!--      EditText      -->
+
+    <color name="Dark_EditText_background">#464B53</color>
+    <color name="Dark_EditText_text">#e8b081</color>
+
+
+    <!--       screen        -->
+
+    <color name="Dark_Screen_Background">#26292e</color>
+
+
+
+
+    <!--       Toolbar  and   Actionbar       -->
+
+    <color name="Dark_Actionbar_Background">#26292e</color>
+    <!--<color name="Dark_Toolbar_Background">>#464B53</color>-->
+
+
+
+</resources>

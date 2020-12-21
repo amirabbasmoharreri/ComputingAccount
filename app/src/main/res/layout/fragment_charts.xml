@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Background_screen"
+    tools:context=".ui.chartsNavigation.ChartsFragment"
+    android:layout_marginBottom="?attr/actionBarSize">
+
+
+    <lecho.lib.hellocharts.view.PieChartView
+        android:id="@+id/chart_pie_chart"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"/>
+
+    <LinearLayout
+        android:id="@+id/data_container_charts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        app:layout_constraintTop_toBottomOf="@id/chart_pie_chart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:gravity="end">
+
+
+
+
+
+        <TextView
+            android:id="@+id/text_price_special_work_charts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price"
+            android:textColor="#000000"
+            android:layout_gravity="start"
+            android:padding="10dp" />
+
+        <TextView
+            android:id="@+id/text_work_name_charts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=":  Work Name"
+            android:textColor="#000000"
+            android:layout_gravity="start"
+            android:padding="10dp"
+            android:layout_marginEnd="20dp"/>
+
+        <TextView
+            android:id="@+id/text_price_charts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price"
+            android:textColor="#000000"
+            android:layout_gravity="end"
+            android:padding="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textView_sum_price"
+            android:textColor="#000000"
+            android:layout_gravity="end"
+            android:padding="10dp"/>
+
+
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@drawable/bottom_navigation_button_shodow"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintTop_toBottomOf="@id/data_container_charts"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:translationZ="5dp"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle_view_charts"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintTop_toBottomOf="@id/data_container_charts"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layoutAnimation="@anim/layout_animation_recycleview"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_card_view_work"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:elevation="5dp"
+        android:translationZ="5dp"
+        app:cardBackgroundColor="@color/Background_EditText">
+
+
+        <ImageButton
+            android:id="@+id/button_card_view_work"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/ic_more_vert_white_24dp" />
+
+
+        <TextView
+            android:id="@+id/text_work_name_card_work"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="80dp"
+            android:text="WorkName"
+            android:textColor="@color/text_second"
+            android:textSize="20dp" />
+
+
+        <TextView
+            android:id="@+id/text_person_card_work"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginBottom="5dp"
+            android:text="Person"
+            android:textColor="#E3E3E3" />
+
+
+        <TextView
+            android:id="@+id/text_price_card_work"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="15dp"
+            android:text="Price"
+            android:textColor="#E3E3E3"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/text_date_card_work"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="5dp"
+            android:text="Date"
+            android:textColor="#E3E3E3" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="59dp"
+            android:layout_height="59dp"
+            android:layout_alignParentEnd="false"
+            android:layout_gravity="end"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginEnd="5dp"
+            android:src="@drawable/ic_payment_white_24dp" />
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/Background_screen"
+    android:theme="@style/NoWindow">
+
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/spinner_name_wallet_card_initialize"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:autofillHints="Account Name"
+        android:entries="@array/account_name" />
+
+    <EditText
+        android:id="@+id/text_number_wallet_card_initialize"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:hint="@string/editText_hint_account_number"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/spinner_name_wallet_card_initialize"/>
+
+    <EditText
+        android:id="@+id/text_remained_wallet_card_initialize"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        android:hint="@string/editText_remained"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/text_number_wallet_card_initialize"/>
+
+    <LinearLayout
+        android:id="@+id/dialog_initialize_container_cancel_update_button_wallet_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_remained_wallet_card_initialize"
+        tools:ignore="MissingConstraints">
+
+
+        <Button
+            android:id="@+id/button_save_wallet_card_initialize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/Background_screen"
+            android:text="@string/button_name_save" />
+
+        <Button
+            android:id="@+id/button_cancel_wallet_card_initialize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:background="@color/Background_screen"
+            android:text="@string/button_name_cancel" />
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

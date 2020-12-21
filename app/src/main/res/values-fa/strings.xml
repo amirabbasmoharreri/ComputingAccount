@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--  App Name  -->
+
+    <string name="app_name">صورت تنخواه</string>
+
+    <!--  Activity  and fragment name  -->
+
+    <string name="activity_title_main">صفحه اصلی</string>
+    <string name="activity_title_paid">پرداخت</string>
+    <string name="activity_title_received">دریافت</string>
+    <string name="activity_title_crDe">طلب و بدهی</string>
+    <string name="activity_title_settings">تنظیمات</string>
+
+    <string name="fragment_title_home">خانه</string>
+    <string name="fragment_title_dashboard">نمودارها</string>
+    <string name="fragment_title_reports">گزارشات</string>
+    <string name="fragment_title_note">یادداشت</string>
+
+    <!--  preferences  settings  -->
+
+    <string name="action_settings">تنظیمات</string>
+    <string name="preference_title_persons">اشخاص</string>
+    <string name="preference_title_item">آیتم ها</string>
+    <string name="preference_title_works">کارها</string>
+    <string name="preference_title_reports">گزارش ها</string>
+    <string name="preference_title_received">دریافتی ها</string>
+    <string name="preference_title_wallet">کیف پول</string>
+    <string name="preference_title_card">کارت</string>
+    <string name="preference_title_language">زبان</string>
+    <string name="preference_title_back_up">پیشتیبان گیری</string>
+    <string name="preference_title_server_connection">اتصال سرور</string>
+    <string name="preference_title_type_back_up">نوع پشتیبان گیری</string>
+    <string name="preference_title_duration_back_up">دوره زمانی پشتیبان گیری(دقیقه)</string>
+    <string name="preference_title_address">آدرس</string>
+    <string name="preference_title_port">پورت</string>
+    <string name="preference_title_request_duration">دوره ارسال درخواست</string>
+    <string name="preference_title_sms_format">فرمت پیامک</string>
+    <string name="preference_title_theme_language">تم و زبان</string>
+
+
+    <!--    textView     -->
+
+
+    <string name="textView_reportAdapter_condition_reported">گزارش شده</string>
+    <string name="textView_reportAdapter_condition_notReported">گزارش نشده</string>
+    <string name="textView_sum_of_crave">مجموع طلب</string>
+    <string name="textView_sum_of_debt">مجموع بدهی</string>
+    <string name="textView_paid">پرداختی</string>
+    <string name="textView_receive">دریافت</string>
+    <string name="textView_debt_and_crave">طلب و بدهی</string>
+    <string name="textView_transfer">انتقال</string>
+    <string name="textView_remained">مانده</string>
+    <string name="textView_received_number">: شماره دریافتی</string>
+    <string name="textView_report_number">: شماره گزارش</string>
+    <string name="textView_price_2">: مبلغ</string>
+    <string name="textView_date">: تاریخ</string>
+    <string name="textView_work_number">: شماره کار</string>
+    <string name="textView_work_name">: نام کار</string>
+    <string name="textView_account">: حساب</string>
+    <string name="textView_person">: شخص</string>
+    <string name="textView_attach_count">: تعداد ضمائم</string>
+    <string name="textView_comment">: توضیحات</string>
+    <string name="textView_from">: از</string>
+    <string name="textView_to">: به</string>
+    <string name="textView_sum_price">: جمع مبلغ</string>
+    <string name="textView_name">نام</string>
+    <string name="textView_address">آدرس</string>
+
+
+
+    <!--     editText     -->
+
+    <string name="editText_hint_password">رمزعبور</string>
+    <string name="editText_hint_reportnumber">شماره گزارش</string>
+    <string name="editText_hint_work_name">نام کار</string>
+    <string name="editText_hint_person">شخص</string>
+    <string name="editText_hint_paid">پرداختی</string>
+    <string name="editText_hint_comment">توضیحات</string>
+    <string name="editText_hint_attach_ncount">تعداد ضمائم</string>
+    <string name="editText_hint_received_number">شماره دریافتی</string>
+    <string name="editText_price">مبلغ</string>
+    <string name="editText_item_name">نام آیتم</string>
+    <string name="editText_hint_number_of_report">شماره گزارش</string>
+    <string name="editText_preremained">مانده گزارش قبلی</string>
+    <string name="editText_remained">مانده</string>
+    <string name="editText_hint_account_number">شماره حساب</string>
+
+
+
+
+
+    <!--    chart    -->
+
+
+    <string name="Chart_name">کارها</string>
+
+
+    <!--     button     -->
+
+
+    <string name="button_name_update">بروزرسانی</string>
+    <string name="button_name_add">اضافه کردن</string>
+    <string name="button_name_speak">صحبت کردن</string>
+
+    <!--     camera      -->
+
+
+    <string name="camera_menu_take_photo">عکس گرفتن</string>
+    <string name="camera_menu_choose_from_gallery">انتخاب از گالری</string>
+    <string name="camera_menu_cancel">انصراف</string>
+
+
+
+    <!--    toast massages   -->
+
+    <string name="toast_deleteItem">حذف شد</string>
+    <string name="toast_updateItem">بروز شد</string>
+    <string name="toast_saved">ذخیره شد</string>
+    <string name="toast_closeAccount">حساب بسته شد</string>
+    <string name="toast_pdf_created">ساخته شد Pdf</string>
+
+
+    <string name="notification_title_speechToText">گفتار به متن</string>
+    <string name="notification_clickSpeak">روی دکمه کلیک کنید و صحبت کنید</string>
+
+
+    <!--    Massages    -->
+
+
+    <!--    Massages  report number   -->
+
+    <string name="massage_title_reportNumber">شماره گزارش</string>
+    <string name="massage_inputReport">شماره گزارش را وارد کنید</string>
+
+
+    <!--    Massages    work name   -->
+
+    <string name="massage_title_workName">نام کار</string>
+    <string name="massage_inputWorkName">نام کار را وارد کنید</string>
+
+    <!--    Massages   person name   -->
+
+    <string name="massage_title_personName">نام شخص</string>
+    <string name="massage_inputPersonName">نام شخص را وارد کنید</string>
+
+    <!--    Massages   price   -->
+
+    <string name="massage_title_price">مبلغ</string>
+    <string name="massage_inputPrice">مبلغ را وارد کنید</string>
+
+    <!--    Massages    attach count   -->
+
+    <string name="massage_title_attachCount">تعداد ضمائم</string>
+    <string name="massage_inputAttachCount">تعداد ضمائم را وارد کنید</string>
+
+    <!--    Massages   comment    -->
+
+    <string name="massage_title_comment">توضیحات</string>
+    <string name="massage_inputComment">توضیحات را وارد کنید</string>
+
+
+    <!--    Massages   title -->
+
+    <string name="massage_title_add_photo">اضافه کردن عکس</string>
+
+    <string name="massage_title_datePicker">تاریخ</string>
+    <string name="massage_inputStartEndDate">تاریخ شروع و پایان را وارد کنید</string>
+    <string name="massage_title_name">نام</string>
+    <string name="massage_inputName">نام را وارد کنید</string>
+
+    <!--    Massages   attention   -->
+
+    <string name="message_title_attention">توجه</string>
+    <string name="massage_ifDeleteLostData">اگر این مورد پاک کنید ، ممکن است اطلاعاتی از دست برود.</string>
+    <string name="massage_no_data">اطلاعاتی موجود نیست</string>
+    <string name="massage_doYouWantCloseAccount">ایا میخواهید این حساب را ببندید؟</string>
+    <string name="massage_alreadyReported">این گزارش قبلا گزارش شده است</string>
+
+
+
+
+    <!--   radioButton    -->
+
+    <string name="radioButton_crave">طلب</string>
+    <string name="radioButton_debt">بدهی</string>
+    <string name="radioButton_all">همه</string>
+
+
+    <!--    button    -->
+
+    <string name="button_name_login">ورود</string>
+    <string name="button_name_save">ذخیره</string>
+    <string name="button_name_ok">خب</string>
+    <string name="button_name_transfer">انتقال</string>
+    <string name="button_name_cancel">انصراف</string>
+
+
+    <!--    checkBox     -->
+
+    <string name="checkBox_condition_of_work">وضعیت کار</string>
+    <string name="checkBox_condition_nof_report_2">وضعیت گزارش</string>
+
+
+    <!--    menu     -->
+
+    <string name="menu_edit">ویرایش</string>
+    <string name="menu_delete">حذف</string>
+    <string name="menu_transfer">انتقال</string>
+    <string name="menu_close_account">بستن حساب</string>
+    <string name="menu_save_pdf">ذخیره Pdf</string>
+
+
+
+
+    <!--                  string arrays              -->
+    <string-array name="headersOfSalaryForm">
+        <item>ردیف</item>
+        <item>تاریخ</item>
+        <item>شرح</item>
+        <item>هزینه</item>
+        <item>توضیحات</item>
+    </string-array>
+
+
+
+</resources>

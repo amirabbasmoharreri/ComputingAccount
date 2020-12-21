@@ -1,0 +1,160 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <PreferenceCategory android:title="@string/preference_title_item">
+
+        <Preference android:title="@string/preference_title_persons">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="Persons"
+                android:targetClass="com.abbasmoharreri.computingaccount.ItemsActivity"
+                android:targetPackage="com.abbasmoharreri.computingaccount" />
+
+        </Preference>
+
+
+        <Preference android:title="@string/preference_title_works">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="Works"
+                android:targetClass="com.abbasmoharreri.computingaccount.ItemsActivity"
+                android:targetPackage="com.abbasmoharreri.computingaccount" />
+
+        </Preference>
+
+        <Preference android:title="@string/preference_title_reports">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="Reports"
+                android:targetClass="com.abbasmoharreri.computingaccount.ItemsActivity"
+                android:targetPackage="com.abbasmoharreri.computingaccount" />
+        </Preference>
+
+        <Preference android:title="@string/preference_title_received">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="Received"
+                android:targetClass="com.abbasmoharreri.computingaccount.ItemsActivity"
+                android:targetPackage="com.abbasmoharreri.computingaccount" />
+        </Preference>
+
+        <Preference android:title="@string/preference_title_wallet">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="Wallet"
+                android:targetClass="com.abbasmoharreri.computingaccount.ItemsActivity"
+                android:targetPackage="com.abbasmoharreri.computingaccount" />
+        </Preference>
+
+        <Preference android:title="@string/preference_title_card">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="Card"
+                android:targetClass="com.abbasmoharreri.computingaccount.ItemsActivity"
+                android:targetPackage="com.abbasmoharreri.computingaccount" />
+        </Preference>
+
+
+    </PreferenceCategory>
+
+
+    <PreferenceCategory app:title="@string/preference_title_theme_language">
+
+        <ListPreference
+            android:title="@string/preference_title_language"
+            app:defaultValue="english"
+            app:entries="@array/app_language_entries"
+            app:entryValues="@array/app_language_values"
+            app:key="language"
+            app:useSimpleSummaryProvider="true" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            app:key="darkMode"
+            app:title="DarkMode" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/preference_title_back_up">
+
+        <ListPreference
+            app:defaultValue="full"
+            app:entries="@array/back_up_entries"
+            app:entryValues="@array/back_up_values"
+            app:key="typeBackup"
+            app:title="@string/preference_title_type_back_up"
+            app:useSimpleSummaryProvider="true" />
+
+        <SeekBarPreference
+            android:defaultValue="30"
+            android:max="60"
+            android:title="@string/preference_title_duration_back_up"
+            app:key="durationBackup"
+            app:min="10"
+            app:showSeekBarValue="true" />
+
+
+        <com.abbasmoharreri.computingaccount.ui.settings.backup.BackUpAddress
+            app:key="addressBackUp"
+            app:enableCopying="true"
+            android:enabled="true"
+            app:title="Address"
+            android:defaultValue="address"
+            android:layout="@layout/preference_back_up_address"/>
+
+
+        <com.abbasmoharreri.computingaccount.ui.settings.backup.BackUpRestoreButton
+            android:title="Buttons"
+            android:key="backUpButtons"
+            android:layout="@layout/preference_back_up_buttons"/>
+
+
+    </PreferenceCategory>
+
+
+    <PreferenceCategory android:title="@string/preference_title_server_connection">
+
+
+        <EditTextPreference
+            android:defaultValue="server"
+            android:title="@string/preference_title_address"
+            app:key="serverAddress"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            android:defaultValue="8080"
+            android:title="@string/preference_title_port"
+            app:key="serverPort"
+            app:useSimpleSummaryProvider="true" />
+
+        <SeekBarPreference
+            android:defaultValue="60"
+            android:max="480"
+            android:title="@string/preference_title_request_duration"
+            app:key="serverDuration"
+            app:min="30"
+            app:showSeekBarValue="true" />
+
+
+    </PreferenceCategory>
+
+
+    <PreferenceCategory android:title="@string/preference_title_sms_format">
+
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>
+
+
+
+
+

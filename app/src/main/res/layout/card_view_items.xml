@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:elevation="5dp"
+        android:translationZ="5dp"
+        app:cardBackgroundColor="@color/me_gray">
+
+
+        <ImageButton
+            android:id="@+id/button_card_view_item"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/ic_more_vert_white_24dp" />
+
+
+        <CheckBox
+            android:id="@+id/checkbox_card_view_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="30dp" />
+
+
+        <TextView
+            android:id="@+id/text_name_card_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="80dp"
+            android:text="ItemName"
+            android:textColor="@color/me_white_2"
+            android:textSize="20dp" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="59dp"
+            android:layout_height="59dp"
+            android:layout_alignParentEnd="false"
+            android:layout_gravity="end"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginEnd="5dp"
+            android:src="@drawable/ic_lens_black_24dp" />
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

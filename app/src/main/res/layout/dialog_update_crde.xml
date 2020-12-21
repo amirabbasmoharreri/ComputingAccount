@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:background="@color/Background_EditText">
+
+
+
+    <AutoCompleteTextView
+        android:id="@+id/dialog_update_person_name_crde"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:hint="@string/editText_hint_person"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+
+
+    <EditText
+        android:id="@+id/dialog_update_price_crde"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        android:hint="@string/editText_price"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialog_update_person_name_crde"
+        tools:ignore="MissingConstraints" />
+
+
+    <LinearLayout
+        android:id="@+id/dialog_update_container_radio_button_crde"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialog_update_price_crde"
+        tools:ignore="MissingConstraints">
+
+
+
+        <RadioButton
+            android:id="@+id/dialog_update_radio_crave_crde"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/radioButton_crave"/>
+
+
+
+        <RadioButton
+            android:id="@+id/dialog_update_radio_debt_crde"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/radioButton_debt"
+            android:layout_marginLeft="60dp"/>
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/dialog_update_container_date_time_crde"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialog_update_container_radio_button_crde"
+        tools:ignore="MissingConstraints">
+
+
+
+
+
+        <TimePicker
+            android:id="@+id/dialog_update_time_crde"
+            android:layout_width="160dp"
+            android:layout_height="80dp"
+            android:timePickerMode="spinner"
+            android:hint="Time" />
+
+
+        <com.abbasmoharreri.computingaccount.persiandatepicker.PersianDatePicker
+            android:id="@+id/dialog_update_date_crde"
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:datePickerMode="spinner"
+            android:spinnersShown="true"
+            android:calendarViewShown="false"
+            android:layout_marginLeft="30dp"
+            android:textAlignment="center"
+            android:hint="Date" />
+
+    </LinearLayout>
+
+
+
+    <EditText
+        android:id="@+id/dialog_update_comment_crde"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
+        android:hint="@string/editText_hint_comment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialog_update_container_date_time_crde"
+        tools:ignore="MissingConstraints" />
+
+
+
+
+    <LinearLayout
+        android:id="@+id/dialog_update_container_cancel_update_button_crde"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialog_update_comment_crde"
+        tools:ignore="MissingConstraints">
+
+
+        <Button
+            android:id="@+id/dialog_update_button_update_crde"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/Background_screen"
+            android:text="@string/button_name_update" />
+
+        <Button
+            android:id="@+id/dialog_update_button_cancel_crde"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:background="@color/Background_screen"
+            android:text="@string/button_name_cancel" />
+
+    </LinearLayout>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

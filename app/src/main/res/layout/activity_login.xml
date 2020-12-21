@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:background="@color/Background_screen"
+    android:orientation="vertical">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="*"
+        android:gravity="center_vertical">
+
+
+
+        <TableRow android:layout_gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/Background_EditText"
+                android:hint="@string/editText_hint_password"
+                android:inputType="numberPassword"
+                android:textAlignment="center"
+                tools:layout_editor_absoluteX="46dp"
+                tools:layout_editor_absoluteY="256dp" />
+
+        </TableRow>
+
+
+        <TableRow android:layout_gravity="center_vertical"
+            android:layout_marginTop="@dimen/Margin_top_items"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#D58D51"
+                android:elevation="10dp"
+                android:text="@string/button_name_login"
+                android:textColor="@color/me_white"
+                android:translationZ="20dp"
+                tools:layout_editor_absoluteX="90dp"
+                tools:layout_editor_absoluteY="342dp"
+                tools:ignore="MissingConstraints" />
+
+        </TableRow>
+
+
+
+
+
+
+    </TableLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

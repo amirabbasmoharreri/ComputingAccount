@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/Background_screen"
+    android:theme="@style/NoWindow">
+
+
+    <EditText
+        android:id="@+id/text_number_initialize_report"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:hint="@string/editText_hint_number_of_report"
+        android:textAlignment="center"/>
+
+    <LinearLayout
+        android:id="@+id/container_checkbox_date_picker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_number_initialize_report"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="20dp">
+
+
+        <CheckBox
+            android:id="@+id/condition_initialize_report"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="@string/checkBox_condition_nof_report_2"/>
+
+        <com.abbasmoharreri.computingaccount.persiandatepicker.PersianDatePicker
+            android:id="@+id/date_picker_initialize_report"
+            android:layout_width="190dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="12dp"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/container_edit_texts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/container_checkbox_date_picker"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="20dp">
+
+
+        <EditText
+            android:id="@+id/text_pre_remained_initialize_report"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/editText_preremained"
+            android:textAlignment="center"/>
+
+        <EditText
+            android:id="@+id/text_paid_initialize_report"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/editText_hint_paid"
+            android:layout_marginStart="30dp"
+            android:textAlignment="center"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/container_edit_texts_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/container_edit_texts"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="20dp">
+
+
+        <EditText
+            android:id="@+id/text_remained_initialize_report"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/editText_remained"
+            android:textAlignment="center"/>
+
+        <EditText
+            android:id="@+id/text_attach_count_initialize_report"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/editText_hint_attach_ncount"
+            android:layout_marginStart="30dp"
+            android:textAlignment="center"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/dialog_initialize_container_cancel_update_button_report"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/container_edit_texts_2"
+        tools:ignore="MissingConstraints">
+
+
+        <Button
+            android:id="@+id/button_save_initialize_report"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/Background_screen"
+            android:text="@string/button_name_save" />
+
+        <Button
+            android:id="@+id/button_cancel_initialize_report"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:background="@color/Background_screen"
+            android:text="@string/button_name_cancel" />
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

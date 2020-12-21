@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_receive_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:elevation="5dp"
+        android:translationZ="5dp"
+        app:cardBackgroundColor="@color/me_gray">
+
+
+        <ImageButton
+            android:id="@+id/button_card_view_received"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/ic_more_vert_white_24dp" />
+
+
+        <TextView
+            android:id="@+id/text_price_card_received"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="80dp"
+            android:text="Price"
+            android:textColor="@color/me_white_2"
+            android:textSize="15dp" />
+
+
+
+        <TextView
+            android:id="@+id/text_date_card_received"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginLeft="25dp"
+            android:text="Date"
+            android:textColor="@color/me_white_2"
+            android:textSize="15dp" />
+
+
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="59dp"
+            android:layout_height="59dp"
+            android:layout_alignParentEnd="false"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginEnd="5dp"
+            android:src="@drawable/ic_payment_white_24dp" />
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

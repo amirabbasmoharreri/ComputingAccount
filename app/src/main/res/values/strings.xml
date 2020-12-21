@@ -1,0 +1,226 @@
+<resources>
+
+    <!--  App Name  -->
+
+    <string name="app_name">ComputingAccount</string>
+
+    <!--  Activity  and fragment name  -->
+
+    <string name="activity_title_main">MainActivity</string>
+    <string name="activity_title_paid">Paid</string>
+    <string name="activity_title_received">Receive</string>
+    <string name="activity_title_crDe">Debt</string>
+    <string name="activity_title_settings">Settings</string>
+
+    <string name="fragment_title_home">Home</string>
+    <string name="fragment_title_dashboard">Charts</string>
+    <string name="fragment_title_reports">Reports</string>
+    <string name="fragment_title_note">Note</string>
+
+    <!--  preferences  settings  -->
+
+    <string name="action_settings">Settings</string>
+    <string name="preference_title_persons">Persons</string>
+    <string name="preference_title_item">Items</string>
+    <string name="preference_title_works">Works</string>
+    <string name="preference_title_reports">Reports</string>
+    <string name="preference_title_received">Received</string>
+    <string name="preference_title_wallet">Wallet</string>
+    <string name="preference_title_card">Card</string>
+    <string name="preference_title_language">Language</string>
+    <string name="preference_title_back_up">Backup</string>
+    <string name="preference_title_server_connection">Server Connection</string>
+    <string name="preference_title_type_back_up">Type of Backup</string>
+    <string name="preference_title_duration_back_up">Duration of Backup(Minute)</string>
+    <string name="preference_title_address">Address</string>
+    <string name="preference_title_port">Port</string>
+    <string name="preference_title_request_duration">Request Duration</string>
+    <string name="preference_title_sms_format">Sms Format</string>
+    <string name="preference_title_theme_language"><![CDATA[Theme & Language]]></string>
+
+
+
+    <!--    textView     -->
+
+
+    <string name="textView_reportAdapter_condition_reported">Reported</string>
+    <string name="textView_reportAdapter_condition_notReported">Not Reported</string>
+    <string name="textView_sum_of_crave">Sum of Crave</string>
+    <string name="textView_sum_of_debt">Sum of Debt</string>
+    <string name="textView_paid">Paid</string>
+    <string name="textView_receive">Receive</string>
+    <string name="textView_debt_and_crave">Debt And Crave</string>
+    <string name="textView_transfer">Transfer</string>
+    <string name="textView_remained">Remained</string>
+    <string name="textView_received_number">: Received Number</string>
+    <string name="textView_report_number">: Report Number</string>
+    <string name="textView_price_2">: Price</string>
+    <string name="textView_date">: Date</string>
+    <string name="textView_work_number">: Work Number</string>
+    <string name="textView_work_name">: Work Name</string>
+    <string name="textView_account">: Account</string>
+    <string name="textView_person">: Person</string>
+    <string name="textView_attach_count">: Attach Count</string>
+    <string name="textView_comment">: Comment</string>
+    <string name="textView_from">: from</string>
+    <string name="textView_to">: to</string>
+    <string name="textView_sum_price">: Sum Price</string>
+    <string name="textView_name">name</string>
+    <string name="textView_address">Address</string>
+
+
+    <!--    editText    -->
+
+    <string name="editText_hint_password">PASSWORD</string>
+    <string name="editText_hint_reportnumber">ReportNumber</string>
+    <string name="editText_hint_work_name">Work Name</string>
+    <string name="editText_hint_person">Person</string>
+    <string name="editText_hint_paid">Paid</string>
+    <string name="editText_hint_comment">Comment</string>
+    <string name="editText_hint_attach_ncount">Attach\nCount</string>
+    <string name="editText_hint_received_number">Received Number</string>
+    <string name="editText_price">Price</string>
+    <string name="editText_item_name">Item Name</string>
+    <string name="editText_hint_number_of_report">Number of Report</string>
+    <string name="editText_preremained">PreRemained</string>
+    <string name="editText_remained">Remained</string>
+    <string name="editText_hint_account_number">Account Number</string>
+
+
+
+
+    <!--    chart    -->
+
+
+    <string name="Chart_name">Works</string>
+
+
+    <!--     button     -->
+
+
+    <string name="button_name_update">UPDATE</string>
+    <string name="button_name_add">ADD</string>
+    <string name="button_name_speak">Speak</string>
+
+    <!--     camera      -->
+
+
+    <string name="camera_menu_take_photo">Take Photo</string>
+    <string name="camera_menu_choose_from_gallery">Choose from Gallery</string>
+    <string name="camera_menu_cancel">Cancel</string>
+
+
+
+    <!--    toast massages   -->
+
+    <string name="toast_deleteItem">Deleted</string>
+    <string name="toast_updateItem">Updated</string>
+    <string name="toast_saved">Saved</string>
+    <string name="toast_closeAccount">Account Closed</string>
+    <string name="toast_pdf_created">Pdf is Created</string>
+
+
+
+    <string name="notification_title_speechToText">Speech to Text</string>
+    <string name="notification_clickSpeak">Click Button and Speak</string>
+
+
+    <!--    Massages    -->
+
+
+    <!--    Massages  report number   -->
+
+    <string name="massage_title_reportNumber">Report Number</string>
+    <string name="massage_inputReport">Input Report Number</string>
+
+
+    <!--    Massages    work name   -->
+
+    <string name="massage_title_workName">Work Name</string>
+    <string name="massage_inputWorkName">Input Work Name</string>
+
+    <!--    Massages   person name   -->
+
+    <string name="massage_title_personName">Person Name</string>
+    <string name="massage_inputPersonName">Input Person Name</string>
+
+    <!--    Massages   price   -->
+
+    <string name="massage_title_price">Price</string>
+    <string name="massage_inputPrice">Input Price</string>
+
+    <!--    Massages    attach count   -->
+
+    <string name="massage_title_attachCount">Attach Count</string>
+    <string name="massage_inputAttachCount">Input Attach Count</string>
+
+    <!--    Massages   comment    -->
+
+    <string name="massage_title_comment">Comment</string>
+    <string name="massage_inputComment">Input Comment</string>
+
+
+    <!--    Massages   title -->
+
+    <string name="massage_title_add_photo">Add Photo!</string>
+
+    <string name="massage_title_datePicker">Date</string>
+    <string name="massage_inputStartEndDate">Input Start Date and End Date</string>
+    <string name="massage_title_name">Name</string>
+    <string name="massage_inputName">Input Name</string>
+
+    <!--    Massages   attention   -->
+
+    <string name="message_title_attention">Attention</string>
+    <string name="massage_ifDeleteLostData">If you delete this, your data will be lost.</string>
+    <string name="massage_no_data">No Data</string>
+    <string name="massage_doYouWantCloseAccount">Do you want to close this account?</string>
+    <string name="massage_alreadyReported">This report already reported</string>
+
+
+    <!--    radioButton     -->
+
+    <string name="radioButton_crave">Crave</string>
+    <string name="radioButton_debt">Debt</string>
+    <string name="radioButton_all">All</string>
+
+
+    <!--     Button     -->
+
+
+    <string name="button_name_login">Login</string>
+    <string name="button_name_save">Save</string>
+    <string name="button_name_ok">OK</string>
+    <string name="button_name_transfer">Transfer</string>
+    <string name="button_name_cancel">Cancel</string>
+
+    <!--     checkBox     -->
+
+
+    <string name="checkBox_condition_of_work">Condition of Work</string>
+    <string name="checkBox_condition_nof_report_2">Condition\nof Report</string>
+
+
+    <!--     menu      -->
+
+    <string name="menu_edit">Edit</string>
+    <string name="menu_delete">Delete</string>
+    <string name="menu_transfer">Transfer</string>
+    <string name="menu_close_account">Close Account</string>
+    <string name="menu_save_pdf">Save Pdf</string>
+
+
+
+
+    <!--                  string arrays              -->
+    <string-array name="headersOfSalaryForm">
+        <item>Number</item>
+        <item>Date</item>
+        <item>Description</item>
+        <item>Price</item>
+        <item>Comment</item>
+    </string-array>
+
+
+
+</resources>

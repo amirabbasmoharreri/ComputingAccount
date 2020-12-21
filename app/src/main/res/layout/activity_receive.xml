@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ReceiveActivity"
+    android:background="@color/Background_screen">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/activity_received_container_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal"
+        android:backgroundTint="@color/me_gray">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="start"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/wallet"
+                android:layout_marginStart="10dp"
+                android:layout_gravity="center_vertical|start"/>
+
+
+            <TextView
+                android:id="@+id/activity_received_remained"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/textView_remained"
+                android:layout_gravity="center_vertical|end"
+                android:textColor="@color/me_black"
+                android:layout_marginLeft="20dp"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="end"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
+
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_reports_black_24dp"
+                android:layout_gravity="center_vertical|start" />
+
+
+            <TextView
+                android:id="@+id/activity_received_report_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/editText_hint_reportnumber"
+                android:textColor="@color/me_black"
+                android:gravity="end"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="15dp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/activity_received_container_data"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".PaidActivity"
+            android:background="@color/Background_screen">
+
+
+            <LinearLayout
+                android:id="@+id/activity_received_container_received_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:orientation="horizontal"
+                android:gravity="end">
+
+
+                <TextView
+                    android:id="@+id/activity_received_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:hint="@string/editText_hint_received_number"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:text="@string/textView_received_number" />
+
+            </LinearLayout>
+
+
+
+
+
+            <Spinner
+                android:id="@+id/activity_received_account_name"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:layout_constraintTop_toBottomOf="@id/activity_received_container_received_number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+
+
+            <LinearLayout
+                android:id="@+id/activity_received_container_date_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"
+                app:layout_constraintTop_toBottomOf="@id/activity_received_account_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:orientation="horizontal"
+                android:gravity="center|center_horizontal"
+                android:layout_margin="10dp">
+
+
+
+                <TimePicker
+                    android:id="@+id/activity_received_time_picker"
+                    android:layout_width="170dp"
+                    android:layout_height="80dp"
+                    android:timePickerMode="spinner" />
+
+
+
+                <com.abbasmoharreri.computingaccount.persiandatepicker.PersianDatePicker
+                    android:id="@+id/activity_received_date_picker"
+                    android:layout_width="200dp"
+                    android:layout_height="80dp"/>
+
+
+            </LinearLayout>
+
+
+
+
+            <EditText
+                android:id="@+id/activity_received_price"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"
+                android:hint="@string/editText_hint_paid"
+                android:layout_margin="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textAlignment="center"
+                android:inputType="number"
+                app:layout_constraintTop_toBottomOf="@id/activity_received_container_date_time"/>
+
+
+
+
+            <LinearLayout
+                android:id="@+id/activity_received_container_add_picture_button_attach_count"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"
+                app:layout_constraintTop_toBottomOf="@id/activity_received_price"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:orientation="horizontal"
+                android:gravity="center|center_horizontal"
+                android:layout_margin="20dp">
+
+
+                <EditText
+                    android:id="@+id/activity_received_attach_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/editText_hint_attach_ncount"
+                    android:textAlignment="center"
+                    android:inputType="number"/>
+
+
+                <ImageView
+                    android:id="@+id/activity_received_add_picture_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="60dp"
+                    android:src="@drawable/ic_attach_file_white_24dp" />
+
+            </LinearLayout>
+
+
+
+
+
+
+            <LinearLayout
+                android:id="@+id/activity_received_container_image_attach"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/activity_received_container_add_picture_button_attach_count">
+
+
+
+            </LinearLayout>
+
+
+
+
+
+            <Button
+                android:id="@+id/activity_received_save_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"
+                app:layout_constraintTop_toBottomOf="@id/activity_received_container_image_attach"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="20dp"
+                android:background="@color/me_yellow"
+                android:text="@string/button_name_save"
+                android:textColor="@color/me_white"
+                android:textAlignment="center"
+                android:layout_marginBottom="20dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </ScrollView>
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!--                       Margins                       -->
+
+
+    <dimen name="Margin_left_editText">60dp</dimen>
+    <dimen name="Margin_right_editText">60dp</dimen>
+    <dimen name="Margin_left_Button">90dp</dimen>
+    <dimen name="Margin_right_Button">90dp</dimen>
+    <dimen name="Margin_top_items">30dp</dimen>
+
+
+    <!--                Shadows                    -->
+
+
+    <dimen name="elevation_Button">10dp</dimen>
+    <dimen name="translationZ_Button">20dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="height_screen">480dp</dimen>
+    <dimen name="pie_chart_text2_size">15sp</dimen>
+    <dimen name="pie_chart_text1_size">20sp</dimen>
+
+
+
+    <dimen name="image_view_size">150dp</dimen>
+    <dimen name="image_button_size">50dp</dimen>
+    <dimen name="margin_start_image_view">80dp</dimen>
+
+
+</resources>
