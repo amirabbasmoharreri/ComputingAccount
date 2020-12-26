@@ -18,17 +18,23 @@ import com.abbasmoharreri.computingaccount.module.AWork;
 import com.abbasmoharreri.computingaccount.static_value.PdfLanguage;
 import com.abbasmoharreri.computingaccount.text.NumberTextWatcherForThousand;
 import com.abbasmoharreri.computingaccount.text.TextProcessing;
+import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
+import com.itextpdf.text.ExceptionConverter;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.BaseFont;
+import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfName;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfPageEvent;
+import com.itextpdf.text.pdf.PdfPageEventHelper;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.pdf.draw.VerticalPositionMark;
 import com.itextpdf.text.pdf.languages.ArabicLigaturizer;
@@ -42,13 +48,15 @@ import java.util.List;
 
 import static com.itextpdf.text.Font.BOLD;
 
-public class PdfCreator {
+public class PdfCreator  {
 
     private Context context;
     private String[] headerEnglish = {"Number", "Date", "Description", "Price", "Comment"};
     private String[] headerFarsi = {"توضیحات", "هزینه", "شرح", "تاریخ", "ردیف"};
-    private String[] titleEnglish = {"Salary Report", "Person Name: ", "Report Number: ", "Start Date: ", "End Date: ", "Report Date: ", "Attach Count: "};
-    private String[] titleFarsi = {"صورت تنخواه", "تنخواه گردان: ", "شماره گزارش: ", "تاریخ شروع: ", "تاریخ پایان: ", "تاریخ گزارش: ", "تعداد ضمایم: "};
+    private String[] titleEnglish = {"Salary Report", "Person Name: ", "Report Number: ", "Start Date: ", "End Date: ", "Report Date: ", "Attach Count: "
+            , "Previous Remained: ", "Received: ", "Paid: ", "Remained: "};
+    private String[] titleFarsi = {"صورت تنخواه", "تنخواه گردان: ", "شماره گزارش: ", "تاریخ شروع: ", "تاریخ پایان: ", "تاریخ گزارش: ", "تعداد ضمایم: "
+            , "مانده از دوره قبل : ", "دریافتی طی دوره: ", "جمع پرداختی: ", "مانده پایان دوره: "};
 
 
     public PdfCreator(Context context) {
@@ -60,7 +68,7 @@ public class PdfCreator {
 
         TextProcessing textProcessing = new TextProcessing();
 
-        float[] pointColumnWidths = {20F, 50F, 100F};
+
         String[] headers;
         String[] titles;
         if (pdfLanguage.equals(PdfLanguage.English)) {
@@ -84,7 +92,13 @@ public class PdfCreator {
 
             BaseFont myFont = BaseFont.createFont("res/font/yas.ttf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
             Font paraFont = new Font(myFont, 12);
-            PdfWriter.getInstance(document, new FileOutputStream(filePath));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(filePath));
+            writer.setPageEvent(new PdfPageEventHelper(){
+                @Override
+                public void onEndPage(PdfWriter writer, Document document) {
+                    addFooterImproved(writer);
+                }
+            });
             document.open();
 
 
@@ -95,6 +109,7 @@ public class PdfCreator {
             titleCell.setRunDirection(PdfWriter.RUN_DIRECTION_RTL);
             titleCell.setHorizontalAlignment(Element.ALIGN_CENTER);
             titleCell.setVerticalAlignment(Element.ALIGN_CENTER);
+            titleCell.setBorder(Rectangle.NO_BORDER);
             titleCell.setPhrase(new Phrase(titles[0], paraFont));
             titleCell.setPadding(20);
             tableTitle.addCell(titleCell);
@@ -153,6 +168,8 @@ public class PdfCreator {
 
 
             PdfPTable salaryTable = new PdfPTable(headers.length);
+            float[] pointColumnWidths = {150F, 80F, 100F,80F,45F};
+            salaryTable.setWidths(pointColumnWidths);
 
             for (String header : headers) {
                 PdfPCell cell = new PdfPCell();
@@ -192,6 +209,32 @@ public class PdfCreator {
             document.addTitle("my Pdf");
             document.add(salaryTable);
 
+
+            //adding previous remained and paid and received and remained
+
+            PdfPTable remainedTable = new PdfPTable(1);
+            PdfPCell remainedCell = new PdfPCell();
+
+            remainedCell.setRunDirection(PdfWriter.RUN_DIRECTION_RTL);
+            remainedCell.setHorizontalAlignment(Element.ALIGN_LEFT);
+            remainedCell.setBorder(Rectangle.NO_BORDER);
+            remainedCell.setPadding(5);
+            remainedCell.setPhrase(new Phrase(titles[7] + NumberTextWatcherForThousand.getDecimalFormattedString(String.valueOf(aReport.getPreRemained())), paraFont));
+            remainedTable.addCell(remainedCell);
+            remainedTable.completeRow();
+            remainedCell.setPhrase(new Phrase(titles[8] + NumberTextWatcherForThousand.getDecimalFormattedString(String.valueOf(aReport.getSumReceived())), paraFont));
+            remainedTable.addCell(remainedCell);
+            remainedTable.completeRow();
+            remainedCell.setPhrase(new Phrase(titles[9] + NumberTextWatcherForThousand.getDecimalFormattedString(String.valueOf(aReport.getPaid())), paraFont));
+            remainedTable.addCell(remainedCell);
+            remainedTable.completeRow();
+            remainedCell.setPhrase(new Phrase(titles[10] + NumberTextWatcherForThousand.getDecimalFormattedString(String.valueOf(aReport.getRemained())), paraFont));
+            remainedTable.addCell(remainedCell);
+            remainedTable.completeRow();
+
+            document.add(remainedTable);
+
+
             document.newPage();
 
             PdfPTable pictureTable = new PdfPTable(1);
@@ -203,7 +246,7 @@ public class PdfCreator {
                 bgImage.setAlignment(Element.ALIGN_CENTER);
                 bgImage.setScaleToFitHeight(true);
                 bgImage.setScaleToFitLineWhenOverflow(true);
-                bgImage.setAbsolutePosition(100,250);
+                bgImage.setAbsolutePosition(100, 250);
                 PdfPCell cell2 = new PdfPCell();
                 cell2.setBorder(Rectangle.NO_BORDER);
                 cell2.addElement(bgImage);
@@ -216,7 +259,6 @@ public class PdfCreator {
 
             document.add(pictureTable);
 
-
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -224,6 +266,42 @@ public class PdfCreator {
         }
 
 
+    }
+
+
+
+
+    @SuppressLint("DefaultLocale")
+    private void addFooterImproved(PdfWriter writer) {
+        PdfPTable footer = new PdfPTable(2);
+        try {
+            // set defaults
+            footer.setWidths(new int[]{2, 20});
+            footer.setWidthPercentage(50);
+
+            footer.setTotalWidth(527);
+            footer.setLockedWidth(true);
+            footer.getDefaultCell().setFixedHeight(30);
+            footer.getDefaultCell().setBorder(Rectangle.TOP);
+            footer.getDefaultCell().setBorderColor(BaseColor.RED);
+            footer.getDefaultCell().setHorizontalAlignment(Element.ALIGN_RIGHT);
+            footer.addCell(new Phrase(String.format("Page %d ", writer.getPageNumber()), new Font(Font.FontFamily.HELVETICA, 8)));
+
+            // add placeholder for total page count
+            PdfPCell totalPageCount = new PdfPCell();
+            totalPageCount.setBorder(Rectangle.TOP);
+            totalPageCount.setBorderColor(BaseColor.GREEN);
+            footer.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
+            footer.addCell(totalPageCount);
+
+            // write page
+            PdfContentByte canvas = writer.getDirectContent();
+            canvas.beginMarkedContentSequence(PdfName.ARTIFACT);
+            footer.writeSelectedRows(0, -1, 34, 20, canvas);
+            canvas.endMarkedContentSequence();
+        } catch (DocumentException de) {
+            throw new ExceptionConverter(de);
+        }
     }
 
 
