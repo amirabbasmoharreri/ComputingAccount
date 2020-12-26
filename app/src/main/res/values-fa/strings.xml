@@ -150,6 +150,13 @@
     <string name="massage_title_price">مبلغ</string>
     <string name="massage_inputPrice">مبلغ را وارد کنید</string>
 
+
+    <!--    Massage    Account       -->
+
+    <string name="massage_title_account">حساب</string>
+    <string name="massage_orgAndDesAreSame">مبدا و مقصد یکسان است</string>
+
+
     <!--    Massages    attach count   -->
 
     <string name="massage_title_attachCount">تعداد ضمائم</string>
@@ -210,7 +217,6 @@
     <string name="menu_transfer">انتقال</string>
     <string name="menu_close_account">بستن حساب</string>
     <string name="menu_save_pdf">ذخیره Pdf</string>
-
 
 
 

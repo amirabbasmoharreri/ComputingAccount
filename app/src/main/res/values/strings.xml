@@ -149,6 +149,11 @@
     <string name="massage_title_price">Price</string>
     <string name="massage_inputPrice">Input Price</string>
 
+    <!--    Massage    Account       -->
+
+    <string name="massage_title_account">Account</string>
+    <string name="massage_orgAndDesAreSame">Origin and Destination are same</string>
+
     <!--    Massages    attach count   -->
 
     <string name="massage_title_attachCount">Attach Count</string>
@@ -208,7 +213,6 @@
     <string name="menu_transfer">Transfer</string>
     <string name="menu_close_account">Close Account</string>
     <string name="menu_save_pdf">Save Pdf</string>
-
 
 
 
