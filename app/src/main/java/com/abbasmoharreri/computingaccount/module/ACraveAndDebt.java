@@ -66,11 +66,11 @@ public class ACraveAndDebt {
     }
 
     public String getStringIranianDate() {
-        return textProcessing.convertDateToString( iranianDate );
+        return textProcessing.convertDateToString(iranianDate);
     }
 
     public String getStringGregorianDate() {
-        return textProcessing.convertDateToString( orgDate );
+        return textProcessing.convertDateToString(orgDate);
     }
 
     public Date getIranianDate() {
@@ -122,13 +122,13 @@ public class ACraveAndDebt {
 
 
     private void gregorianToIranian() {
-        DateConverter dateConverter = new DateConverter( orgDate.getYear(), orgDate.getMonth(), orgDate.getDate() );
+        DateConverter dateConverter = new DateConverter(orgDate.getYear(), orgDate.getMonth(), orgDate.getDate());
 
-        Date date1 = new Date( dateConverter.getIranianYear()
+        Date date1 = new Date(dateConverter.getIranianYear()
                 , dateConverter.getIranianMonth()
-                , dateConverter.getIranianDay()
+                , dateConverter.getIranianDay() + 1
                 , orgDate.getHours()
-                , orgDate.getMinutes() );
+                , orgDate.getMinutes());
 
         iranianDate = date1;
     }
@@ -137,13 +137,13 @@ public class ACraveAndDebt {
     private void iranianToGregorian() {
         DateConverter dateConverter = new DateConverter();
 
-        dateConverter.setIranianDate( iranianDate.getYear(), iranianDate.getMonth(), iranianDate.getDate() );
+        dateConverter.setIranianDate(iranianDate.getYear(), iranianDate.getMonth(), iranianDate.getDate());
 
-        Date date1 = new Date( dateConverter.getGregorianYear()
+        Date date1 = new Date(dateConverter.getGregorianYear()
                 , dateConverter.getGregorianMonth()
                 , dateConverter.getGregorianDay() - 1
                 , iranianDate.getHours()
-                , iranianDate.getMinutes() );
+                , iranianDate.getMinutes());
 
         orgDate = date1;
     }

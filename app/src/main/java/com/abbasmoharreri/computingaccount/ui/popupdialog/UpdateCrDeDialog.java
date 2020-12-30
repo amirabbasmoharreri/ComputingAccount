@@ -238,7 +238,7 @@ public class UpdateCrDeDialog extends Dialog implements View.OnClickListener, Pe
     @SuppressLint("DefaultLocale")
     @Override
     public void onDateChanged(int newYear, int newMonth, int newDay) {
-        this.dateString = newYear + "-" + String.format( "%02d", newMonth ) + "-" + String.format( "%02d", newDay + 1 );
+        this.dateString = newYear + "-" + String.format( "%02d", newMonth ) + "-" + String.format( "%02d", newDay );
         isUseDatePicker = true;
     }
 

@@ -302,7 +302,7 @@ public class AList {
 
         Date date1 = new Date( dateConverter.getIranianYear()
                 , dateConverter.getIranianMonth()
-                , dateConverter.getIranianDay()
+                , dateConverter.getIranianDay()+1
                 , orgDate.getHours()
                 , orgDate.getMinutes() );
 
@@ -317,7 +317,7 @@ public class AList {
 
         Date date1 = new Date( dateConverter.getGregorianYear()
                 , dateConverter.getGregorianMonth()
-                , dateConverter.getGregorianDay() - 1
+                , dateConverter.getGregorianDay()-1
                 , iranianDate.getHours()
                 , iranianDate.getMinutes() );
 

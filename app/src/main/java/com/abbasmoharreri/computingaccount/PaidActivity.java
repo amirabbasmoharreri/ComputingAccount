@@ -140,7 +140,6 @@ public class PaidActivity extends AppCompatActivity implements View.OnClickListe
         TextProcessing textProcessing = new TextProcessing();
         Date date1 = calendar.getTime();
         timeString = textProcessing.convertDateToStringWithoutDate(date1);
-
         datePicker.setDisplayPersianDate(persianCalendar);
         dateString = textProcessing.convertDateToStringWithoutTime(date1);
 
@@ -581,7 +580,7 @@ public class PaidActivity extends AppCompatActivity implements View.OnClickListe
     @SuppressLint("DefaultLocale")
     @Override
     public void onDateChanged(int newYear, int newMonth, int newDay) {
-        this.dateString = newYear + "-" + String.format("%02d", newMonth) + "-" + String.format("%02d", newDay + 1);
+        this.dateString = newYear + "-" + String.format("%02d", newMonth) + "-" + String.format("%02d", newDay);
         isUseDatePicker = true;
     }
 }

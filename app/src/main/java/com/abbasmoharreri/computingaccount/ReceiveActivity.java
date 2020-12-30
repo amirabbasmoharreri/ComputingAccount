@@ -447,7 +447,7 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
     @SuppressLint("DefaultLocale")
     @Override
     public void onDateChanged(int newYear, int newMonth, int newDay) {
-        this.dateString = newYear + "-" + String.format("%02d", newMonth) + "-" + String.format("%02d", newDay + 1);
+        this.dateString = newYear + "-" + String.format("%02d", newMonth) + "-" + String.format("%02d", newDay);
         isUseDatePicker = true;
     }
 
