@@ -90,6 +90,21 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             serviceStart = true;
         }
 
+
+        verifyInternetPermissions(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        });
+
+        verifySmsPermissions(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        });
+
     }
 
     private boolean isMyServiceRunning(Class<?> serviceClass) {

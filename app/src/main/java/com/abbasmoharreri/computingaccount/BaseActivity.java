@@ -18,20 +18,38 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.preference.PreferenceManager;
 
-import com.abbasmoharreri.computingaccount.static_value.PreferencesKeys;
-
 import java.io.File;
 import java.util.List;
+
+import static android.Manifest.permission.INTERNET;
 
 abstract public class BaseActivity extends AppCompatActivity {
 
     // Storage Permissions variables
     private static final int REQUEST_CODE_EXTERNAL_STORAGE = 1;
-    private static String[] PERMISSIONS_STORAGE = {
+    private static final String[] PERMISSIONS_STORAGE = {
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
     private Runnable mOnWritePermissionGranted;
+
+    // Internet Permissions variables
+    private static final int REQUEST_CODE_INTERNET = 2;
+    private static final String[] PERMISSION_INTERNET = {
+            Manifest.permission.INTERNET
+    };
+    private Runnable mOnInternetPermissionGranted;
+
+    // Sms Permissions variables
+    private static final int REQUEST_CODE_SMS = 3;
+    private static final String[] PERMISSION_SMS = {
+            Manifest.permission.RECEIVE_SMS
+    };
+    private Runnable mOnSmsPermissionGranted;
+
+
+
+
 
     public void verifyStoragePermissions(Runnable onPermissionGranted) {
         // Check if we have read or write permission
@@ -49,10 +67,63 @@ abstract public class BaseActivity extends AppCompatActivity {
         } else
             callOnWritePermissionGranted();
 
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+    }
 
-       // takeCardUriPermission(sharedPreferences.getString(PreferencesKeys.BACKUP_ADDRESS, ""));
 
+    public void verifyInternetPermissions(Runnable onPermissionGranted) {
+        // Check if we have read or write permission
+        mOnInternetPermissionGranted = onPermissionGranted;
+        int internetPermission = ActivityCompat.checkSelfPermission(this, Manifest.permission.INTERNET);
+
+        if (internetPermission != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission so prompt the user
+            ActivityCompat.requestPermissions(
+                    this,
+                    PERMISSION_INTERNET,
+                    REQUEST_CODE_INTERNET
+            );
+        } else
+            callOnInternetPermissionGranted();
+
+    }
+
+    public void verifySmsPermissions(Runnable onPermissionGranted) {
+        // Check if we have read or write permission
+        mOnSmsPermissionGranted = onPermissionGranted;
+        int smsPermission = ActivityCompat.checkSelfPermission(this, Manifest.permission.RECEIVE_SMS);
+
+        if (smsPermission != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission so prompt the user
+            ActivityCompat.requestPermissions(
+                    this,
+                    PERMISSION_SMS,
+                    REQUEST_CODE_SMS
+            );
+        } else
+            callOnSmsPermissionGranted();
+
+    }
+
+    private void callOnWritePermissionGranted() {
+        if (mOnWritePermissionGranted != null) {
+            mOnWritePermissionGranted.run();
+            mOnWritePermissionGranted = null; //reset to prevent future calls issues...
+        }
+    }
+
+
+    protected void callOnSmsPermissionGranted() {
+        if (mOnSmsPermissionGranted != null) {
+            mOnSmsPermissionGranted.run();
+            mOnSmsPermissionGranted = null; //reset to prevent future calls issues...
+        }
+    }
+
+    private void callOnInternetPermissionGranted() {
+        if (mOnInternetPermissionGranted != null) {
+            mOnInternetPermissionGranted.run();
+            mOnInternetPermissionGranted = null; //reset to prevent future calls issues...
+        }
     }
 
     @Override
@@ -66,14 +137,26 @@ abstract public class BaseActivity extends AppCompatActivity {
                 Toast.makeText(this, "Action cancelled", Toast.LENGTH_LONG).show();
             }
         }
+
+        if (requestCode == REQUEST_CODE_INTERNET) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                callOnInternetPermissionGranted();
+            } else {
+                Toast.makeText(this, "Action cancelled", Toast.LENGTH_LONG).show();
+            }
+        }
+
+        if (requestCode == REQUEST_CODE_SMS) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                callOnSmsPermissionGranted();
+            } else {
+                Toast.makeText(this, "Action cancelled", Toast.LENGTH_LONG).show();
+            }
+        }
+
     }
 
-    private void callOnWritePermissionGranted() {
-        if (mOnWritePermissionGranted != null) {
-            mOnWritePermissionGranted.run();
-            mOnWritePermissionGranted = null; //reset to prevent future calls issues...
-        }
-    }
+
 
 
     public void takeCardUriPermission(String sdCardRootPath) {
