@@ -12,7 +12,7 @@
         android:layout_margin="10dp"
         android:elevation="5dp"
         android:translationZ="5dp"
-        app:cardBackgroundColor="@color/me_gray">
+        android:backgroundTint="?attr/special_card_view_color">
 
 
         <ImageButton
@@ -20,7 +20,7 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginTop="5dp"
-            android:background="@drawable/ic_more_vert_white_24dp" />
+            android:background="@drawable/ic_more_vert_24dp" />
 
 
         <TextView
@@ -30,7 +30,6 @@
             android:layout_gravity="end|center_vertical"
             android:layout_marginEnd="80dp"
             android:text="Price"
-            android:textColor="@color/me_white_2"
             android:textSize="15dp" />
 
 
@@ -42,7 +41,6 @@
             android:layout_gravity="start|center_vertical"
             android:layout_marginLeft="25dp"
             android:text="Date"
-            android:textColor="@color/me_white_2"
             android:textSize="15dp" />
 
 
@@ -56,7 +54,7 @@
             android:layout_marginTop="7dp"
             android:layout_marginBottom="5dp"
             android:layout_marginEnd="5dp"
-            android:src="@drawable/ic_payment_white_24dp" />
+            android:src="@drawable/ic_payment_24dp" />
 
     </androidx.cardview.widget.CardView>
 

@@ -13,4 +13,49 @@
         <attr name="timezone" format="string" />
     </declare-styleable>
 
+
+
+    <!--   this attribute for a set color to special buttons
+           you want have different color as other buttons setting with theme      -->
+    <attr name="special_button_color" format="color"/>
+
+
+    <!--   this attribute for a set color to special cardViews
+           you want have different color as other cardViews setting with theme      -->
+    <attr name="special_card_view_color" format="color"/>
+
+
+    <!--   this attribute for a set color to special texts
+           you want have different color as other texts setting with theme      -->
+    <attr name="special_text_color" format="color"/>
+
+
+    <!--   this attribute for a set color to vectors in app with theme          -->
+    <attr name="vector_color" format="color"/>
+    <attr name="vector_color_revers" format="color"/>
+
+    <!--   this attribute for a set color to CollapsingToolbarLayout in app with theme        -->
+    <attr name="CollapsingToolbarLayout_color" format="color"/>
+
+
+    <!--     this attribute for set color to delete_button       -->
+    <attr name="delete_button_color" format="color"/>
+
+
+    <!--      this attributes for set color to itemIconTint for selected state and non-selected  in BottomNavigationView     -->
+    <attr name="selected_icon" format="color"/>
+    <attr name="non_selected_icon" format="color"/>
+
+
+
+    <!--      this attribute for color of Crave and debt       -->
+    <attr name="crave_card_color" format="color"/>
+    <attr name="debt_card_color" format="color"/>
+
+
+    <!--     this attribute for set color of table style        -->
+    <attr name="table_background" format="color"/>
+    <attr name="table_border_color" format="color"/>
+
+
 </resources>

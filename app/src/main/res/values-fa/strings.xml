@@ -103,6 +103,8 @@
     <string name="button_name_update">بروزرسانی</string>
     <string name="button_name_add">اضافه کردن</string>
     <string name="button_name_speak">صحبت کردن</string>
+    <string name="button_name_restore">بازگردانی</string>
+    <string name="button_name_back_up">پشتیبان گیری</string>
 
     <!--     camera      -->
 

@@ -5,18 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CraveDebtActivity"
-    android:background="@color/Background_screen">
+    tools:context=".CraveDebtActivity">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/activity_crave_debt_container_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/border"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:backgroundTint="@color/Background_EditText"
         android:foregroundGravity="center_horizontal">
 
 
@@ -45,7 +42,7 @@
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/ask_money2"
+                        android:src="@drawable/ask_money"
                         android:layout_marginStart="10dp"
                         android:layout_gravity="center_vertical|start"/>
 
@@ -56,7 +53,6 @@
                         android:layout_height="wrap_content"
                         android:text="@string/textView_sum_of_crave"
                         android:layout_gravity="center_vertical|end"
-                        android:textColor="@color/me_black"
                         android:layout_marginLeft="20dp"/>
 
 
@@ -85,7 +81,6 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:text="@string/textView_sum_of_debt"
-                        android:textColor="@color/me_black"
                         android:gravity="end"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="15dp"/>

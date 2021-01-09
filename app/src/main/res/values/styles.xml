@@ -4,18 +4,315 @@
 
 
 
+    <!--  custom  Styles for dark components    -->
+
+
+    <!--        dark  Activity no title     -->
+    <style name="Dark_no_title_activity" parent="Dark_AppTheme">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:background">@color/dark_ColorPrimary</item>
+    </style>
+
+
+
+
+    <!--    dark Buttons       -->
+    <style name="custom_dark_widget_button" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">@color/yellow_primary</item>
+        <item name="android:backgroundTint">@color/dark_ColorPrimaryDark</item>
+    </style>
+
+    <!--     dark FloatingActionButton    -->
+    <style name="custom_dark_floating_action_button" parent="Widget.Design.FloatingActionButton">
+        <item name="android:backgroundTint">@color/yellow_primary</item>
+    </style>
+
+    <!--    dark CheckBoxes      -->
+    <style name="custom_dark_check_box" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:textColor">@color/white_primary</item>
+        <item name="buttonTint">@color/yellow_primary</item>
+    </style>
+
+    <!--    dark Switch     -->
+    <style name="custom_dark_switch" parent="Widget.AppCompat.CompoundButton.Switch">
+    </style>
+
+
+    <!--      dark popup menu      -->
+    <style name="custom_dark_popup_menu" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:popupBackground">@color/dark_ColorPrimaryDark</item>
+        <item name="android:itemBackground">@color/dark_ColorPrimaryDark</item>
+    </style>
+
+
+    <!--       dark AlertDialog       -->
+    <style name="custom_dark_alert_dialog" parent="Base.Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textColor">@color/yellow_primary</item>
+        <item name="android:textColorPrimary">@color/white_primary</item>
+        <item name="android:background">@color/dark_ColorPrimaryDark</item>
+        <item name="android:colorAccent">@color/yellow_primary</item>
+        <item name="buttonBarButtonStyle">@style/custom_dark_button_alert_dialog</item>
+        <item name="android:textColorAlertDialogListItem">@color/white_primary</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
+
+
+    <!--     dark buttonBar of alertDialog      -->
+    <style name="custom_dark_button_alert_dialog" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/yellow_primary</item>
+    </style>
+
+
+
+    <!--        dark Dialog         -->
+    <style name="custom_dark_dialog" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/yellow_primary</item>
+        <item name="android:textColorPrimary">@color/white_primary</item>
+        <item name="android:textColorHint">@color/grey_primary</item>
+        <item name="android:textColorSecondary">@color/grey_primary</item>
+        <item name="editTextStyle">@style/custom_dark_edit_text</item>
+        <item name="android:background">@color/dark_ColorPrimaryDark</item>
+        <item name="buttonStyle">@style/custom_dark_widget_button</item>
+        <item name="special_button_color">@color/yellow_primary</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="colorAccent">@color/yellow_primary</item>
+    </style>
+
+
+
+    <!--       dark EditText     -->
+    <style name="custom_dark_edit_text" parent="Widget.AppCompat.EditText">
+        <item name="android:textColor">@color/yellow_primary</item>
+        <item name="android:textColorHint">@color/grey_primary</item>
+    </style>
+
+
+
+    <!--       dark AutoCompleteTextView       -->
+    <style name="custom_dark_auto_complete_text_view" parent="Widget.AppCompat.AutoCompleteTextView">
+        <item name="android:textColor">@color/yellow_primary</item>
+    </style>
+
+
+
+    <!--       light NavigationView         -->
+    <style name="custom_dark_navigation_view" parent="Widget.Design.BottomNavigationView">
+        <item name="backgroundTint">@color/light_ColorPrimaryDark</item>
+        <item name="itemTextColor">@color/yellow_primary</item>
+        <item name="itemIconTint">@drawable/color_item_bottom_navigation_view</item>
+    </style>
+
+
     <!--         Dark Theme            -->
 
     <style name="Dark_AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/Background_screen</item>
-        <item name="colorPrimaryDark">@color/Background_EditText</item>
-        <item name="colorAccent">@color/Background_Button</item>
-        <item name="android:textColorTertiary">@color/Background_Button</item>
-        <item name="android:textColor">@color/Background_Button</item>
+
+        <!--      ActionBar      -->
+        <item name="colorPrimary">@color/dark_ColorPrimary</item>
+        <item name="colorPrimaryDark">@color/dark_ColorPrimaryDark</item>
+        <item name="titleTextColor">@color/yellow_primary</item>
+
+
+        <!--     Background of Windows      -->
+        <item name="android:windowBackground">@color/dark_ColorPrimary</item>
+
+
+        <!--   TextViews     -->
+        <item name="android:textColor">@color/white_primary</item>
+        <item name="android:textColorHint">@color/grey_primary</item>
+        <item name="android:textColorPrimary">@color/white_primary</item>
+        <item name="android:textColorSecondary">@color/grey_primary</item>
+
+
+        <!--    EditTexts      -->
+        <item name="editTextStyle">@style/custom_dark_edit_text</item>
+
+
+        <!--     AutoCompleteTextViews     -->
+        <item name="autoCompleteTextViewStyle">@style/custom_dark_auto_complete_text_view</item>
+
+
+        <!--    CardViews      -->
+        <item name="special_card_view_color">@color/dark_ColorPrimaryDark</item>
+
+
+
+        <!--    Buttons     -->
+        <item name="buttonStyle">@style/custom_dark_widget_button</item>
+        <item name="special_button_color">@color/yellow_primary</item>
+
+
+
+        <!--     FloatingActionButtons     -->
+        <item name="floatingActionButtonStyle">@style/custom_dark_floating_action_button</item>
+
+
+
+        <!--    CheckBoxes    -->
+        <item name="checkboxStyle">@style/custom_dark_check_box</item>
+
+
+
+        <!--    Switches & ProgressBars    -->
+        <item name="android:textColorPrimaryDisableOnly">@color/white_primary</item>
+        <item name="colorAccent">@color/yellow_primary</item>
+
+
+        <!--          popup menus        -->
+        <item name="android:itemBackground">@color/dark_ColorPrimaryDark</item>
+
+
+        <!--        dialogs           -->
+        <item name="android:alertDialogTheme">@style/custom_dark_alert_dialog</item>
+        <item name="android:dialogTheme">@style/custom_dark_dialog</item>
+
+
+        <!--     CollapsingToolbarLayouts        -->
+        <item name="CollapsingToolbarLayout_color">@color/dark_ColorPrimaryDark</item>
+
+
+        <!--      NavigationViews          -->
+        <item name="bottomNavigationStyle">@style/custom_dark_navigation_view</item>
+
+
+        <!--        vectors       -->
+        <item name="vector_color">@color/white_primary</item>
+        <item name="vector_color_revers">@color/black_second</item>
+
+
+        <!--      delete_button Color      -->
+        <item name="delete_button_color">#950000</item>
+
+
+        <!--        color of states BottomNavigationView's icon        -->
+        <item name="selected_icon">@color/yellow_primary</item>
+        <item name="non_selected_icon">@color/dark_ColorPrimaryDark</item>
+
+
+        <!--    color of crave and debt card      -->
+        <item name="crave_card_color">@color/blue_third</item>
+        <item name="debt_card_color">@color/yellow_primary</item>
+
+
+        <!--     color of table's background     -->
+        <item name="table_background">@color/dark_ColorPrimaryDark</item>
+        <item name="table_border_color">@color/yellow_primary</item>
 
     </style>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--  custom  Styles for light components    -->
+
+
+
+    <!--        light  Activity no title     -->
+    <style name="Light_no_title_activity" parent="LightTheme_AppTheme">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:background">@color/grey_second</item>
+    </style>
+
+
+
+
+    <!--    light Buttons       -->
+    <style name="custom_light_widget_button" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">@color/black_primary</item>
+        <item name="android:backgroundTint">@color/blue_primary</item>
+    </style>
+
+    <!--     light FloatingActionButton    -->
+    <style name="custom_light_floating_action_button" parent="Widget.Design.FloatingActionButton">
+        <item name="android:backgroundTint">@color/blue_primary</item>
+    </style>
+
+    <!--    light CheckBoxes      -->
+    <style name="custom_light_check_box" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:textColor">@color/black_primary</item>
+        <item name="buttonTint">@color/blue_primary</item>
+    </style>
+
+    <!--    light Switch     -->
+    <style name="custom_light_switch" parent="Widget.AppCompat.CompoundButton.Switch">
+    </style>
+
+
+
+    <!--       light AlertDialog       -->
+    <style name="custom_light_alert_dialog" parent="Base.Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textColor">@color/black_primary</item>
+        <item name="android:textColorPrimary">@color/black_primary</item>
+        <item name="android:background">@color/white_primary</item>
+        <item name="android:colorAccent">@color/yellow_primary</item>
+        <item name="buttonBarButtonStyle">@style/custom_light_button_alert_dialog</item>
+        <item name="android:textColorAlertDialogListItem">@color/grey_primary</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
+
+
+    <!--     light buttonBar of alertDialog      -->
+    <style name="custom_light_button_alert_dialog" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/blue_primary</item>
+    </style>
+
+
+
+    <!--        light Dialog         -->
+    <style name="custom_light_dialog" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/black_primary</item>
+        <item name="android:textColorPrimary">@color/black_primary</item>
+        <item name="android:textColorHint">@color/grey_primary</item>
+        <item name="android:textColorSecondary">@color/grey_primary</item>
+        <item name="editTextStyle">@style/custom_light_edit_text</item>
+        <item name="android:background">@color/white_primary</item>
+        <item name="android:colorAccent">@color/yellow_primary</item>
+        <item name="buttonStyle">@style/custom_light_widget_button</item>
+        <item name="special_button_color">@color/blue_primary</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="colorAccent">@color/blue_primary</item>
+    </style>
+
+
+
+    <!--       light EditText     -->
+    <style name="custom_light_edit_text" parent="Widget.AppCompat.EditText">
+        <item name="android:textColor">@color/black_primary</item>
+        <item name="android:textColorHint">@color/grey_primary</item>
+    </style>
+
+
+    <!--       light AutoCompleteTextView       -->
+    <style name="custom_light_auto_complete_text_view" parent="Widget.AppCompat.AutoCompleteTextView">
+        <item name="android:textColor">@color/black_primary</item>
+    </style>
+
+
+
+    <!--       light NavigationView         -->
+    <style name="custom_light_navigation_view" parent="Widget.Design.BottomNavigationView">
+        <item name="backgroundTint">@color/light_ColorPrimaryDark</item>
+        <item name="itemTextColor">@color/blue_primary</item>
+        <item name="itemIconTint">@drawable/color_item_bottom_navigation_view</item>
+    </style>
 
 
     <!--         Light Theme            -->
@@ -23,12 +320,96 @@
 
     <style name="LightTheme_AppTheme" parent="Theme.AppCompat">
 
-        <item name="colorPrimary">@color/me_white_2</item>
-        <item name="colorPrimaryDark">@color/me_gray</item>
-        <item name="colorAccent">@color/me_black</item>
-        <item name="android:textColorTertiary">@color/me_black</item>
-        <item name="android:textColor">@color/me_black</item>
+        <!--      ActionBar      -->
+        <item name="colorPrimary">@color/blue_primary</item>
+        <item name="colorPrimaryDark">@color/light_ColorPrimaryDark</item>
+        <item name="titleTextColor">@color/black_primary</item>
 
+
+        <!--     Background of Windows      -->
+        <item name="android:windowBackground">@color/grey_second</item>
+
+
+        <!--   TextViews     -->
+        <item name="android:textColor">@color/black_primary</item>
+        <item name="android:textColorHint">@color/grey_primary</item>
+        <item name="android:textColorPrimary">@color/black_primary</item>
+        <item name="android:textColorSecondary">@color/grey_primary</item>
+
+
+        <!--    EditTexts      -->
+        <item name="editTextStyle">@style/custom_light_edit_text</item>
+
+
+        <!--     AutoCompleteTextViews     -->
+        <item name="autoCompleteTextViewStyle">@style/custom_light_auto_complete_text_view</item>
+
+
+        <!--    CardViews      -->
+        <item name="special_card_view_color">@color/blue_primary</item>
+
+
+
+        <!--    Buttons     -->
+        <item name="buttonStyle">@style/custom_light_widget_button</item>
+        <item name="special_button_color">@color/blue_primary</item>
+
+
+
+        <!--     FloatingActionButtons     -->
+        <item name="floatingActionButtonStyle">@style/custom_light_floating_action_button</item>
+
+
+
+        <!--    CheckBoxes    -->
+        <item name="checkboxStyle">@style/custom_light_check_box</item>
+
+
+
+        <!--    Switches & ProgressBars    -->
+        <item name="android:textColorPrimaryDisableOnly">@color/black_primary</item>
+        <item name="colorAccent">@color/blue_primary</item>
+
+
+        <!--          popup menus        -->
+        <item name="android:itemBackground">@color/light_ColorPrimary</item>
+
+
+        <!--        dialogs           -->
+        <item name="android:alertDialogTheme">@style/custom_light_alert_dialog</item>
+        <item name="android:dialogTheme">@style/custom_light_dialog</item>
+
+
+        <!--     CollapsingToolbarLayouts        -->
+        <item name="CollapsingToolbarLayout_color">@color/blue_second</item>
+
+
+        <!--      NavigationViews          -->
+        <item name="bottomNavigationStyle">@style/custom_light_navigation_view</item>
+
+
+        <!--        vectors       -->
+        <item name="vector_color">@color/black_second</item>
+        <item name="vector_color_revers">@color/grey_second</item>
+
+
+        <!--      delete_button Color      -->
+        <item name="delete_button_color">#950000</item>
+
+
+        <!--        color of states BottomNavigationView's icon        -->
+        <item name="selected_icon">@color/blue_primary</item>
+        <item name="non_selected_icon">@color/grey_primary</item>
+
+
+        <!--    color of crave and debt card      -->
+        <item name="crave_card_color">@color/blue_third</item>
+        <item name="debt_card_color">@color/yellow_primary</item>
+
+
+        <!--     color of table's background     -->
+        <item name="table_background">@color/grey_primary</item>
+        <item name="table_border_color">@color/blue_third</item>
 
     </style>
 
@@ -74,6 +455,8 @@
 
 
 
+
+
     <!--       Theme for Activity without ui       -->
 
 
@@ -100,7 +483,7 @@
 
     <!--      Theme for delete  ActionBar      -->
 
-    <style name="Dark_AppTheme.NoActionBar">
+    <style name="Dark_AppTheme.NoActionBar" >
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>

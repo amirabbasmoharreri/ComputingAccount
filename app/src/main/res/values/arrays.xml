@@ -27,8 +27,8 @@
 
 
     <string-array name="app_language_values">
-        <item>english</item>
-        <item>persian</item>
+        <item>en</item>
+        <item>fa</item>
     </string-array>
 
 

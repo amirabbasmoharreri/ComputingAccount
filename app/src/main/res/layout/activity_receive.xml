@@ -5,29 +5,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ReceiveActivity"
-    android:background="@color/Background_screen">
+    tools:context=".ReceiveActivity">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/activity_received_container_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/border"
-        tools:ignore="MissingConstraints"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:orientation="horizontal"
-        android:backgroundTint="@color/me_gray">
+        android:foregroundGravity="center_horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:background="@drawable/border">
+
+
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:layout_gravity="start"
-            android:layout_marginStart="10dp"
+            android:gravity="start"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp">
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="70dp">
 
             <ImageView
                 android:layout_width="30dp"
@@ -43,7 +48,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/textView_remained"
                 android:layout_gravity="center_vertical|end"
-                android:textColor="@color/me_black"
                 android:layout_marginLeft="20dp"/>
 
 
@@ -53,8 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:layout_gravity="end"
-            android:layout_marginEnd="10dp"
+            android:gravity="end"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp">
 
@@ -62,7 +65,7 @@
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/ic_reports_black_24dp"
+                android:src="@drawable/ic_reports_24dp"
                 android:layout_gravity="center_vertical|start" />
 
 
@@ -72,13 +75,13 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:text="@string/editText_hint_reportnumber"
-                android:textColor="@color/me_black"
                 android:gravity="end"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="15dp" />
 
         </LinearLayout>
 
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <ScrollView
@@ -96,8 +99,7 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".PaidActivity"
-            android:background="@color/Background_screen">
+            tools:context=".PaidActivity">
 
 
             <LinearLayout
@@ -218,7 +220,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="60dp"
-                    android:src="@drawable/ic_attach_file_white_24dp" />
+                    android:src="@drawable/ic_attach_file_24dp" />
 
             </LinearLayout>
 
@@ -256,9 +258,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginTop="20dp"
-                android:background="@color/me_yellow"
                 android:text="@string/button_name_save"
-                android:textColor="@color/me_white"
                 android:textAlignment="center"
                 android:layout_marginBottom="20dp"/>
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Background_screen"
     android:fitsSystemWindows="true">
 
 
@@ -13,13 +13,12 @@
         android:id="@+id/nav_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/me_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/bottom_nav_menu" />
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
@@ -63,8 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="20dp"
-            android:text="@string/textView_paid"
-            android:textColor="@color/me_gray_2" />
+            android:text="@string/textView_paid" />
 
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -72,7 +70,6 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="bottom|end"
-            android:backgroundTint="@color/me_yellow"
             android:elevation="5dp"
             android:translationZ="15dp"
             app:layout_constraintBottom_toTopOf="@+id/floating_receive"
@@ -96,15 +93,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="20dp"
-            android:text="@string/textView_receive"
-            android:textColor="@color/me_gray_2" />
+            android:text="@string/textView_receive" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floating_receive"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="bottom|end"
-            android:backgroundTint="@color/me_yellow"
             android:elevation="5dp"
             android:translationZ="15dp"
             app:layout_constraintBottom_toTopOf="@+id/floating_debt"
@@ -128,15 +123,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="20dp"
-            android:text="@string/textView_debt_and_crave"
-            android:textColor="@color/me_gray_2" />
+            android:text="@string/textView_debt_and_crave" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floating_debt_and_crave"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="bottom|end"
-            android:backgroundTint="@color/me_yellow"
             android:elevation="5dp"
             android:translationZ="15dp"
             app:layout_constraintBottom_toTopOf="@+id/floating_transfer"
@@ -160,15 +153,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="20dp"
-            android:text="@string/textView_transfer"
-            android:textColor="@color/me_gray_2" />
+            android:text="@string/textView_transfer" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floating_transfer"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="bottom|end"
-            android:backgroundTint="@color/me_yellow"
             android:elevation="5dp"
             android:translationZ="15dp"
             tools:ignore="MissingConstraints" />
@@ -193,7 +184,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:layout_marginEnd="20dp"
-        android:backgroundTint="@color/me_yellow"
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/ic_add_white_24dp"

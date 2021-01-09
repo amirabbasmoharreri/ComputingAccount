@@ -3,12 +3,14 @@ package com.abbasmoharreri.computingaccount.ui.popupdialog;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
+import androidx.preference.PreferenceManager;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -95,6 +97,13 @@ public class UpdateWorkActivity extends AppCompatActivity implements View.OnClic
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        if (preferences.getBoolean("darkMode", true)) {
+            setTheme(R.style.Dark_no_title_activity);
+        } else {
+            setTheme(R.style.Light_no_title_activity);
+        }
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.dialog_update_work);
 
@@ -282,7 +291,7 @@ public class UpdateWorkActivity extends AppCompatActivity implements View.OnClic
 
         if (aWork.getAttaches().size() != 0) {
 
-            addPicture.setImageResource(R.drawable.ic_add_white_24dp);
+            addPicture.setImageResource(R.drawable.ic_add_24dp);
 
             for (int i = 0; i < aWork.getAttaches().size(); i++) {
                 float imageViewSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 130, context.getResources().getDisplayMetrics());
@@ -304,7 +313,7 @@ public class UpdateWorkActivity extends AppCompatActivity implements View.OnClic
 
                 ImageView button = new ImageView(this);
                 button.setLayoutParams(new LinearLayout.LayoutParams((int) buttonSize, (int) buttonSize));
-                button.setImageResource(R.drawable.ic_delete_white_24dp);
+                button.setImageResource(R.drawable.ic_delete_24dp);
                 button.setId(R.id.buttonDynamic);
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -318,7 +327,7 @@ public class UpdateWorkActivity extends AppCompatActivity implements View.OnClic
                         attachesDelete.add(new APicture().setId(attaches.get(index).getId()));
                         attaches.remove(index);
                         if (countAttach == 0) {
-                            addPicture.setImageResource(R.drawable.ic_attach_file_white_24dp);
+                            addPicture.setImageResource(R.drawable.ic_attach_file_24dp);
                         }
                     }
                 });
@@ -453,7 +462,7 @@ public class UpdateWorkActivity extends AppCompatActivity implements View.OnClic
 
         ImageView button = new ImageView(this);
         button.setLayoutParams(new LinearLayout.LayoutParams((int) buttonSize, (int) buttonSize));
-        button.setImageResource(R.drawable.ic_delete_white_24dp);
+        button.setImageResource(R.drawable.ic_delete_24dp);
         button.setId(R.id.buttonDynamic);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -466,7 +475,7 @@ public class UpdateWorkActivity extends AppCompatActivity implements View.OnClic
                 attachCount.setText(String.valueOf(countAttach));
                 attaches.remove(index);
                 if (countAttach == 0) {
-                    addPicture.setImageResource(R.drawable.ic_attach_file_white_24dp);
+                    addPicture.setImageResource(R.drawable.ic_attach_file_24dp);
                 }
             }
         });
@@ -522,7 +531,7 @@ public class UpdateWorkActivity extends AppCompatActivity implements View.OnClic
 
         mainLayout.addView(subLayout);
 
-        addPicture.setImageResource(R.drawable.ic_add_white_24dp);
+        addPicture.setImageResource(R.drawable.ic_add_24dp);
 
         attachCount.setText(String.valueOf(countAttach));
     }

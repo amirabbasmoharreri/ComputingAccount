@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="280dp"
     android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
-    android:background="@color/Background_EditText">
+    android:layout_gravity="center_horizontal">
 
 
     <ScrollView
@@ -46,7 +45,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:textColor="@color/Background_screen"
                     android:text="@string/textView_report_number" />
 
 
@@ -78,7 +76,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:textColor="@color/Background_screen"
                     android:text="@string/textView_work_number" />
 
 
@@ -110,7 +107,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:textColor="@color/Background_screen"
                     android:text="@string/textView_work_name" />
 
 
@@ -142,7 +138,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:textColor="@color/Background_screen"
                     android:text="@string/textView_account" />
 
 
@@ -175,7 +170,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:textColor="@color/Background_screen"
                     android:text="@string/textView_price_2" />
 
 
@@ -208,7 +202,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:textColor="@color/Background_screen"
                     android:text="@string/textView_date" />
 
             </LinearLayout>
@@ -240,7 +233,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:textColor="@color/Background_screen"
                     android:text="@string/textView_person" />
 
             </LinearLayout>
@@ -272,7 +264,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:textColor="@color/Background_screen"
                     android:text="@string/textView_attach_count" />
 
             </LinearLayout>
@@ -305,7 +296,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:textColor="@color/Background_screen"
                     android:text="@string/textView_comment" />
 
             </LinearLayout>
@@ -345,7 +335,6 @@
                     android:id="@+id/dialog_show_detail_button_ok"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/Background_screen"
                     android:text="@string/button_name_ok" />
 
             </LinearLayout>

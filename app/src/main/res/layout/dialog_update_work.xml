@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
-    android:background="@color/Background_EditText">
+    android:layout_gravity="center_horizontal">
 
 
     <ScrollView
@@ -171,7 +171,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="60dp"
-                    android:src="@drawable/ic_attach_file_white_24dp" />
+                    android:src="@drawable/ic_attach_file_24dp" />
 
             </LinearLayout>
 
@@ -210,7 +210,6 @@
                     android:id="@+id/dialog_update_button_update_work"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/Background_screen"
                     android:text="@string/button_name_update" />
 
                 <Button
@@ -218,7 +217,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="70dp"
-                    android:background="@color/Background_screen"
                     android:text="@string/button_name_cancel" />
 
             </LinearLayout>
@@ -228,12 +226,6 @@
 
 
     </ScrollView>
-
-
-
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,7 +11,7 @@
         android:layout_margin="10dp"
         android:elevation="5dp"
         android:translationZ="5dp"
-        app:cardBackgroundColor="@color/me_gray">
+        android:backgroundTint="?attr/special_card_view_color">
 
 
         <ImageButton
@@ -19,7 +19,7 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginTop="5dp"
-            android:background="@drawable/ic_more_vert_white_24dp" />
+            android:background="@drawable/ic_more_vert_24dp" />
 
 
         <CheckBox
@@ -38,7 +38,6 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="80dp"
             android:text="ItemName"
-            android:textColor="@color/me_white_2"
             android:textSize="20dp" />
 
 
@@ -50,7 +49,7 @@
             android:layout_marginTop="7dp"
             android:layout_marginBottom="5dp"
             android:layout_marginEnd="5dp"
-            android:src="@drawable/ic_lens_black_24dp" />
+            android:src="@drawable/ic_lens_24dp" />
 
     </androidx.cardview.widget.CardView>
 

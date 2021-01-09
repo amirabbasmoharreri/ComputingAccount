@@ -9,10 +9,12 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,10 +24,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.abbasmoharreri.computingaccount.io.PdfCreator;
 import com.abbasmoharreri.computingaccount.service.BackupService;
-import com.abbasmoharreri.computingaccount.static_value.PdfLanguage;
-import com.abbasmoharreri.computingaccount.static_value.PreferencesKeys;
 import com.abbasmoharreri.computingaccount.ui.chartsNavigation.ChartsFragment;
 import com.abbasmoharreri.computingaccount.ui.home.HomeFragment;
 import com.abbasmoharreri.computingaccount.ui.popupdialog.TransferMoney;
@@ -35,14 +34,15 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.preference.PreferenceManager;
+
+import java.util.Locale;
 
 
 public class MainActivity extends BaseActivity implements View.OnClickListener, BottomNavigationView.OnNavigationItemSelectedListener {
@@ -57,15 +57,38 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     Intent intent;
     NotificationManager notifManager;
     boolean serviceStart = false;
-
     String offerChannelId = "Offers";
+
+    static Configuration configuration;
+    static Resources resources;
+    static DisplayMetrics displayMetrics;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        if (preferences.getBoolean("darkMode", true)) {
+            setTheme(R.style.Dark_AppTheme);
+        } else {
+            setTheme(R.style.LightTheme_AppTheme);
+        }
+        setLanguage();
         setContentView(R.layout.activity_main);
         setNavigationMenu();
 
+    }
+
+
+    private void setLanguage() {
+        resources = getResources();
+        configuration = resources.getConfiguration();
+        displayMetrics = resources.getDisplayMetrics();
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String language = sharedPreferences.getString("language", "en");
+        configuration.locale = new Locale(language);
+        resources.updateConfiguration(configuration, displayMetrics);
     }
 
 
@@ -154,7 +177,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             Notification.Builder notification = new Notification.Builder(this)
                     .setVisibility(Notification.VISIBILITY_PUBLIC)
                     .setSmallIcon(R.drawable.ic_luncher_forground_2)
-                    .addAction(new Notification.Action(R.drawable.ic_mic_white_24dp, getString(R.string.button_name_speak), pendingIntent))
+                    .addAction(new Notification.Action(R.drawable.ic_mic_24dp, getString(R.string.button_name_speak), pendingIntent))
                     .setContentTitle(getString(R.string.notification_title_speechToText))
                     .setContentText(getString(R.string.notification_clickSpeak))
                     .setChannelId(offerChannelId);
@@ -166,7 +189,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                     .setContentTitle(getString(R.string.notification_title_speechToText))
                     .setContentText(getString(R.string.notification_clickSpeak))
                     .setSmallIcon(R.drawable.ic_luncher_forground_2)
-                    .addAction(new Notification.Action(R.drawable.ic_mic_white_24dp, getString(R.string.button_name_speak), pendingIntent))
+                    .addAction(new Notification.Action(R.drawable.ic_mic_24dp, getString(R.string.button_name_speak), pendingIntent))
                     .setVisibility(Notification.VISIBILITY_PUBLIC);
             NotificationManager notificationManager =
                     (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
@@ -183,10 +206,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_charts, R.id.navigation_reports, R.id.navigation_note)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavHostFragment navHostFragment =
+                (NavHostFragment) getSupportFragmentManager()
+                        .findFragmentById(R.id.nav_host_fragment);
+        NavController navController = navHostFragment.getNavController();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
+
+        // this line will be erase
         navView.setOnNavigationItemSelectedListener(this);
 
         getAnimations();

@@ -12,7 +12,7 @@
         android:layout_margin="10dp"
         android:elevation="5dp"
         android:translationZ="5dp"
-        app:cardBackgroundColor="@color/Background_EditText">
+        android:backgroundTint="?attr/special_card_view_color">
 
 
         <ImageButton
@@ -20,7 +20,7 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginTop="5dp"
-            android:background="@drawable/ic_more_vert_white_24dp" />
+            android:background="@drawable/ic_more_vert_24dp" />
 
 
         <TextView
@@ -31,7 +31,6 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="80dp"
             android:text="WorkName"
-            android:textColor="@color/text_second"
             android:textSize="20dp" />
 
 
@@ -43,8 +42,7 @@
             android:layout_marginTop="50dp"
             android:layout_marginRight="100dp"
             android:layout_marginBottom="5dp"
-            android:text="Person"
-            android:textColor="#E3E3E3" />
+            android:text="Person" />
 
 
         <TextView
@@ -55,7 +53,6 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="15dp"
             android:text="Price"
-            android:textColor="#E3E3E3"
             android:textSize="25dp" />
 
         <TextView
@@ -65,8 +62,7 @@
             android:layout_marginLeft="45dp"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="5dp"
-            android:text="Date"
-            android:textColor="#E3E3E3" />
+            android:text="Date" />
 
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -77,7 +73,7 @@
             android:layout_marginTop="7dp"
             android:layout_marginBottom="5dp"
             android:layout_marginEnd="5dp"
-            android:src="@drawable/ic_payment_white_24dp" />
+            android:src="@drawable/ic_payment_24dp" />
 
     </androidx.cardview.widget.CardView>
 

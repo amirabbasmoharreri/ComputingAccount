@@ -1,13 +1,16 @@
 package com.abbasmoharreri.computingaccount;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
+import androidx.preference.PreferenceManager;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -20,6 +23,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -55,7 +59,6 @@ import com.abbasmoharreri.computingaccount.ui.adapters.SpinnerAccountAdapter;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -95,6 +98,12 @@ public class PaidActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        if (preferences.getBoolean("darkMode", true)) {
+            setTheme(R.style.Dark_AppTheme);
+        } else {
+            setTheme(R.style.LightTheme_AppTheme);
+        }
         setContentView(R.layout.activity_paid);
 
         pictureCompression = new PictureCompression();
@@ -125,6 +134,10 @@ public class PaidActivity extends AppCompatActivity implements View.OnClickListe
 
         persianCalendar = new PersianCalendar();
         attaches = new ArrayList<>();
+
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         getList();
         setSpinner();
         setAutoCompleteTextView();
@@ -496,7 +509,7 @@ public class PaidActivity extends AppCompatActivity implements View.OnClickListe
 
         ImageView button = new ImageView(this);
         button.setLayoutParams(new LinearLayout.LayoutParams((int) buttonSize, (int) buttonSize));
-        button.setImageResource(R.drawable.ic_delete_white_24dp);
+        button.setImageResource(R.drawable.ic_delete_24dp);
         button.setId(R.id.buttonDynamic);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -509,7 +522,7 @@ public class PaidActivity extends AppCompatActivity implements View.OnClickListe
                 attachCount.setText(String.valueOf(countAttach));
                 attaches.remove(index);
                 if (countAttach == 0) {
-                    addPicture.setImageResource(R.drawable.ic_attach_file_white_24dp);
+                    addPicture.setImageResource(R.drawable.ic_attach_file_24dp);
                 }
             }
         });
@@ -567,7 +580,7 @@ public class PaidActivity extends AppCompatActivity implements View.OnClickListe
 
         mainLayout.addView(subLayout);
 
-        addPicture.setImageResource(R.drawable.ic_add_white_24dp);
+        addPicture.setImageResource(R.drawable.ic_add_24dp);
 
         attachCount.setText(String.valueOf(countAttach));
     }
@@ -582,5 +595,20 @@ public class PaidActivity extends AppCompatActivity implements View.OnClickListe
     public void onDateChanged(int newYear, int newMonth, int newDay) {
         this.dateString = newYear + "-" + String.format("%02d", newMonth) + "-" + String.format("%02d", newDay);
         isUseDatePicker = true;
+    }
+
+
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

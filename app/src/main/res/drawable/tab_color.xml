@@ -4,6 +4,6 @@
 
     <item android:color="#FF000000" android:state_checked="false" />
 
-    <item android:color="@color/Background_Button" android:state_checked="true" />
+    <item android:color="@color/yellow_primary" android:state_checked="true" />
 
 </selector>

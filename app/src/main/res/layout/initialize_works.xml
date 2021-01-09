@@ -3,9 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/Background_screen"
-    android:theme="@style/NoWindow">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
     <EditText
@@ -48,7 +46,6 @@
             android:id="@+id/button_save_initialize_work"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/Background_screen"
             android:text="@string/button_name_save" />
 
         <Button
@@ -56,7 +53,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="70dp"
-            android:background="@color/Background_screen"
             android:text="@string/button_name_cancel" />
 
     </LinearLayout>

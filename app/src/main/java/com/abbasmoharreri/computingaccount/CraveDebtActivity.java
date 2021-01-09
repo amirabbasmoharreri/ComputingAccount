@@ -1,13 +1,17 @@
 package com.abbasmoharreri.computingaccount;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.PopupMenu;
 import android.widget.RadioButton;
@@ -33,6 +37,12 @@ public class CraveDebtActivity extends AppCompatActivity implements View.OnClick
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        if (preferences.getBoolean("darkMode", true)) {
+            setTheme(R.style.Dark_AppTheme);
+        } else {
+            setTheme(R.style.LightTheme_AppTheme);
+        }
         setContentView( R.layout.activity_crave_debt );
 
         sumCrave = findViewById( R.id.activity_crave_debt_crave );
@@ -61,6 +71,8 @@ public class CraveDebtActivity extends AppCompatActivity implements View.OnClick
             setRecyclerViewDebt();
         }
 
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 
@@ -164,5 +176,18 @@ public class CraveDebtActivity extends AppCompatActivity implements View.OnClick
         } else if (checkedId == R.id.radio_all_crde) {
             setRecyclerView();
         }
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

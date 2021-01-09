@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Background_screen"
     tools:context=".ui.reports.ReportsFragment"
     android:layout_marginBottom="?attr/actionBarSize">
 
@@ -42,7 +41,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:backgroundTint="@color/Background_EditText"
+                    android:backgroundTint="?attr/CollapsingToolbarLayout_color"
                     android:foregroundGravity="center"
                     tools:ignore="MissingConstraints">
 
@@ -127,7 +126,6 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="35dp"
-        android:backgroundTint="@color/Background_Button"
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/ic_filter_list_white_24dp"

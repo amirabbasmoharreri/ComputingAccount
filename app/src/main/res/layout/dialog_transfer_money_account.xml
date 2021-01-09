@@ -4,8 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
-    android:background="@color/Background_EditText">
+    android:layout_gravity="center_horizontal">
 
 
 
@@ -112,7 +111,6 @@
             android:id="@+id/dialog_transfer_button_transfer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/Background_screen"
             android:text="@string/button_name_transfer" />
 
         <Button
@@ -120,7 +118,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="60dp"
-            android:background="@color/Background_screen"
             android:text="@string/button_name_cancel" />
 
     </LinearLayout>

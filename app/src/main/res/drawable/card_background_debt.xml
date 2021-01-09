@@ -2,7 +2,7 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
 
     <gradient android:angle="360"
-        android:startColor="@color/Background_screen"
-        android:endColor="#c97440"/>
+        android:startColor="?attr/vector_color_revers"
+        android:endColor="?attr/debt_card_color"/>
 
 </shape>

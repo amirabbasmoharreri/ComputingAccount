@@ -101,6 +101,8 @@
     <string name="button_name_update">UPDATE</string>
     <string name="button_name_add">ADD</string>
     <string name="button_name_speak">Speak</string>
+    <string name="button_name_restore">Restore</string>
+    <string name="button_name_back_up">Backup Now</string>
 
     <!--     camera      -->
 
@@ -213,7 +215,6 @@
     <string name="menu_transfer">Transfer</string>
     <string name="menu_close_account">Close Account</string>
     <string name="menu_save_pdf">Save Pdf</string>
-
 
 
     <!--                  string arrays              -->

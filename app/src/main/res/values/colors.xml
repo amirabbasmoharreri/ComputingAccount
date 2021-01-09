@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
 
 
-    <color name="Background_Button">#e8b081</color>
-    <color name="Background_screen">#26292e</color>
-    <color name="Background_EditText">#464B53</color>
-    <color name="text_second">#E3E3E3</color>
+    <!--         Dark         -->
+    <color name="dark_ColorPrimary">#26292e</color>
+    <color name="dark_ColorPrimaryDark">#464B53</color>
+    <color name="dark_colorAccent">#9F9F9F</color>
+
+    <color name="yellow_primary">#e8b081</color>
+    <color name="white_primary">#eaeaeaea</color>
+    <color name="grey_primary">#888888</color>
+    <color name="grey_second">#EAEAEAEA</color>
+    <color name="black_primary">#000000</color>
+    <color name="black_second">#EA151515</color>
+    <color name="blue_primary">#32A2CF</color>
+    <color name="blue_second">#1F607A</color>
+    <color name="blue_third">#0083ab</color>
+    <color name="orange_primary">#c97440</color>
+
+
+    <!--      light         -->
+
+    <color name="light_ColorPrimary">#EBEBEC</color>
+    <color name="light_ColorPrimaryDark">#2B2B2B</color>
+    <color name="light_colorAccent">#9F9F9F</color>
+
+
+    <color name="dark_text_second">#E3E3E3</color>
 
 
 

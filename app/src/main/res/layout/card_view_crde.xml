@@ -11,8 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:elevation="5dp"
-        android:translationZ="5dp"
-        app:cardBackgroundColor="@color/me_gray">
+        android:translationZ="5dp">
 
 
         <ImageButton
@@ -20,7 +19,7 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginTop="5dp"
-            android:background="@drawable/ic_more_vert_white_24dp" />
+            android:background="@drawable/ic_more_vert_24dp" />
 
 
         <TextView
@@ -31,7 +30,6 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="80dp"
             android:text="Person"
-            android:textColor="@color/me_white_2"
             android:textSize="20dp" />
 
 
@@ -45,7 +43,6 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="15dp"
             android:text="Price"
-            android:textColor="@color/me_white_2"
             android:textSize="25dp" />
 
 
@@ -58,7 +55,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:layout_marginEnd="5dp"
-            android:src="@drawable/ic_person_white_24dp" />
+            android:src="@drawable/ic_person_24dp" />
 
     </androidx.cardview.widget.CardView>
 

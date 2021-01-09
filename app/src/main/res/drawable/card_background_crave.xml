@@ -2,7 +2,7 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
 
     <gradient android:angle="180"
-        android:startColor="@color/Background_screen"
-        android:endColor="#0083ab"/>
+        android:startColor="?attr/vector_color_revers"
+        android:endColor="?attr/crave_card_color"/>
 
 </shape>

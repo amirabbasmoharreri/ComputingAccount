@@ -1,38 +1,69 @@
 package com.abbasmoharreri.computingaccount;
 
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.widget.Switch;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.app.NavUtils;
+import androidx.core.content.IntentCompat;
+import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
+import androidx.preference.SwitchPreferenceCompat;
 
 import com.abbasmoharreri.computingaccount.ui.settings.backup.BackUpAddress;
 
+import java.security.PrivateKey;
+import java.util.Locale;
+
 public class SettingsActivity extends AppCompatActivity {
+
+    static Context context;
+    static Activity activity;
+    static Configuration configuration;
+    static Resources resources;
+    static DisplayMetrics displayMetrics;
 
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-
+        System.exit(0);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        if (preferences.getBoolean("darkMode", true)) {
+            setTheme(R.style.Dark_AppTheme);
+        } else {
+            setTheme(R.style.LightTheme_AppTheme);
+        }
         setContentView(R.layout.activity_settings);
+
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.settings, new SettingsFragment())
@@ -43,11 +74,34 @@ public class SettingsActivity extends AppCompatActivity {
             actionBar.setHomeButtonEnabled(true);
         }
 
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        context = getApplicationContext();
+        activity = this;
+        resources = getResources();
+        configuration = resources.getConfiguration();
+        displayMetrics = resources.getDisplayMetrics();
+
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 
     public static class SettingsFragment extends PreferenceFragmentCompat {
 
+        private SwitchPreferenceCompat switchTheme;
+        private ListPreference languageList;
 
         @Override
         public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,6 +111,40 @@ public class SettingsActivity extends AppCompatActivity {
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.root_preferences, rootKey);
+
+            switchTheme = findPreference("darkMode");
+            languageList = findPreference("language");
+            switchTheme.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+
+                    if (!switchTheme.isChecked()) {
+                        context.setTheme(R.style.Dark_AppTheme);
+                        switchTheme.setChecked(true);
+                        activity.recreate();
+
+                        return true;
+                    } else {
+                        context.setTheme(R.style.LightTheme_AppTheme);
+                        switchTheme.setChecked(false);
+                        activity.recreate();
+                        return false;
+                    }
+                }
+            });
+
+            languageList.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+
+                        configuration.locale = new Locale(newValue.toString());
+                        resources.updateConfiguration(configuration, displayMetrics);
+                        activity.recreate();
+
+                        return true;
+                }
+            });
+
         }
 /*
         @Override

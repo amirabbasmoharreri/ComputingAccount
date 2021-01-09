@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
-    android:background="@color/Background_EditText">
+    android:layout_gravity="center_horizontal">
 
 
 
@@ -142,7 +141,6 @@
             android:id="@+id/dialog_update_button_update_crde"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/Background_screen"
             android:text="@string/button_name_update" />
 
         <Button
@@ -150,7 +148,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="70dp"
-            android:background="@color/Background_screen"
             android:text="@string/button_name_cancel" />
 
     </LinearLayout>

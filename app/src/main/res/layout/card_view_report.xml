@@ -11,7 +11,7 @@
         android:layout_margin="10dp"
         android:elevation="5dp"
         android:translationZ="5dp"
-        app:cardBackgroundColor="@color/me_gray">
+        android:backgroundTint="?attr/special_card_view_color">
 
 
         <ImageButton
@@ -19,7 +19,7 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginTop="5dp"
-            android:background="@drawable/ic_more_vert_white_24dp" />
+            android:background="@drawable/ic_more_vert_24dp" />
 
 
         <TextView
@@ -30,7 +30,6 @@
             android:layout_marginTop="35dp"
             android:layout_marginEnd="80dp"
             android:text="ReportNumber"
-            android:textColor="@color/me_white_2"
             android:textSize="20dp" />
 
 
@@ -43,7 +42,7 @@
             android:layout_marginRight="100dp"
             android:layout_marginBottom="5dp"
             android:text="Condition"
-            android:textColor="@color/me_white_2" />
+            />
 
         <TextView
             android:id="@+id/text_date_card_report"
@@ -53,8 +52,7 @@
             android:layout_marginTop="85dp"
             android:layout_marginBottom="5dp"
             android:layout_marginEnd="115dp"
-            android:text="Date"
-            android:textColor="@color/me_white_2" />
+            android:text="Date" />
 
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -65,7 +63,7 @@
             android:layout_marginTop="7dp"
             android:layout_marginBottom="5dp"
             android:layout_marginEnd="5dp"
-            android:src="@drawable/ic_reports_white_24dp" />
+            android:src="@drawable/ic_reports_24dp" />
 
 
         <TextView
@@ -76,7 +74,6 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="20dp"
             android:text="PreRemained"
-            android:textColor="#E3E3E3"
             android:textSize="20dp" />
 
 
@@ -88,7 +85,6 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="45dp"
             android:text="Paid"
-            android:textColor="#E3E3E3"
             android:textSize="20dp" />
 
         <TextView
@@ -99,7 +95,6 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="70dp"
             android:text="Received"
-            android:textColor="#E3E3E3"
             android:textSize="20dp" />
 
         <TextView
@@ -111,7 +106,6 @@
             android:layout_marginTop="95dp"
             android:layout_marginBottom="10dp"
             android:text="Remained"
-            android:textColor="#E3E3E3"
             android:textSize="20dp" />
 
 

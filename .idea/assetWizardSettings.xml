@@ -324,7 +324,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio1/plugins/android/lib/android.jar!/images/material_design_icons/image/ic_brightness_1_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio3/plugins/android/lib/android.jar!/images/material/icons/materialicons/add/baseline_add_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -334,8 +334,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_brightness_1_black_24dp" />
-                            <entry key="sourceFile" value="C:\Users\abbas" />
+                            <entry key="color" value="ffffff" />
+                            <entry key="outputName" value="ic_add_24dp" />
+                            <entry key="sourceFile" value="E:\book\Computer\Programing\Android\svg\ask_money.svg" />
                           </map>
                         </option>
                       </PersistentState>

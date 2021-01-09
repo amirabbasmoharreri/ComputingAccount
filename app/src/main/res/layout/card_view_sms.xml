@@ -11,7 +11,7 @@
         android:layout_margin="10dp"
         android:elevation="5dp"
         android:translationZ="5dp"
-        app:cardBackgroundColor="@color/me_gray"
+        android:backgroundTint="?attr/special_card_view_color"
         tools:ignore="MissingConstraints"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +27,6 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:text="Bank Name"
-            android:textColor="@color/me_white_2"
             android:textSize="20dp" />
 
 
@@ -39,8 +38,7 @@
             android:layout_marginTop="50dp"
             android:layout_marginEnd="50dp"
             android:layout_marginBottom="5dp"
-            android:text="Account"
-            android:textColor="@color/me_white_2" />
+            android:text="Account" />
 
 
         <TextView
@@ -51,7 +49,6 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="15dp"
             android:text="Price"
-            android:textColor="@color/me_white_2"
             android:textSize="25dp" />
 
         <TextView
@@ -61,8 +58,7 @@
             android:layout_marginLeft="45dp"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="5dp"
-            android:text="Date"
-            android:textColor="@color/me_white_2" />
+            android:text="Date" />
 
 
         <TextView
@@ -70,7 +66,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Type"
-            android:textColor="@color/me_white_2"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="30dp"/>
 
@@ -83,8 +78,7 @@
             android:layout_gravity="bottom|start"
             android:layout_marginTop="80dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginLeft="10dp"
-            android:background="@color/Dark_Button_background_black"/>
+            android:layout_marginLeft="10dp" />
 
 
 
@@ -96,8 +90,7 @@
             android:layout_gravity="bottom|start"
             android:layout_marginLeft="110dp"
             android:layout_marginTop="80dp"
-            android:layout_marginBottom="10dp"
-            android:background="@color/Dark_Button_background_black"/>
+            android:layout_marginBottom="10dp" />
 
 
     </androidx.cardview.widget.CardView>
