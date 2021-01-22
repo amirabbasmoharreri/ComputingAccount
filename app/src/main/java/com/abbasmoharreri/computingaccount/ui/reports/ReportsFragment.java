@@ -4,7 +4,10 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,16 +37,16 @@ import com.abbasmoharreri.computingaccount.persiandatepicker.util.PersianCalenda
 import com.abbasmoharreri.computingaccount.pesiandate.DateConverter;
 import com.abbasmoharreri.computingaccount.text.TextProcessing;
 import com.abbasmoharreri.computingaccount.ui.adapters.WorkAdapter;
+import com.abbasmoharreri.computingaccount.ui.popupdialog.CustomProgressBar;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class ReportsFragment extends Fragment implements View.OnClickListener, AdapterView.OnItemSelectedListener, DialogInterface.OnDismissListener, SwipeRefreshLayout.OnRefreshListener {
+public class ReportsFragment extends Fragment implements View.OnClickListener, AdapterView.OnItemSelectedListener, DialogInterface.OnDismissListener {
 
     private PersianCalendar persianCalendar;
     private PersianDatePicker startDate, endDate;
@@ -60,13 +63,21 @@ public class ReportsFragment extends Fragment implements View.OnClickListener, A
     String[] reportTexts;
     public WorkAdapter workAdapter;
     private CollapsingToolbarLayout collapsingToolbarLayout;
-    private SwipeRefreshLayout swipeRefreshLayout;
     private String startDateString, endDateString;
     private boolean isUseStartDatePicker = false;
     private boolean isUseEndDatePicker = false;
     private boolean isUseAutoCompleteEditText = false;
     private boolean isExistenceData = false;
     private boolean isNeedDatePicker = false;
+    private boolean isScrollingCollapsing = false;
+    Object selectedItem;
+
+    ReportWNameATime reportWNameATime;
+    ReportWTime reportWTime;
+    ReportWPersonATime reportWPersonATime;
+    ReportWNumber reportWNumber;
+
+    CustomProgressBar customProgressBar;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -79,12 +90,33 @@ public class ReportsFragment extends Fragment implements View.OnClickListener, A
         context = root.getContext();
 
         appBarLayout = root.findViewById(R.id.app_bar_layout_report);
+
         collapsingToolbarLayout = root.findViewById(R.id.toolbar_layout_report);
 
         disableScrollingCollapse();
 
 
         recyclerView = root.findViewById(R.id.recycle_view_report);
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                LinearLayoutManager layoutManager = LinearLayoutManager.class.cast(recyclerView.getLayoutManager());
+                int visibleItemCount = layoutManager.getChildCount();
+                int totalItemCount = layoutManager.getItemCount();
+                int lastVisible = layoutManager.findLastVisibleItemPosition();
+                int firstVisible = layoutManager.findFirstVisibleItemPosition();
+
+                if ((visibleItemCount + firstVisible) >= totalItemCount && firstVisible >= 0) {
+                    //you have reached to the bottom of your recycler view
+                    Log.e("onScrolled: ", "end");
+                    recyclerView.setNestedScrollingEnabled(false);
+                }else if ((visibleItemCount + firstVisible) < totalItemCount && firstVisible >= 0){
+                    Log.e("onScrolled: ", "start");
+                    recyclerView.setNestedScrollingEnabled(true);
+                }
+            }
+        });
+
 
         startDate = root.findViewById(R.id.picker_start_date_report);
         endDate = root.findViewById(R.id.picker_end_date_report);
@@ -96,18 +128,15 @@ public class ReportsFragment extends Fragment implements View.OnClickListener, A
         button = root.findViewById(R.id.floating_layout_report);
         button.setOnClickListener(this);
 
-        swipeRefreshLayout = root.findViewById(R.id.recycle_view_swipe_refresh_report);
-        swipeRefreshLayout.setOnRefreshListener(this);
 
         reportTexts = getResources().getStringArray(R.array.Reports_Mode);
 
         workNames = new ArrayList<>();
         personNames = new ArrayList<>();
 
-        getList();
-        setSpinnerData();
-        setAutoCompleteTextView();
-        setListenerDate();
+        customProgressBar = new CustomProgressBar(getContext());
+
+        new BackgroundGetList().execute("start");
 
 
         return root;
@@ -119,6 +148,8 @@ public class ReportsFragment extends Fragment implements View.OnClickListener, A
         AppBarLayout.LayoutParams params = (AppBarLayout.LayoutParams) collapsingToolbarLayout.getLayoutParams();
 
         params.setScrollFlags(AppBarLayout.LayoutParams.SCROLL_FLAG_NO_SCROLL);
+        collapsingToolbarLayout.setLayoutParams(params);
+        isScrollingCollapsing = false;
     }
 
 
@@ -127,6 +158,8 @@ public class ReportsFragment extends Fragment implements View.OnClickListener, A
         AppBarLayout.LayoutParams params = (AppBarLayout.LayoutParams) collapsingToolbarLayout.getLayoutParams();
         params.setScrollFlags(AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL
                 | AppBarLayout.LayoutParams.SCROLL_FLAG_ENTER_ALWAYS);
+        collapsingToolbarLayout.setLayoutParams(params);
+        isScrollingCollapsing = true;
     }
 
 
@@ -184,16 +217,28 @@ public class ReportsFragment extends Fragment implements View.OnClickListener, A
 
     private void fetchReports() {
 
-        Object selectedItem = reportSpinner.getSelectedItem();
         if (selectedItem.equals(reportTexts[0])) {
 
-            ReportWNameATime reportWNameATime = new ReportWNameATime(context
-                    , autoCompleteTextView.getText().toString()
-                    , textProcessing1.convertStringToDateWithoutTime(startDateString)
-                    , textProcessing2.convertStringToDateWithoutTime(endDateString));
             if (reportWNameATime.getList().size() != 0) {
                 workAdapter = new WorkAdapter(context, reportWNameATime.getList());
                 recyclerView.setAdapter(workAdapter);
+                recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+                    @Override
+                    public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                        if (dy < 0 && isScrollingCollapsing) {
+                            enableScrollingCollapse();
+                        } else if (dy > 0 && isScrollingCollapsing) {
+                            disableScrollingCollapse();
+                        }
+                    }
+
+                   /* @Override
+                    public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                        if (newState == RecyclerView.SCROLL_STATE_IDLE)
+                            enableScrollingCollapse();
+                        super.onScrollStateChanged(recyclerView, newState);
+                    }*/
+                });
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                 isExistenceData = true;
             } else {
@@ -204,41 +249,30 @@ public class ReportsFragment extends Fragment implements View.OnClickListener, A
 
         } else if (selectedItem.equals(reportTexts[1])) {
 
-
-                ReportWTime reportWTime = new ReportWTime(context
-                        , textProcessing1.convertStringToDateWithoutTime(startDateString)
-                        , textProcessing2.convertStringToDateWithoutTime(endDateString));
-
-                if (reportWTime.getList().size() != 0) {
-                    workAdapter = new WorkAdapter(context, reportWTime.getList());
-                    recyclerView.setAdapter(workAdapter);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-                    isExistenceData = true;
-                } else {
-                    exceptionMessage();
-                    isExistenceData = false;
-                }
+            if (reportWTime.getList().size() != 0) {
+                workAdapter = new WorkAdapter(context, reportWTime.getList());
+                recyclerView.setAdapter(workAdapter);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                isExistenceData = true;
+            } else {
+                exceptionMessage();
+                isExistenceData = false;
+            }
 
         } else if (reportTexts[2].equals(selectedItem)) {
 
-                ReportWPersonATime reportWPersonATime = new ReportWPersonATime(context
-                        , autoCompleteTextView.getText().toString()
-                        , textProcessing1.convertStringToDateWithoutTime(startDateString)
-                        , textProcessing2.convertStringToDateWithoutTime(endDateString));
-                if (reportWPersonATime.getList().size() != 0) {
-                    workAdapter = new WorkAdapter(context, reportWPersonATime.getList());
-                    recyclerView.setAdapter(workAdapter);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                    isExistenceData = true;
-                } else {
-                    exceptionMessage();
-                    isExistenceData = false;
-                }
+            if (reportWPersonATime.getList().size() != 0) {
+                workAdapter = new WorkAdapter(context, reportWPersonATime.getList());
+                recyclerView.setAdapter(workAdapter);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                isExistenceData = true;
+            } else {
+                exceptionMessage();
+                isExistenceData = false;
+            }
 
 
         } else if (selectedItem.equals(reportTexts[3])) {
-
-            ReportWNumber reportWNumber = new ReportWNumber(context, Integer.parseInt(autoCompleteTextView.getText().toString()));
 
             if (reportWNumber.getList().size() != 0) {
                 workAdapter = new WorkAdapter(context, reportWNumber.getList());
@@ -339,11 +373,9 @@ public class ReportsFragment extends Fragment implements View.OnClickListener, A
 
         if (view.getId() == R.id.floating_layout_report) {
 
-            fetchReports();
-            if (showMassage() && isExistenceData) {
-                enableScrollingCollapse();
-                appBarLayout.setExpanded(false);
-            }
+            //fetchReports();
+            new BackgroundFetchReport().execute("start");
+
 
         }
     }
@@ -408,11 +440,83 @@ public class ReportsFragment extends Fragment implements View.OnClickListener, A
         workAdapter.notifyDataSetChanged();
     }
 
-    @Override
-    public void onRefresh() {
-        workAdapter.notifyDataSetChanged();
-        swipeRefreshLayout.setRefreshing(false);
+
+    @SuppressLint("StaticFieldLeak")
+    class BackgroundGetList extends AsyncTask<String, String, String> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            customProgressBar.show();
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            getList();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            setSpinnerData();
+            setAutoCompleteTextView();
+            setListenerDate();
+
+            customProgressBar.dismiss();
+            this.onCancelled();
+        }
     }
 
 
+    @SuppressLint("StaticFieldLeak")
+    class BackgroundFetchReport extends AsyncTask<String, String, String> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            customProgressBar.show();
+        }
+
+
+        @Override
+        protected String doInBackground(String... strings) {
+            selectedItem = reportSpinner.getSelectedItem();
+            if (selectedItem.equals(reportTexts[0])) {
+
+                reportWNameATime = new ReportWNameATime(context
+                        , autoCompleteTextView.getText().toString()
+                        , textProcessing1.convertStringToDateWithoutTime(startDateString)
+                        , textProcessing2.convertStringToDateWithoutTime(endDateString));
+
+
+            } else if (selectedItem.equals(reportTexts[1])) {
+                reportWTime = new ReportWTime(context
+                        , textProcessing1.convertStringToDateWithoutTime(startDateString)
+                        , textProcessing2.convertStringToDateWithoutTime(endDateString));
+
+
+            } else if (reportTexts[2].equals(selectedItem)) {
+
+                reportWPersonATime = new ReportWPersonATime(context
+                        , autoCompleteTextView.getText().toString()
+                        , textProcessing1.convertStringToDateWithoutTime(startDateString)
+                        , textProcessing2.convertStringToDateWithoutTime(endDateString));
+
+            } else if (selectedItem.equals(reportTexts[3])) {
+
+                reportWNumber = new ReportWNumber(context, Integer.parseInt(autoCompleteTextView.getText().toString()));
+
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            fetchReports();
+            if (showMassage() && isExistenceData) {
+                enableScrollingCollapse();
+                appBarLayout.setExpanded(false);
+            }
+            customProgressBar.dismiss();
+            this.onCancelled();
+        }
+    }
 }

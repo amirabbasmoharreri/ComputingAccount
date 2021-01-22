@@ -2,6 +2,7 @@ package com.abbasmoharreri.computingaccount.ui.note;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,8 @@ import com.abbasmoharreri.computingaccount.database.DataBaseController;
 import com.abbasmoharreri.computingaccount.database.reports.ReportWMaxReport;
 import com.abbasmoharreri.computingaccount.ui.adapters.NoteAdapter;
 import com.abbasmoharreri.computingaccount.ui.adapters.WorkAdapter;
+import com.abbasmoharreri.computingaccount.ui.chartsNavigation.ChartsFragment;
+import com.abbasmoharreri.computingaccount.ui.popupdialog.CustomProgressBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class NoteFragment extends Fragment implements DialogInterface.OnDismissListener, View.OnClickListener {
@@ -28,15 +31,17 @@ public class NoteFragment extends Fragment implements DialogInterface.OnDismissL
     private DataBaseController dataBaseController;
     private RecyclerView recyclerView;
     private FloatingActionButton floatingActionButton;
+    CustomProgressBar customProgressBar;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        View root = inflater.inflate( R.layout.fragment_note, container, false );
+        View root = inflater.inflate(R.layout.fragment_note, container, false);
 
-        recyclerView = root.findViewById( R.id.recycle_view_note );
-        floatingActionButton = root.findViewById( R.id.floating_note );
-        floatingActionButton.setOnClickListener( this );
+        recyclerView = root.findViewById(R.id.recycle_view_note);
+        floatingActionButton = root.findViewById(R.id.floating_note);
+        floatingActionButton.setOnClickListener(this);
+        customProgressBar = new CustomProgressBar(getContext());
 
         return root;
     }
@@ -44,17 +49,15 @@ public class NoteFragment extends Fragment implements DialogInterface.OnDismissL
     @Override
     public void onResume() {
         super.onResume();
-        setRecyclerView();
+        new BackgroundTask().execute("start");
     }
 
     private void setRecyclerView() {
 
         try {
-            dataBaseController = new DataBaseController( getActivity() );
-            noteAdapter = new NoteAdapter( getActivity(), dataBaseController.fetchNotes() );
-            noteAdapter.setOnDismissListener( this );
-            recyclerView.setAdapter( noteAdapter );
-            recyclerView.setLayoutManager( new LinearLayoutManager( getActivity() ) );
+            noteAdapter.setOnDismissListener(this);
+            recyclerView.setAdapter(noteAdapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -65,14 +68,37 @@ public class NoteFragment extends Fragment implements DialogInterface.OnDismissL
 
     @Override
     public void onDismiss(DialogInterface dialog) {
-        setRecyclerView();
+        new BackgroundTask().execute("start");
     }
 
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.floating_note) {
-            Intent intent = new Intent( getActivity(), SpeechActivity.class );
-            startActivity( intent );
+            Intent intent = new Intent(getActivity(), SpeechActivity.class);
+            startActivity(intent);
+        }
+    }
+
+
+    class BackgroundTask extends AsyncTask<String, String, String> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            customProgressBar.show();
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            dataBaseController = new DataBaseController(getActivity());
+            noteAdapter = new NoteAdapter(getActivity(), dataBaseController.fetchNotes());
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            setRecyclerView();
+            customProgressBar.dismiss();
+            this.onCancelled();
         }
     }
 }
