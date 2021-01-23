@@ -45,16 +45,10 @@ import androidx.preference.PreferenceManager;
 import java.util.Locale;
 
 
-public class MainActivity extends BaseActivity implements View.OnClickListener, BottomNavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends BaseActivity {
 
 
     private SharedPreferences preferences;
-    private FloatingActionButton fab_Main, fab_Paid, fab_Receive, fab_Debt_Crave, fab_Transfer;
-    TextView text_Paid, text_Receive, text_Debt_Crave, text_Transfer;
-    private boolean isFabMenuOpen = false;
-    private Animation fabOpenAnimation, fabCloseAnimation, fabClock, fabAntiClock, textOpen, textClose;
-    ImageView background_fab;
-    Intent intent;
     NotificationManager notifManager;
     boolean serviceStart = false;
     String offerChannelId = "Offers";
@@ -67,7 +61,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
         if (preferences.getBoolean("darkMode", true)) {
             setTheme(R.style.Dark_AppTheme);
         } else {
@@ -213,191 +207,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
-
-        // this line will be erase
-        navView.setOnNavigationItemSelectedListener(this);
-
-        getAnimations();
-        setFabMenu();
-        collapseFabMenu();
-
     }
 
 
-    private void setDisableFab() {
-
-        text_Paid.setVisibility(View.INVISIBLE);
-        text_Receive.setVisibility(View.INVISIBLE);
-        text_Debt_Crave.setVisibility(View.INVISIBLE);
-        text_Transfer.setVisibility(View.INVISIBLE);
-        text_Paid.setAlpha(0.0f);
-        text_Receive.setAlpha(0.0f);
-        text_Debt_Crave.setAlpha(0.0f);
-        text_Transfer.setAlpha(0.0f);
-        background_fab.setAlpha(0.0f);
-        text_Paid.setClickable(false);
-        text_Receive.setClickable(false);
-        text_Debt_Crave.setClickable(false);
-        text_Transfer.setClickable(false);
-        fab_Main.hide();
-        fab_Paid.hide();
-        fab_Receive.hide();
-        fab_Debt_Crave.hide();
-        fab_Transfer.hide();
-        fab_Paid.setClickable(false);
-        fab_Receive.setClickable(false);
-        fab_Debt_Crave.setClickable(false);
-        fab_Transfer.setClickable(false);
-        fab_Main.setClickable(false);
-
-    }
-
-
-    private void setEnableFab() {
-        text_Paid.setVisibility(View.VISIBLE);
-        text_Receive.setVisibility(View.VISIBLE);
-        text_Debt_Crave.setVisibility(View.VISIBLE);
-        text_Transfer.setVisibility(View.VISIBLE);
-        text_Paid.setAlpha(1.0f);
-        text_Receive.setAlpha(1.0f);
-        text_Debt_Crave.setAlpha(1.0f);
-        text_Transfer.setAlpha(1.0f);
-        text_Paid.setClickable(true);
-        text_Receive.setClickable(true);
-        text_Debt_Crave.setClickable(true);
-        text_Transfer.setClickable(true);
-        fab_Paid.setClickable(true);
-        fab_Receive.setClickable(true);
-        fab_Debt_Crave.setClickable(true);
-        fab_Transfer.setClickable(true);
-        fab_Main.setClickable(true);
-        fab_Main.show();
-        fab_Paid.show();
-        fab_Receive.show();
-        fab_Debt_Crave.show();
-        fab_Transfer.show();
-
-        collapseFabMenu();
-    }
-
-    private void setFabMenu() {
-        fab_Main = findViewById(R.id.floating_main);
-        fab_Paid = findViewById(R.id.floating_paid);
-        fab_Receive = findViewById(R.id.floating_receive);
-        fab_Debt_Crave = findViewById(R.id.floating_debt_and_crave);
-        fab_Transfer = findViewById(R.id.floating_transfer);
-
-        background_fab = findViewById(R.id.background_fab);
-
-        text_Paid = findViewById(R.id.text_paid);
-        text_Receive = findViewById(R.id.text_receive);
-        text_Debt_Crave = findViewById(R.id.text_debt_and_crave);
-        text_Transfer = findViewById(R.id.text_transfer);
-
-        text_Paid.setOnClickListener(this);
-        text_Receive.setOnClickListener(this);
-        text_Debt_Crave.setOnClickListener(this);
-        text_Transfer.setOnClickListener(this);
-
-        background_fab.setOnClickListener(this);
-
-        fab_Main.setOnClickListener(this);
-        fab_Paid.setOnClickListener(this);
-        fab_Receive.setOnClickListener(this);
-        fab_Debt_Crave.setOnClickListener(this);
-        fab_Transfer.setOnClickListener(this);
-
-
-    }
-
-
-    private void getAnimations() {
-
-        fabOpenAnimation = AnimationUtils.loadAnimation(this, R.anim.floating_button_open);
-        fabCloseAnimation = AnimationUtils.loadAnimation(this, R.anim.floating_button_close);
-        fabClock = AnimationUtils.loadAnimation(this, R.anim.floating_button_rotate_clock);
-        fabAntiClock = AnimationUtils.loadAnimation(this, R.anim.floating_button_rotate_anticlock);
-
-        textOpen = AnimationUtils.loadAnimation(this, R.anim.floating_button_open);
-        textClose = AnimationUtils.loadAnimation(this, R.anim.floating_button_close);
-    }
-
-
-    private void expandFabMenu() {
-
-        text_Paid.setVisibility(View.VISIBLE);
-        text_Receive.setVisibility(View.VISIBLE);
-        text_Debt_Crave.setVisibility(View.VISIBLE);
-        text_Transfer.setVisibility(View.VISIBLE);
-
-        background_fab.setAlpha(0.5f);
-
-        text_Paid.startAnimation(textOpen);
-        text_Receive.startAnimation(textOpen);
-        text_Debt_Crave.startAnimation(textOpen);
-        text_Transfer.startAnimation(textOpen);
-
-        fab_Paid.startAnimation(fabOpenAnimation);
-        fab_Receive.startAnimation(fabOpenAnimation);
-        fab_Debt_Crave.startAnimation(fabOpenAnimation);
-        fab_Transfer.startAnimation(fabOpenAnimation);
-        fab_Main.startAnimation(fabClock);
-
-        fab_Paid.setClickable(true);
-        fab_Receive.setClickable(true);
-        fab_Debt_Crave.setClickable(true);
-        fab_Transfer.setClickable(true);
-
-        background_fab.setClickable(true);
-        isFabMenuOpen = true;
-    }
-
-
-    private void collapseFabMenu() {
-        text_Paid.setVisibility(View.INVISIBLE);
-        text_Receive.setVisibility(View.INVISIBLE);
-        text_Debt_Crave.setVisibility(View.INVISIBLE);
-        text_Transfer.setVisibility(View.INVISIBLE);
-
-        background_fab.setAlpha(0.0f);
-
-        text_Paid.startAnimation(textClose);
-        text_Receive.startAnimation(textClose);
-        text_Debt_Crave.startAnimation(textClose);
-        text_Transfer.startAnimation(textClose);
-
-        fab_Paid.startAnimation(fabCloseAnimation);
-        fab_Receive.startAnimation(fabCloseAnimation);
-        fab_Debt_Crave.startAnimation(fabCloseAnimation);
-        fab_Transfer.startAnimation(fabCloseAnimation);
-        fab_Main.startAnimation(fabAntiClock);
-
-        fab_Paid.setClickable(false);
-        fab_Receive.setClickable(false);
-        fab_Debt_Crave.setClickable(false);
-        fab_Transfer.setClickable(false);
-
-        background_fab.setClickable(false);
-
-        isFabMenuOpen = false;
-
-    }
-
-
-    private void startIntents(Class activity) {
-        intent = new Intent(getApplicationContext(), activity);
-        startActivity(intent);
-    }
-
-
-    @Override
-    public void onBackPressed() {
-        if (isFabMenuOpen) {
-            collapseFabMenu();
-        } else {
-            super.onBackPressed();
-        }
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -423,82 +235,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.floating_main:
-                if (isFabMenuOpen) {
-                    collapseFabMenu();
-                } else {
-                    expandFabMenu();
-                }
-                break;
-            case R.id.floating_paid:
-            case R.id.text_paid:
-                Toast.makeText(this, R.string.activity_title_paid, Toast.LENGTH_SHORT).show();
-                startIntents(PaidActivity.class);
-                collapseFabMenu();
-                break;
-            case R.id.floating_receive:
-            case R.id.text_receive:
-                Toast.makeText(this, R.string.activity_title_received, Toast.LENGTH_SHORT).show();
-                startIntents(ReceiveActivity.class);
-                collapseFabMenu();
-                break;
-            case R.id.floating_debt_and_crave:
-            case R.id.text_debt_and_crave:
-                Toast.makeText(this, R.string.activity_title_crDe, Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(this, CraveDebtActivity.class);
-                intent.putExtra("Type", "All");
-                startActivity(intent);
-                collapseFabMenu();
-                break;
-            case R.id.floating_transfer:
-            case R.id.text_transfer:
-                TransferMoney transferMoney = new TransferMoney(this);
-                transferMoney.show();
-                collapseFabMenu();
-                break;
-            case R.id.background_fab:
-                collapseFabMenu();
-                break;
-            case R.id.floating_note:
-        }
-    }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-
-        Fragment fragment = null;
-        Class fragmentClass = null;
-        int id = menuItem.getItemId();
-
-        if (id == R.id.navigation_home) {
-            fragmentClass = HomeFragment.class;
-            setEnableFab();
-        } else if (id == R.id.navigation_charts) {
-            fragmentClass = ChartsFragment.class;
-            setDisableFab();
-        } else if (id == R.id.navigation_reports) {
-            fragmentClass = ReportsFragment.class;
-            setDisableFab();
-        } else if (id == R.id.navigation_note) {
-            fragmentClass = NoteFragment.class;
-            setDisableFab();
-        }
-
-
-        try {
-            fragment = (Fragment) fragmentClass.newInstance();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, fragment).commit();
-
-        return true;
-
-    }
 
 }

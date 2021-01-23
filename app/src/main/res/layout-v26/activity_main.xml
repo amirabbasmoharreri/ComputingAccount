@@ -32,147 +32,15 @@
         app:navGraph="@navigation/mobile_navigation" />
 
 
-
-
-    <ImageView
-        android:id="@+id/background_fab"
+    <View
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/cardview_dark_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-         />
-
-    <LinearLayout
-        android:id="@+id/linearLayout_paid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout_receive"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints">
-
-
-        <TextView
-            android:id="@+id/text_paid"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="20dp"
-            android:text="@string/textView_paid" />
-
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floating_paid"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="bottom|end"
-            app:layout_constraintBottom_toTopOf="@+id/floating_receive"
-            tools:ignore="MissingConstraints" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout_receive"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout_debt_crave"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints">
-
-        <TextView
-            android:id="@+id/text_receive"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="20dp"
-            android:text="@string/textView_receive" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floating_receive"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="bottom|end"
-            app:layout_constraintBottom_toTopOf="@+id/floating_debt"
-            tools:ignore="MissingConstraints" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout_debt_crave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout_transfer"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints">
-
-        <TextView
-            android:id="@+id/text_debt_and_crave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="20dp"
-            android:text="@string/textView_debt_and_crave" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floating_debt_and_crave"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="bottom|end"
-            app:layout_constraintBottom_toTopOf="@+id/floating_transfer"
-            tools:ignore="MissingConstraints" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout_transfer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/floating_main"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints">
-
-        <TextView
-            android:id="@+id/text_transfer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="20dp"
-            android:text="@string/textView_transfer" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floating_transfer"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="bottom|end"
-            tools:ignore="MissingConstraints" />
-
-    </LinearLayout>
-
-
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floating_main"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:layout_marginBottom="50dp"
-        android:clickable="true"
-        app:fabSize="normal"
+        android:layout_height="15dp"
+        android:background="@drawable/bottom_navigation_button_shodow"
+        android:translationZ="5dp"
         app:layout_constraintBottom_toTopOf="@id/nav_view"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints"
-        android:focusable="true"
-        app:fabCustomSize="50dp"
-        android:src="@drawable/ic_add_white_24dp" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:ignore="MissingConstraints" />
 
 
 
