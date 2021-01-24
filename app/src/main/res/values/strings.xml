@@ -67,6 +67,8 @@
     <string name="textView_sum_price">: Sum Price</string>
     <string name="textView_name">name</string>
     <string name="textView_address">Address</string>
+    <string name="textView_end">End</string>
+    <string name="textView_start">Start</string>
 
 
     <!--    editText    -->

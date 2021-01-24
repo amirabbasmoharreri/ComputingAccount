@@ -67,6 +67,8 @@
     <string name="textView_sum_price">: جمع مبلغ</string>
     <string name="textView_name">نام</string>
     <string name="textView_address">آدرس</string>
+    <string name="textView_end">پایان</string>
+    <string name="textView_start">شروع</string>
 
 
 
@@ -229,6 +231,7 @@
     <string name="menu_close_account">بستن حساب</string>
     <string name="menu_save_pdf">ذخیره Pdf</string>
     <string name="menu_checkout">تسویه</string>
+
 
 
     <!--                  string arrays              -->

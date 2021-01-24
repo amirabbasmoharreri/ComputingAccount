@@ -70,12 +70,12 @@
                             android:id="@+id/date_layout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="50dp"
+                            android:layout_marginTop="30dp"
                             android:gravity="center"
                             android:orientation="horizontal"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/spinner_report">
+                            app:layout_constraintTop_toBottomOf="@id/date_layout_name">
 
 
                             <com.abbasmoharreri.computingaccount.persiandatepicker.PersianDatePicker
@@ -93,6 +93,41 @@
                         </LinearLayout>
 
 
+                        <TableLayout
+                            android:id="@+id/date_layout_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="50dp"
+                            android:gravity="center"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/spinner_report"
+                            android:stretchColumns="*">
+
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/textView_end"
+                                    android:gravity="center"
+                                    android:textSize="18dp"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/textView_start"
+                                    android:gravity="center"
+                                    android:textSize="18dp"/>
+
+                            </TableRow>
+
+                        </TableLayout>
+
+
                         <Spinner
                             android:id="@+id/spinner_report"
                             android:layout_width="match_parent"
@@ -103,7 +138,7 @@
                             android:gravity="center_vertical"
                             android:textAlignment="gravity"
                             android:autofillHints="Type of Reports"
-                            app:layout_constraintBottom_toBottomOf="@id/date_layout"
+                            app:layout_constraintBottom_toBottomOf="@id/date_layout_name"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />

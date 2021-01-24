@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +18,7 @@ import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -42,6 +44,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 public class ReportsFragment extends Fragment implements View.OnClickListener, AdapterView.OnItemSelectedListener, DialogInterface.OnDismissListener {
@@ -132,7 +135,13 @@ public class ReportsFragment extends Fragment implements View.OnClickListener, A
         button.setOnClickListener(this);
 
 
-        reportTexts = getResources().getStringArray(R.array.Reports_Mode);
+        SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(getContext());
+        if(Objects.equals(sharedPreferences.getString("language", "en"), "en")){
+            reportTexts = getResources().getStringArray(R.array.Reports_Mode_English);
+        }else {
+            reportTexts = getResources().getStringArray(R.array.Reports_Mode_Farsi);
+        }
+
 
         workNames = new ArrayList<>();
         personNames = new ArrayList<>();
@@ -200,7 +209,7 @@ public class ReportsFragment extends Fragment implements View.OnClickListener, A
 
 
     private void setSpinnerData() {
-        String[] spinnerList = getResources().getStringArray(R.array.Reports_Mode);
+        String[] spinnerList = getResources().getStringArray(R.array.Reports_Mode_English);
         ArrayAdapter<String> spinnerArray = new ArrayAdapter<String>(context, R.layout.popup_autocomplete, reportTexts);
         spinnerArray.setDropDownViewResource(R.layout.popup_autocomplete);
         reportSpinner.setAdapter(spinnerArray);
@@ -376,9 +385,9 @@ public class ReportsFragment extends Fragment implements View.OnClickListener, A
 
         if (view.getId() == R.id.floating_layout_report) {
 
-            //fetchReports();
-            new BackgroundFetchReport().execute("start");
-
+            if(showMassage()) {
+                new BackgroundFetchReport().execute("start");
+            }
 
         }
     }
@@ -514,7 +523,7 @@ public class ReportsFragment extends Fragment implements View.OnClickListener, A
         @Override
         protected void onPostExecute(String s) {
             fetchReports();
-            if (showMassage() && isExistenceData) {
+            if (isExistenceData) {
                 enableScrollingCollapse();
                 appBarLayout.setExpanded(false);
             }

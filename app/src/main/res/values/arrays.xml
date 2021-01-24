@@ -2,12 +2,21 @@
 <resources>
 
 
-    <string-array name="Reports_Mode">
-        <item>"ReportWNameATime"</item>
-        <item>"ReportWTime"</item>
-        <item>"ReportWPersonATime"</item>
-        <item>"ReportWNumber"</item>
+    <string-array name="Reports_Mode_English">
+        <item>"Report with Work Name and Time"</item>
+        <item>"Report with Time"</item>
+        <item>"Report with Person Name and Time"</item>
+        <item>"Report With Report Number"</item>
     </string-array>
+
+
+    <string-array name="Reports_Mode_Farsi">
+        <item>"گزارش بر اساس نام کار و تاریخ"</item>
+        <item>"گزارش بر اساس تاریخ"</item>
+        <item>"گزارش بر اساس نام شخص و تاریخ"</item>
+        <item>"گزارش بر اساس شماره گزارش"</item>
+    </string-array>
+
     <!-- Reply Preference -->
     <string-array name="back_up_entries">
         <item>Full</item>
