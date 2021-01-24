@@ -92,7 +92,7 @@ public class WalletCardAdapter extends RecyclerView.Adapter<WalletCardAdapter.Vi
                 if (item.getItemId() == R.id.button_delete) {
 
                     new AlertDialog.Builder( context )
-                            .setTitle( R.string.message_title_attention )
+                            .setTitle( R.string.massage_title_attention)
                             .setMessage( R.string.massage_ifDeleteLostData )
                             .setNegativeButton( android.R.string.no, new DialogInterface.OnClickListener() {
                                 @Override

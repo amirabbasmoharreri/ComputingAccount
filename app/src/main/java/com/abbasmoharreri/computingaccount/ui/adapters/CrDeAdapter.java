@@ -95,7 +95,7 @@ public class CrDeAdapter extends RecyclerView.Adapter<CrDeAdapter.ViewHolder> {
     public void showPopup(View v, final int position) {
         PopupMenu popupMenu = new PopupMenu( context, v );
         MenuInflater inflater = popupMenu.getMenuInflater();
-        inflater.inflate( R.menu.card_view_menu, popupMenu.getMenu() );
+        inflater.inflate( R.menu.card_view_crave_debt, popupMenu.getMenu() );
         popupMenu.show();
 
         final DataBaseController dataBaseController = new DataBaseController( context );
@@ -104,7 +104,7 @@ public class CrDeAdapter extends RecyclerView.Adapter<CrDeAdapter.ViewHolder> {
         popupMenu.setOnMenuItemClickListener( new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                if (item.getItemId() == R.id.button_delete) {
+                if (item.getItemId() == R.id.button_checkout) {
                     try {
                         dataBaseController.deleteCraveDebt( aCraveAndDebts.get( position ) );
                         aCraveAndDebts.remove( position );

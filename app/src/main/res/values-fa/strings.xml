@@ -169,6 +169,12 @@
     <string name="massage_title_comment">توضیحات</string>
     <string name="massage_inputComment">توضیحات را وارد کنید</string>
 
+    <!--   Massage    Crave and Debt        -->
+
+    <string name="massage_title_crave_and_debt">طلب و بدهی</string>
+    <string name="massage_selectTypeOfCraveDebt">نوع پرداختی رو انتخاب کنید</string>
+
+
 
     <!--    Massages   title -->
 
@@ -181,11 +187,12 @@
 
     <!--    Massages   attention   -->
 
-    <string name="message_title_attention">توجه</string>
+    <string name="massage_title_attention">توجه</string>
     <string name="massage_ifDeleteLostData">اگر این مورد پاک کنید ، ممکن است اطلاعاتی از دست برود.</string>
     <string name="massage_no_data">اطلاعاتی موجود نیست</string>
     <string name="massage_doYouWantCloseAccount">ایا میخواهید این حساب را ببندید؟</string>
     <string name="massage_alreadyReported">این گزارش قبلا گزارش شده است</string>
+    <string name="massage_isExistPerson">این شخص موجود است</string>
 
 
 
@@ -219,7 +226,7 @@
     <string name="menu_transfer">انتقال</string>
     <string name="menu_close_account">بستن حساب</string>
     <string name="menu_save_pdf">ذخیره Pdf</string>
-
+    <string name="menu_checkout">تسویه</string>
 
 
     <!--                  string arrays              -->

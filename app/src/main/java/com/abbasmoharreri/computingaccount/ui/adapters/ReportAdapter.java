@@ -107,7 +107,7 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ViewHolder
                 if (item.getItemId() == R.id.button_delete) {
 
                     new AlertDialog.Builder(context)
-                            .setTitle(R.string.message_title_attention)
+                            .setTitle(R.string.massage_title_attention)
                             .setMessage(R.string.massage_ifDeleteLostData)
                             .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                                 @Override
@@ -145,7 +145,7 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ViewHolder
                 } else if (item.getItemId() == R.id.button_close_account) {
 
                     new AlertDialog.Builder(context)
-                            .setTitle(R.string.message_title_attention)
+                            .setTitle(R.string.massage_title_attention)
                             .setMessage(R.string.massage_doYouWantCloseAccount)
                             .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                                 @Override
@@ -189,7 +189,7 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ViewHolder
 
     private void showMassage() {
         new AlertDialog.Builder(context)
-                .setTitle(R.string.message_title_attention)
+                .setTitle(R.string.massage_title_attention)
                 .setMessage(R.string.massage_alreadyReported)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override

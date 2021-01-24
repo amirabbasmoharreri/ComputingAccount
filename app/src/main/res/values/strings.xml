@@ -166,11 +166,18 @@
     <string name="massage_title_comment">Comment</string>
     <string name="massage_inputComment">Input Comment</string>
 
+    <!--   Massage    Crave and Debt        -->
+
+    <string name="massage_title_crave_and_debt">Crave And Debt</string>
+    <string name="massage_selectTypeOfCraveDebt">Select Type of Pay</string>
+
+
+
+
 
     <!--    Massages   title -->
 
     <string name="massage_title_add_photo">Add Photo!</string>
-
     <string name="massage_title_datePicker">Date</string>
     <string name="massage_inputStartEndDate">Input Start Date and End Date</string>
     <string name="massage_title_name">Name</string>
@@ -178,11 +185,12 @@
 
     <!--    Massages   attention   -->
 
-    <string name="message_title_attention">Attention</string>
+    <string name="massage_title_attention">Attention</string>
     <string name="massage_ifDeleteLostData">If you delete this, your data will be lost.</string>
     <string name="massage_no_data">No Data</string>
     <string name="massage_doYouWantCloseAccount">Do you want to close this account?</string>
     <string name="massage_alreadyReported">This report already reported</string>
+    <string name="massage_isExistPerson">This Person is exist</string>
 
 
     <!--    radioButton     -->
@@ -215,6 +223,7 @@
     <string name="menu_transfer">Transfer</string>
     <string name="menu_close_account">Close Account</string>
     <string name="menu_save_pdf">Save Pdf</string>
+    <string name="menu_checkout">Checkout</string>
 
 
     <!--                  string arrays              -->

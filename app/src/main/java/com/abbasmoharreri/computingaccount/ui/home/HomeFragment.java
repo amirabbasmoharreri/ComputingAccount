@@ -273,15 +273,6 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         startActivity(intent);
     }
 
-/*
-    @Override
-    public void onBackPressed() {
-        if (isFabMenuOpen) {
-            collapseFabMenu();
-        } else {
-            super.onBackPressed();
-        }
-    }*/
 
     @Override
     public void onRefresh() {
@@ -339,12 +330,14 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                 Toast.makeText(getContext(), R.string.activity_title_paid, Toast.LENGTH_SHORT).show();
                 startIntents(PaidActivity.class);
                 collapseFabMenu();
+                hide_background_fab();
                 break;
             case R.id.floating_receive:
             case R.id.text_receive:
                 Toast.makeText(getContext(), R.string.activity_title_received, Toast.LENGTH_SHORT).show();
                 startIntents(ReceiveActivity.class);
                 collapseFabMenu();
+                hide_background_fab();
                 break;
             case R.id.floating_debt_and_crave:
             case R.id.text_debt_and_crave:
@@ -353,12 +346,14 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                 intent.putExtra("Type", "All");
                 startActivity(intent);
                 collapseFabMenu();
+                hide_background_fab();
                 break;
             case R.id.floating_transfer:
             case R.id.text_transfer:
                 TransferMoney transferMoney = new TransferMoney(getContext());
                 transferMoney.show();
                 collapseFabMenu();
+                hide_background_fab();
                 break;
             case R.id.background_fab:
                 collapseFabMenu();

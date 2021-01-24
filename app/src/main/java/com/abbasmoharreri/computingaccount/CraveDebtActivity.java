@@ -33,44 +33,34 @@ public class CraveDebtActivity extends AppCompatActivity implements View.OnClick
     private SwipeRefreshLayout swipeRefreshLayout;
     private RadioGroup radioGroup;
     private RadioButton craveRadio, debtRadio, allRadio;
+    private String type = "";
+    private FetchCraveDebts fetchCraveDebts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate( savedInstanceState );
+        super.onCreate(savedInstanceState);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         if (preferences.getBoolean("darkMode", true)) {
             setTheme(R.style.Dark_AppTheme);
         } else {
             setTheme(R.style.LightTheme_AppTheme);
         }
-        setContentView( R.layout.activity_crave_debt );
+        setContentView(R.layout.activity_crave_debt);
 
-        sumCrave = findViewById( R.id.activity_crave_debt_crave );
-        sumDebt = findViewById( R.id.activity_crave_debt_debt );
-        recyclerView = findViewById( R.id.recycle_view_crave_debt );
-        swipeRefreshLayout = findViewById( R.id.recycle_view_swipe_refresh_crave_debt );
-        swipeRefreshLayout.setOnRefreshListener( this );
-        addButton = findViewById( R.id.floating_crave_debt );
-        addButton.setOnClickListener( this );
-        radioGroup = findViewById( R.id.radio_group_crde );
-        radioGroup.setOnCheckedChangeListener( this );
-        craveRadio = findViewById( R.id.radio_crave_crde );
-        debtRadio = findViewById( R.id.radio_debt_crde );
-        allRadio = findViewById( R.id.radio_all_crde );
+        sumCrave = findViewById(R.id.activity_crave_debt_crave);
+        sumDebt = findViewById(R.id.activity_crave_debt_debt);
+        recyclerView = findViewById(R.id.recycle_view_crave_debt);
+        swipeRefreshLayout = findViewById(R.id.recycle_view_swipe_refresh_crave_debt);
+        swipeRefreshLayout.setOnRefreshListener(this);
+        addButton = findViewById(R.id.floating_crave_debt);
+        addButton.setOnClickListener(this);
+        radioGroup = findViewById(R.id.radio_group_crde);
+        radioGroup.setOnCheckedChangeListener(this);
+        craveRadio = findViewById(R.id.radio_crave_crde);
+        debtRadio = findViewById(R.id.radio_debt_crde);
+        allRadio = findViewById(R.id.radio_all_crde);
 
-        String type = getIntent().getStringExtra( "Type" );
-
-        if (type.equals( "All" )) {
-            allRadio.setChecked( true );
-            setRecyclerView();
-        } else if (type.equals( "Crave" )) {
-            craveRadio.setChecked( true );
-            setRecyclerViewCrave();
-        } else if (type.equals( "Debt" )) {
-            debtRadio.setChecked( true );
-            setRecyclerViewDebt();
-        }
-
+        type = getIntent().getStringExtra("Type");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -80,15 +70,30 @@ public class CraveDebtActivity extends AppCompatActivity implements View.OnClick
     protected void onResume() {
         super.onResume();
         setDataToolBar();
-        //setRecyclerView();
+        showSelectedDate();
+    }
+
+
+    private void showSelectedDate() {
+
+        if (type.equals("All")) {
+            allRadio.setChecked(true);
+            setRecyclerView();
+        } else if (type.equals("Crave")) {
+            craveRadio.setChecked(true);
+            setRecyclerViewCrave();
+        } else if (type.equals("Debt")) {
+            debtRadio.setChecked(true);
+            setRecyclerViewDebt();
+        }
     }
 
     @SuppressLint("DefaultLocale")
     private void setDataToolBar() {
         try {
-            FetchLatestInventory fetchLatestInventory = new FetchLatestInventory( this );
-            sumDebt.setText( String.format( "%,d", fetchLatestInventory.getSumDebt() ) );
-            sumCrave.setText( String.format( "%,d", fetchLatestInventory.getSumCrave() ) );
+            FetchLatestInventory fetchLatestInventory = new FetchLatestInventory(this);
+            sumDebt.setText(String.format("%,d", fetchLatestInventory.getSumDebt()));
+            sumCrave.setText(String.format("%,d", fetchLatestInventory.getSumCrave()));
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -98,11 +103,11 @@ public class CraveDebtActivity extends AppCompatActivity implements View.OnClick
 
     private void setRecyclerView() {
         try {
-            FetchCraveDebts fetchCraveDebts = new FetchCraveDebts( this );
-            CrDeAdapter crDeAdapter = new CrDeAdapter( this, fetchCraveDebts.getList() );
-            crDeAdapter.setPopUpMenuListener( this );
-            recyclerView.setAdapter( crDeAdapter );
-            recyclerView.setLayoutManager( new LinearLayoutManager( this ) );
+            fetchCraveDebts = new FetchCraveDebts(this);
+            CrDeAdapter crDeAdapter = new CrDeAdapter(this, fetchCraveDebts.getList());
+            crDeAdapter.setPopUpMenuListener(this);
+            recyclerView.setAdapter(crDeAdapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -111,11 +116,11 @@ public class CraveDebtActivity extends AppCompatActivity implements View.OnClick
 
     private void setRecyclerViewCrave() {
         try {
-            FetchCraveDebts fetchCraveDebts = new FetchCraveDebts( this );
-            CrDeAdapter crDeAdapter = new CrDeAdapter( this, fetchCraveDebts.getCraveList() );
-            crDeAdapter.setPopUpMenuListener( this );
-            recyclerView.setAdapter( crDeAdapter );
-            recyclerView.setLayoutManager( new LinearLayoutManager( this ) );
+            fetchCraveDebts = new FetchCraveDebts(this);
+            CrDeAdapter crDeAdapter = new CrDeAdapter(this, fetchCraveDebts.getCraveList());
+            crDeAdapter.setPopUpMenuListener(this);
+            recyclerView.setAdapter(crDeAdapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -125,11 +130,11 @@ public class CraveDebtActivity extends AppCompatActivity implements View.OnClick
 
     private void setRecyclerViewDebt() {
         try {
-            FetchCraveDebts fetchCraveDebts = new FetchCraveDebts( this );
-            CrDeAdapter crDeAdapter = new CrDeAdapter( this, fetchCraveDebts.getDebtList() );
-            crDeAdapter.setPopUpMenuListener( this );
-            recyclerView.setAdapter( crDeAdapter );
-            recyclerView.setLayoutManager( new LinearLayoutManager( this ) );
+            fetchCraveDebts = new FetchCraveDebts(this);
+            CrDeAdapter crDeAdapter = new CrDeAdapter(this, fetchCraveDebts.getDebtList());
+            crDeAdapter.setPopUpMenuListener(this);
+            recyclerView.setAdapter(crDeAdapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -140,8 +145,8 @@ public class CraveDebtActivity extends AppCompatActivity implements View.OnClick
     public void onClick(View v) {
 
         if (v.getId() == R.id.floating_crave_debt) {
-            UpdateCrDeDialog updateCrDeDialog = new UpdateCrDeDialog( this );
-            updateCrDeDialog.setOnDismissListener( this );
+            UpdateCrDeDialog updateCrDeDialog = new UpdateCrDeDialog(this, fetchCraveDebts.getList());
+            updateCrDeDialog.setOnDismissListener(this);
             updateCrDeDialog.show();
         }
     }
@@ -149,21 +154,21 @@ public class CraveDebtActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onDismiss(DialogInterface dialogInterface) {
-        setRecyclerView();
+        showSelectedDate();
         setDataToolBar();
     }
 
     @Override
     public void onDismiss(PopupMenu popupMenu) {
         setDataToolBar();
-        setRecyclerView();
+        showSelectedDate();
     }
 
     @Override
     public void onRefresh() {
         setDataToolBar();
-        setRecyclerView();
-        swipeRefreshLayout.setRefreshing( false );
+        showSelectedDate();
+        swipeRefreshLayout.setRefreshing(false);
     }
 
     @Override
@@ -171,10 +176,13 @@ public class CraveDebtActivity extends AppCompatActivity implements View.OnClick
 
         if (checkedId == R.id.radio_crave_crde) {
             setRecyclerViewCrave();
+            this.type = "Crave";
         } else if (checkedId == R.id.radio_debt_crde) {
             setRecyclerViewDebt();
+            this.type = "Debt";
         } else if (checkedId == R.id.radio_all_crde) {
             setRecyclerView();
+            this.type = "All";
         }
     }
 
@@ -182,8 +190,7 @@ public class CraveDebtActivity extends AppCompatActivity implements View.OnClick
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        switch (item.getItemId())
-        {
+        switch (item.getItemId()) {
             case android.R.id.home:
                 onBackPressed();
                 return true;
