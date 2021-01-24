@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> implements View.OnClickListener {
+public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>  {
 
     private Context context;
     private List<String> stringList;
@@ -66,19 +66,20 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> im
             public void onClick(View v) {
 
                 AlertDialog alertDialog = new AlertDialog.Builder( context )
-                        .setTitle( "Warning" )
-                        .setMessage( "Do you want to delete this item?" )
+                        .setTitle( R.string.massage_warning )
+                        .setMessage( R.string.massage_DoWantDelete )
                         .setPositiveButton( "Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                deleteItem( true );
+                                DataBaseController dataBaseController = new DataBaseController( context );
+                                dataBaseController.deleteNote( st );
+                                Toast.makeText( context, R.string.toast_deleteItem, Toast.LENGTH_SHORT ).show();
                                 dialog.dismiss();
                             }
                         } )
                         .setNegativeButton( "No", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                deleteItem( false );
                                 dialog.dismiss();
                             }
                         } )
@@ -91,13 +92,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> im
 
     }
 
-    private void deleteItem(boolean choose) {
-        if (choose) {
-            DataBaseController dataBaseController = new DataBaseController( context );
-            dataBaseController.deleteNote( st );
-            Toast.makeText( context, R.string.toast_deleteItem, Toast.LENGTH_SHORT ).show();
-        }
-    }
 
     public void setOnDismissListener(DialogInterface.OnDismissListener listener) {
         this.listener = listener;
@@ -108,12 +102,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> im
         return stringList.size();
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.note_fragment_delete_button) {
-
-        }
-    }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 

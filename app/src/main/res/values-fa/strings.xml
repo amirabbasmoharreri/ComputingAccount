@@ -174,8 +174,6 @@
     <string name="massage_title_crave_and_debt">طلب و بدهی</string>
     <string name="massage_selectTypeOfCraveDebt">نوع پرداختی رو انتخاب کنید</string>
 
-
-
     <!--    Massages   title -->
 
     <string name="massage_title_add_photo">اضافه کردن عکس</string>
@@ -195,6 +193,10 @@
     <string name="massage_isExistPerson">این شخص موجود است</string>
 
 
+    <!--   Massage    Warning       -->
+
+    <string name="massage_warning">اخطار</string>
+    <string name="massage_DoWantDelete">ایا می خواهید این مورد را حذف کنید؟</string>
 
 
     <!--   radioButton    -->
