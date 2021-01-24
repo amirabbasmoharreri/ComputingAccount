@@ -114,8 +114,6 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         text_Transfer.setOnClickListener(this);
 
         background_fab.setOnClickListener(this);
-        background_fab.setClickable(false);
-        background_fab.setAlpha(0.0f);
 
         fab_Main.setOnClickListener(this);
         fab_Paid.setOnClickListener(this);
@@ -131,6 +129,8 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     public void onResume() {
         super.onResume();
         collapseFabMenu();
+        background_fab.setClickable(false);
+        background_fab.setAlpha(0.0f);
         new BackgroundTask().execute("start");
     }
 

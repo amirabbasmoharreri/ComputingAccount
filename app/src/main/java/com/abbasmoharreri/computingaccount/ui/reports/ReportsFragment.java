@@ -110,8 +110,13 @@ public class ReportsFragment extends Fragment implements View.OnClickListener, A
                     //you have reached to the bottom of your recycler view
                     Log.e("onScrolled: ", "end");
                     recyclerView.setNestedScrollingEnabled(false);
-                }else if ((visibleItemCount + firstVisible) < totalItemCount && firstVisible >= 0){
+
+                } else if ((visibleItemCount + firstVisible) < totalItemCount && firstVisible >= 0) {
                     Log.e("onScrolled: ", "start");
+                    recyclerView.setNestedScrollingEnabled(true);
+                }
+
+                if (totalItemCount <= visibleItemCount) {
                     recyclerView.setNestedScrollingEnabled(true);
                 }
             }
