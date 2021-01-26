@@ -57,6 +57,7 @@
         <item name="buttonBarButtonStyle">@style/custom_dark_button_alert_dialog</item>
         <item name="android:textColorAlertDialogListItem">@color/white_primary</item>
         <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="colorAccent">@color/yellow_primary</item>
     </style>
 
 
@@ -167,7 +168,9 @@
 
         <!--        dialogs           -->
         <item name="android:alertDialogTheme">@style/custom_dark_alert_dialog</item>
+        <item name="alertDialogTheme">@style/custom_dark_alert_dialog</item>
         <item name="android:dialogTheme">@style/custom_dark_dialog</item>
+
 
 
         <!--     CollapsingToolbarLayouts        -->
@@ -200,6 +203,8 @@
         <!--     color of table's background     -->
         <item name="table_background">@color/dark_ColorPrimaryDark</item>
         <item name="table_border_color">@color/yellow_primary</item>
+
+
 
     </style>
 
@@ -266,6 +271,7 @@
         <item name="buttonBarButtonStyle">@style/custom_light_button_alert_dialog</item>
         <item name="android:textColorAlertDialogListItem">@color/grey_primary</item>
         <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="colorAccent">@color/blue_primary</item>
     </style>
 
 
@@ -377,6 +383,7 @@
 
         <!--        dialogs           -->
         <item name="android:alertDialogTheme">@style/custom_light_alert_dialog</item>
+        <item name="alertDialogTheme">@style/custom_light_alert_dialog</item>
         <item name="android:dialogTheme">@style/custom_light_dialog</item>
 
 
