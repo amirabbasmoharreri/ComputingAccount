@@ -170,7 +170,7 @@ public class MainActivity extends BaseActivity {
 
             Notification.Builder notification = new Notification.Builder(this)
                     .setVisibility(Notification.VISIBILITY_PUBLIC)
-                    .setSmallIcon(R.drawable.ic_luncher_forground_2)
+                    .setSmallIcon(R.drawable.ic_notification_icon)
                     .addAction(new Notification.Action(R.drawable.ic_mic_24dp, getString(R.string.button_name_speak), pendingIntent))
                     .setContentTitle(getString(R.string.notification_title_speechToText))
                     .setContentText(getString(R.string.notification_clickSpeak))
@@ -182,7 +182,7 @@ public class MainActivity extends BaseActivity {
                     .setCategory(Notification.CATEGORY_MESSAGE)
                     .setContentTitle(getString(R.string.notification_title_speechToText))
                     .setContentText(getString(R.string.notification_clickSpeak))
-                    .setSmallIcon(R.drawable.ic_luncher_forground_2)
+                    .setSmallIcon(R.drawable.ic_notification_icon)
                     .addAction(new Notification.Action(R.drawable.ic_mic_24dp, getString(R.string.button_name_speak), pendingIntent))
                     .setVisibility(Notification.VISIBILITY_PUBLIC);
             NotificationManager notificationManager =

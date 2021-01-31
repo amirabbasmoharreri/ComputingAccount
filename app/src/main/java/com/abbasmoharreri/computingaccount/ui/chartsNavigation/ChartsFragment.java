@@ -64,7 +64,7 @@ public class ChartsFragment extends Fragment implements PopupMenu.OnDismissListe
         recyclerView = root.findViewById(R.id.recycle_view_charts);
         pieChart = new PieChart();
 
-        customProgressBar = new CustomProgressBar(getContext());
+        customProgressBar = new CustomProgressBar();
 
         return root;
     }
@@ -154,7 +154,7 @@ public class ChartsFragment extends Fragment implements PopupMenu.OnDismissListe
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            customProgressBar.show();
+            customProgressBar.show(getParentFragmentManager(),"");
         }
 
 
@@ -170,7 +170,13 @@ public class ChartsFragment extends Fragment implements PopupMenu.OnDismissListe
             price.setText(String.format("%,d", fetchSumPriceWNameWMaxReport.sumAllPrices()));
             setPieChartViewData();
             setRecyclerView(fetchSumPriceWNameWMaxReport.getContainer().get(0).getName());
-            customProgressBar.dismiss();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    customProgressBar.dismiss();
+                }
+            },500);
+
             this.onCancelled();
         }
     }

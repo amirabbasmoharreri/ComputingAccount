@@ -70,4 +70,5 @@ dependencies {
     implementation('com.google.apis:google-api-services-drive:v3-rev136-1.25.0') {
         exclude group: 'org.apache.httpcomponents'
     }
+    implementation 'com.airbnb.android:lottie:3.6.0'
 }

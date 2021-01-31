@@ -274,12 +274,14 @@ public class UpdateCrDeDialog extends Dialog implements View.OnClickListener, Pe
                 if(showMassage()) {
                     if (isUpdateForm) {
 
+                        String paidPrice = NumberTextWatcherForThousand.trimCommaOfString(price.getText().toString());
+
                         FetchData fetchData = new FetchData(context);
                         getDate();
                         getType();
                         aCraveAndDebt.setPersonId(fetchData.update_ACraveDebt_PersonId(person.getText().toString()))
                                 .setPersonName(person.getText().toString())
-                                .setPrice(Integer.parseInt(price.getText().toString()))
+                                .setPrice(Integer.parseInt(paidPrice))
                                 .setComment(comment.getText().toString())
                                 .setType(type);
 
@@ -295,12 +297,14 @@ public class UpdateCrDeDialog extends Dialog implements View.OnClickListener, Pe
 
                     } else {
 
+                        String paidPrice = NumberTextWatcherForThousand.trimCommaOfString(price.getText().toString());
+
                         FetchData fetchData = new FetchData(context);
                         getDate();
                         getType();
                         aCraveAndDebt.setPersonId(fetchData.update_ACraveDebt_PersonId(person.getText().toString()))
                                 .setPersonName(person.getText().toString())
-                                .setPrice(Integer.parseInt(price.getText().toString()))
+                                .setPrice(Integer.parseInt(paidPrice))
                                 .setComment(comment.getText().toString())
                                 .setType(type);
 

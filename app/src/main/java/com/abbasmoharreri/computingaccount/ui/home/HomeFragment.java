@@ -55,6 +55,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     private SwipeRefreshLayout swipeRefreshLayout;
     private TextView remained, received, crave, debt;
     private ImageView craveImage, debtImage, receiveImage;
+    private Handler handler = new Handler();
 
     private FloatingActionButton fab_Main, fab_Paid, fab_Receive, fab_Debt_Crave, fab_Transfer;
     TextView text_Paid, text_Receive, text_Debt_Crave, text_Transfer;
@@ -89,7 +90,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         craveImage.setOnClickListener(this);
         receiveImage.setOnClickListener(this);
         received.setOnClickListener(this);
-        customProgressBar = new CustomProgressBar(getContext());
+        customProgressBar = new CustomProgressBar();
 
 
         getAnimations();
@@ -369,7 +370,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            customProgressBar.show();
+            customProgressBar.show(getParentFragmentManager(),"");
         }
 
         @Override
@@ -389,7 +390,12 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         protected void onPostExecute(String s) {
             setDataToolBar();
             setRecyclerView();
-            customProgressBar.dismiss();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    customProgressBar.dismiss();
+                }
+            },500);
             this.onCancelled();
         }
     }

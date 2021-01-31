@@ -67,7 +67,9 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="imagePath" value="H:\SeekPng.com_survey-icon-png_1881449.png" />
+                                                <entry key="imagePath" value="E:\project\Grahpic\ui\Computing Account\logo.svg" />
+                                                <entry key="scalingPercent" value="0" />
+                                                <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -92,8 +94,8 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="H:\SeekPng.com_survey-icon-png_1881449.png" />
-                                                <entry key="scalingPercent" value="79" />
+                                                <entry key="imagePath" value="E:\project\Grahpic\ui\Computing Account\Luncher Icon\icon-1.png" />
+                                                <entry key="scalingPercent" value="111" />
                                                 <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
@@ -128,8 +130,7 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="backgroundAssetType" value="COLOR" />
-                                      <entry key="backgroundColor" value="1adc71" />
+                                      <entry key="legacyIconShape" value="NONE" />
                                       <entry key="outputName" value="ic_launcher_2" />
                                     </map>
                                   </option>
@@ -334,9 +335,10 @@
                         </option>
                         <option name="values">
                           <map>
+                            <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_add_24dp" />
-                            <entry key="sourceFile" value="E:\book\Computer\Programing\Android\svg\ask_money.svg" />
+                            <entry key="outputName" value="ic_notification_icon" />
+                            <entry key="sourceFile" value="E:\project\Grahpic\ui\Computing Account\Luncher Icon\Group_1.svg" />
                           </map>
                         </option>
                       </PersistentState>

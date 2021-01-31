@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -72,6 +73,7 @@ public class ReportsFragment extends Fragment implements View.OnClickListener, A
     private boolean isNeedDatePicker = false;
     private boolean isScrollingCollapsing = false;
     Object selectedItem;
+    private Handler handler=new Handler();
 
     ReportWNameATime reportWNameATime;
     ReportWTime reportWTime;
@@ -111,7 +113,6 @@ public class ReportsFragment extends Fragment implements View.OnClickListener, A
                     //you have reached to the bottom of your recycler view
                     Log.e("onScrolled: ", "end");
                     recyclerView.setNestedScrollingEnabled(false);
-
                 } else if ((visibleItemCount + firstVisible) < totalItemCount && firstVisible >= 0) {
                     Log.e("onScrolled: ", "start");
                     recyclerView.setNestedScrollingEnabled(true);
@@ -123,7 +124,6 @@ public class ReportsFragment extends Fragment implements View.OnClickListener, A
             }
         });
 
-
         startDate = root.findViewById(R.id.picker_start_date_report);
         endDate = root.findViewById(R.id.picker_end_date_report);
         autoCompleteTextView = root.findViewById(R.id.text_autocomplete_report);
@@ -134,7 +134,6 @@ public class ReportsFragment extends Fragment implements View.OnClickListener, A
         button = root.findViewById(R.id.floating_layout_report);
         button.setOnClickListener(this);
 
-
         SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(getContext());
         if(Objects.equals(sharedPreferences.getString("language", "en"), "en")){
             reportTexts = getResources().getStringArray(R.array.Reports_Mode_English);
@@ -142,14 +141,12 @@ public class ReportsFragment extends Fragment implements View.OnClickListener, A
             reportTexts = getResources().getStringArray(R.array.Reports_Mode_Farsi);
         }
 
-
         workNames = new ArrayList<>();
         personNames = new ArrayList<>();
 
-        customProgressBar = new CustomProgressBar(getContext());
+        customProgressBar = new CustomProgressBar();
 
         new BackgroundGetList().execute("start");
-
 
         return root;
     }
@@ -237,6 +234,7 @@ public class ReportsFragment extends Fragment implements View.OnClickListener, A
                 recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
                     @Override
                     public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+
                         if (dy < 0 && isScrollingCollapsing) {
                             enableScrollingCollapse();
                         } else if (dy > 0 && isScrollingCollapsing) {
@@ -458,7 +456,7 @@ public class ReportsFragment extends Fragment implements View.OnClickListener, A
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            customProgressBar.show();
+            customProgressBar.show(getParentFragmentManager(),"");
         }
 
         @Override
@@ -473,7 +471,13 @@ public class ReportsFragment extends Fragment implements View.OnClickListener, A
             setAutoCompleteTextView();
             setListenerDate();
 
-            customProgressBar.dismiss();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    customProgressBar.dismiss();
+                }
+            },500);
+
             this.onCancelled();
         }
     }
@@ -484,7 +488,7 @@ public class ReportsFragment extends Fragment implements View.OnClickListener, A
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            customProgressBar.show();
+            customProgressBar.show(getParentFragmentManager(),"");
         }
 
 
@@ -527,7 +531,13 @@ public class ReportsFragment extends Fragment implements View.OnClickListener, A
                 enableScrollingCollapse();
                 appBarLayout.setExpanded(false);
             }
-            customProgressBar.dismiss();
+
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    customProgressBar.dismiss();
+                }
+            },500);
             this.onCancelled();
         }
     }

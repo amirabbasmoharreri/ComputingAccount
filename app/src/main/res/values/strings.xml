@@ -39,7 +39,6 @@
     <string name="preference_title_theme_language"><![CDATA[Theme & Language]]></string>
 
 
-
     <!--    textView     -->
 
 
@@ -89,8 +88,6 @@
     <string name="editText_hint_account_number">Account Number</string>
 
 
-
-
     <!--    chart    -->
 
 
@@ -114,7 +111,6 @@
     <string name="camera_menu_cancel">Cancel</string>
 
 
-
     <!--    toast massages   -->
 
     <string name="toast_deleteItem">Deleted</string>
@@ -122,7 +118,6 @@
     <string name="toast_saved">Saved</string>
     <string name="toast_closeAccount">Account Closed</string>
     <string name="toast_pdf_created">Pdf is Created</string>
-
 
 
     <string name="notification_title_speechToText">Speech to Text</string>
@@ -172,9 +167,6 @@
 
     <string name="massage_title_crave_and_debt">Crave And Debt</string>
     <string name="massage_selectTypeOfCraveDebt">Select Type of Pay</string>
-
-
-
 
 
     <!--    Massages   title -->
@@ -233,7 +225,6 @@
     <string name="menu_checkout">Checkout</string>
 
 
-
     <!--                  string arrays              -->
     <string-array name="headersOfSalaryForm">
         <item>Number</item>
@@ -242,7 +233,6 @@
         <item>Price</item>
         <item>Comment</item>
     </string-array>
-
 
 
 </resources>

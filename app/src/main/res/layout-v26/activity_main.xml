@@ -35,7 +35,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="15dp"
-        android:background="@drawable/bottom_navigation_button_shodow"
+        android:background="@drawable/bottom_navigation_button_shadow"
         android:translationZ="5dp"
         app:layout_constraintBottom_toTopOf="@id/nav_view"
         app:layout_constraintLeft_toLeftOf="parent"

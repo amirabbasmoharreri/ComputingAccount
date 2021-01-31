@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +33,7 @@ public class NoteFragment extends Fragment implements DialogInterface.OnDismissL
     private RecyclerView recyclerView;
     private FloatingActionButton floatingActionButton;
     CustomProgressBar customProgressBar;
+    private Handler handler=new Handler();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -41,7 +43,7 @@ public class NoteFragment extends Fragment implements DialogInterface.OnDismissL
         recyclerView = root.findViewById(R.id.recycle_view_note);
         floatingActionButton = root.findViewById(R.id.floating_note);
         floatingActionButton.setOnClickListener(this);
-        customProgressBar = new CustomProgressBar(getContext());
+        customProgressBar = new CustomProgressBar();
 
         return root;
     }
@@ -84,7 +86,7 @@ public class NoteFragment extends Fragment implements DialogInterface.OnDismissL
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            customProgressBar.show();
+            customProgressBar.show(getParentFragmentManager(),"");
         }
 
         @Override
@@ -97,7 +99,12 @@ public class NoteFragment extends Fragment implements DialogInterface.OnDismissL
         @Override
         protected void onPostExecute(String s) {
             setRecyclerView();
-            customProgressBar.dismiss();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    customProgressBar.dismiss();
+                }
+            },500);
             this.onCancelled();
         }
     }

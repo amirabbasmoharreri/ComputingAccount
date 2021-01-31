@@ -74,7 +74,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="5dp"
-        android:background="@drawable/bottom_navigation_button_shodow"
+        android:background="@drawable/bottom_navigation_button_shadow"
         tools:ignore="MissingConstraints"
         app:layout_constraintTop_toBottomOf="@id/data_container_charts"
         app:layout_constraintLeft_toLeftOf="parent"
