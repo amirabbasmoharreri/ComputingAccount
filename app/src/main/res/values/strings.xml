@@ -68,6 +68,8 @@
     <string name="textView_address">Address</string>
     <string name="textView_end">End</string>
     <string name="textView_start">Start</string>
+    <string name="text_view_please_input_google_account">Please Input your Google Account for save backups</string>
+    <string name="text_view_skip">Skip</string>
 
 
     <!--    editText    -->
@@ -102,6 +104,7 @@
     <string name="button_name_speak">Speak</string>
     <string name="button_name_restore">Restore</string>
     <string name="button_name_back_up">Backup Now</string>
+    <string name="button_name_google_account">Google Account</string>
 
     <!--     camera      -->
 
@@ -223,6 +226,7 @@
     <string name="menu_close_account">Close Account</string>
     <string name="menu_save_pdf">Save Pdf</string>
     <string name="menu_checkout">Checkout</string>
+
 
 
     <!--                  string arrays              -->

@@ -1,12 +1,5 @@
 package com.abbasmoharreri.computingaccount;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.preference.PreferenceManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
@@ -18,9 +11,15 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.abbasmoharreri.computingaccount.database.reports.FetchCraveDebts;
 import com.abbasmoharreri.computingaccount.database.reports.FetchLatestInventory;
-import com.abbasmoharreri.computingaccount.database.reports.FetchWalletCard;
 import com.abbasmoharreri.computingaccount.ui.adapters.CrDeAdapter;
 import com.abbasmoharreri.computingaccount.ui.popupdialog.UpdateCrDeDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -43,7 +42,7 @@ public class CraveDebtActivity extends AppCompatActivity implements View.OnClick
         if (preferences.getBoolean("darkMode", true)) {
             setTheme(R.style.Dark_AppTheme);
         } else {
-            setTheme(R.style.LightTheme_AppTheme);
+            setTheme(R.style.Light_AppTheme);
         }
         setContentView(R.layout.activity_crave_debt);
 

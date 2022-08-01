@@ -69,6 +69,8 @@
     <string name="textView_address">آدرس</string>
     <string name="textView_end">پایان</string>
     <string name="textView_start">شروع</string>
+    <string name="text_view_please_input_google_account">لطفا حساب کاربری گوگل را وارد کنید برای ذخیره نسخه های پشتیبان</string>
+    <string name="text_view_skip">بعدی</string>
 
 
 
@@ -107,6 +109,7 @@
     <string name="button_name_speak">صحبت کردن</string>
     <string name="button_name_restore">بازگردانی</string>
     <string name="button_name_back_up">پشتیبان گیری</string>
+    <string name="button_name_google_account">Google حساب</string>
 
     <!--     camera      -->
 

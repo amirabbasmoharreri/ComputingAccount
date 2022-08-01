@@ -1,11 +1,5 @@
 package com.abbasmoharreri.computingaccount;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.FileProvider;
-import androidx.preference.PreferenceManager;
-
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -38,6 +32,12 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
+import androidx.preference.PreferenceManager;
+
 import com.abbasmoharreri.computingaccount.database.reports.FetchLatestInventory;
 import com.abbasmoharreri.computingaccount.database.reports.FetchPersonNames;
 import com.abbasmoharreri.computingaccount.database.reports.FetchReportNumbers;
@@ -51,10 +51,10 @@ import com.abbasmoharreri.computingaccount.module.APicture;
 import com.abbasmoharreri.computingaccount.module.AWork;
 import com.abbasmoharreri.computingaccount.module.AWorkName;
 import com.abbasmoharreri.computingaccount.persiandatepicker.PersianDatePicker;
+import com.abbasmoharreri.computingaccount.persiandatepicker.util.PersianCalendar;
 import com.abbasmoharreri.computingaccount.pesiandate.PersianDate;
 import com.abbasmoharreri.computingaccount.text.NumberTextWatcherForThousand;
 import com.abbasmoharreri.computingaccount.text.TextProcessing;
-import com.abbasmoharreri.computingaccount.persiandatepicker.util.*;
 import com.abbasmoharreri.computingaccount.ui.adapters.SpinnerAccountAdapter;
 
 import java.io.File;
@@ -102,7 +102,7 @@ public class PaidActivity extends AppCompatActivity implements View.OnClickListe
         if (preferences.getBoolean("darkMode", true)) {
             setTheme(R.style.Dark_AppTheme);
         } else {
-            setTheme(R.style.LightTheme_AppTheme);
+            setTheme(R.style.Light_AppTheme);
         }
         setContentView(R.layout.activity_paid);
 

@@ -22,67 +22,81 @@
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
+        android:debuggable="false"
         android:icon="@mipmap/ic_launcher_2"
         android:label="@string/app_name"
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Dark_AppTheme">
-        <activity android:name=".SplashActivity">
+        android:theme="@style/Dark_AppTheme"
+        tools:ignore="HardcodedDebugMode">
+
+        <activity android:name=".AccountLanguageActivity"
+            android:exported="false"/>
+        <activity android:name=".SplashActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".SpeechActivity"
-            android:theme="@style/NoDisplay_me" />
+            android:theme="@style/NoDisplay_me"
+            android:exported="false"/>
         <activity
             android:name=".SmsActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity
             android:name=".ui.popupdialog.UpdateWorkActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/ActivityDialog" />
+            android:theme="@style/ActivityDialog"
+            android:exported="false"/>
         <activity
             android:name=".ItemsActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity
             android:name=".SettingsActivity"
             android:label="@string/activity_title_settings"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity
             android:name=".CraveDebtActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity
             android:name=".ReceiveActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity
             android:name=".PaidActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity
             android:name=".LoginActivity"
             android:label="@string/activity_title_main"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.speech.action.RECOGNIZE_SPEECH" />
-                <!--<action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />-->
             </intent-filter>
         </activity>
         <activity
             android:name=".ui.settings.backup.BackUpAddress$MiddleActivity"
             android:screenOrientation="portrait"
-            tools:ignore="Instantiatable" />
+            tools:ignore="Instantiatable"
+            android:exported="false"/>
         <activity
             android:name=".ui.settings.backup.BackUpRestoreButton$MiddleActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <!--
 <receiver
             android:name=".broadcastreceiver.SmsController"
@@ -106,18 +120,7 @@
         </receiver>
         -->
         <!--
- <service
-            android:name=".service.SpeechToTextService"
-            android:enabled="true"
-            android:exported="true"
-            android:label="My Service">
-            <intent-filter>
-                <action android:name="android.speech.RecognitionService" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </service>
-        -->
-        <!--
+
  <service
             android:name=".service.AccessibilityKeyDetector"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
@@ -132,7 +135,7 @@
         <service
             android:name=".service.BackupService"
             android:enabled="true"
-            android:exported="true"
+            android:exported="false"
             android:label="BackupService" />
 
         <provider
@@ -143,8 +146,9 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths"
-                tools:replace="android:resource"></meta-data>
+                tools:replace="android:resource" />
         </provider>
+
     </application>
 
 </manifest>

@@ -17,30 +17,16 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.abbasmoharreri.computingaccount.service.BackupService;
-import com.abbasmoharreri.computingaccount.ui.chartsNavigation.ChartsFragment;
-import com.abbasmoharreri.computingaccount.ui.home.HomeFragment;
-import com.abbasmoharreri.computingaccount.ui.popupdialog.TransferMoney;
-import com.abbasmoharreri.computingaccount.ui.reports.ReportsFragment;
-import com.abbasmoharreri.computingaccount.ui.note.NoteFragment;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.preference.PreferenceManager;
+
+import com.abbasmoharreri.computingaccount.service.BackupService;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Locale;
 
@@ -65,7 +51,7 @@ public class MainActivity extends BaseActivity {
         if (preferences.getBoolean("darkMode", true)) {
             setTheme(R.style.Dark_AppTheme);
         } else {
-            setTheme(R.style.LightTheme_AppTheme);
+            setTheme(R.style.Light_AppTheme);
         }
         setLanguage();
         setContentView(R.layout.activity_main);

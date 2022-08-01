@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:foregroundGravity="center"
+    tools:context=".AccountLanguageActivity"
+    android:layoutDirection="ltr">
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:stretchColumns="*"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:gravity="top"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_language_english"
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:background="@drawable/language_button_shape_1"
+                android:layoutDirection="ltr"
+                android:text="ENGLISH"
+                android:textAlignment="center" />
+
+
+            <Button
+                android:id="@+id/button_language_farsi"
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:layout_weight="0"
+                android:background="@drawable/language_button_shape_2"
+                android:layoutDirection="ltr"
+                android:text="فارسی"
+                android:textAlignment="center" />
+        </TableRow>
+
+        <TableRow android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginTop="80dp"
+            android:gravity="center">
+
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/text_view_please_input_google_account"/>
+
+
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/text_email_google_account"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="email@example.com"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+
+            <Button
+                android:id="@+id/button_google_account"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="60dp"
+                android:drawableStart="@drawable/ic_google_icon"
+                android:layoutDirection="ltr"
+                android:text="@string/button_name_google_account"/>
+
+
+        </TableRow>
+
+
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/button_skip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="@string/text_view_skip"
+                android:textColor="?attr/titleTextColor"
+                android:layoutDirection="ltr"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:foregroundGravity="center"
+                app:drawableRightCompat="@drawable/ic_arrow_forward" />
+
+
+        </TableRow>
+
+
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

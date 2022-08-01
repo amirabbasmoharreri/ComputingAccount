@@ -1,18 +1,17 @@
 package com.abbasmoharreri.computingaccount;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.preference.PreferenceManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.PopupMenu;
-import android.widget.PopupWindow;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.abbasmoharreri.computingaccount.database.reports.FetchPersonNames;
 import com.abbasmoharreri.computingaccount.database.reports.FetchReceived;
@@ -45,7 +44,7 @@ public class ItemsActivity extends AppCompatActivity implements View.OnClickList
         if (preferences.getBoolean("darkMode", true)) {
             setTheme(R.style.Dark_AppTheme);
         } else {
-            setTheme(R.style.LightTheme_AppTheme);
+            setTheme(R.style.Light_AppTheme);
         }
         setContentView(R.layout.activity_items);
 

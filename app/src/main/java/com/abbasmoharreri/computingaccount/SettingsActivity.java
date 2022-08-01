@@ -1,40 +1,24 @@
 package com.abbasmoharreri.computingaccount;
 
 import android.app.Activity;
-import android.app.Application;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.Window;
-import android.widget.Switch;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.app.NavUtils;
-import androidx.core.content.IntentCompat;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
-import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 import androidx.preference.SwitchPreferenceCompat;
 
-import com.abbasmoharreri.computingaccount.ui.settings.backup.BackUpAddress;
-
-import java.security.PrivateKey;
 import java.util.Locale;
 
 public class SettingsActivity extends AppCompatActivity {
@@ -60,7 +44,7 @@ public class SettingsActivity extends AppCompatActivity {
         if (preferences.getBoolean("darkMode", true)) {
             setTheme(R.style.Dark_AppTheme);
         } else {
-            setTheme(R.style.LightTheme_AppTheme);
+            setTheme(R.style.Light_AppTheme);
         }
         setContentView(R.layout.activity_settings);
 
@@ -125,7 +109,7 @@ public class SettingsActivity extends AppCompatActivity {
 
                         return true;
                     } else {
-                        context.setTheme(R.style.LightTheme_AppTheme);
+                        context.setTheme(R.style.Light_AppTheme);
                         switchTheme.setChecked(false);
                         activity.recreate();
                         return false;

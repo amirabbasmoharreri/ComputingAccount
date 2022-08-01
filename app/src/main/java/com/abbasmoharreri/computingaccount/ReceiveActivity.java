@@ -87,7 +87,7 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
         if (preferences.getBoolean("darkMode", true)) {
             setTheme(R.style.Dark_AppTheme);
         } else {
-            setTheme(R.style.LightTheme_AppTheme);
+            setTheme(R.style.Light_AppTheme);
         }
         setContentView(R.layout.activity_receive);
 

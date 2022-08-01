@@ -228,7 +228,7 @@
 
 
     <!--        light  Activity no title     -->
-    <style name="Light_no_title_activity" parent="LightTheme_AppTheme">
+    <style name="Light_no_title_activity" parent="Light_AppTheme">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>
@@ -324,7 +324,7 @@
     <!--         Light Theme            -->
 
 
-    <style name="LightTheme_AppTheme" parent="Theme.AppCompat">
+    <style name="Light_AppTheme" parent="Theme.AppCompat">
 
         <!--      ActionBar      -->
         <item name="colorPrimary">@color/blue_primary</item>

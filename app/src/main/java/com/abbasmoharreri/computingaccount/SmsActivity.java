@@ -17,7 +17,7 @@ public class SmsActivity extends AppCompatActivity {
         if (preferences.getBoolean("darkMode", true)) {
             setTheme(R.style.Dark_AppTheme);
         } else {
-            setTheme(R.style.LightTheme_AppTheme);
+            setTheme(R.style.Light_AppTheme);
         }
         setContentView( R.layout.activity_sms );
 

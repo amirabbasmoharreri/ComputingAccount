@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<rotate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromDegrees="0"
+    android:pivotX="50%"
+    android:pivotY="50%"
+    android:toDegrees="0">
+
+<vector
+    android:width="292dp"
+    android:height="172dp"
+    android:viewportWidth="292"
+    android:viewportHeight="172">
+
+    <path
+        android:strokeWidth="1.5"
+        android:strokeMiterLimit="10"
+        android:pathData="M 27.046 96.615 L 16.416 150.396 L 271.534 150.396 L 186.495 22.836 L 37.676 22.836 L 27.046 86.615 Z" />
+
+    <path
+        android:fillColor="#F3F3F3"
+        android:strokeWidth="1.5"
+        android:strokeMiterLimit="10"
+        android:pathData="M 16.046 20.615 L 13.416 150.396 L 271.534 150.396 L 186.495 22.836 L 37.676 22.836 L 16.046 23.615 Z " />
+</vector>
+
+</rotate>

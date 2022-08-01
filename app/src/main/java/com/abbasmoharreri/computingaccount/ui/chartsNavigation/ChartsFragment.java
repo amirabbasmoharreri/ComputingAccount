@@ -45,7 +45,7 @@ public class ChartsFragment extends Fragment implements PopupMenu.OnDismissListe
     private PieChart pieChart;
     private TextView price, workName, priceSpecialWork;
     private RecyclerView recyclerView;
-    private  WorkAdapter workAdapter;
+    private WorkAdapter workAdapter;
     private FetchSumPriceWNameWMaxReport fetchSumPriceWNameWMaxReport;
     private Handler handler = new Handler();
     ChartsFragment context = this;
@@ -123,7 +123,6 @@ public class ChartsFragment extends Fragment implements PopupMenu.OnDismissListe
     }
 
 
-
     @Override
     public void onDismiss(PopupMenu popupMenu) {
         new BackgroundTask().execute("start");
@@ -154,7 +153,7 @@ public class ChartsFragment extends Fragment implements PopupMenu.OnDismissListe
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            customProgressBar.show(getParentFragmentManager(),"");
+            customProgressBar.show(getParentFragmentManager(), "");
         }
 
 
@@ -165,17 +164,23 @@ public class ChartsFragment extends Fragment implements PopupMenu.OnDismissListe
         }
 
 
+        @SuppressLint("DefaultLocale")
         @Override
         protected void onPostExecute(String s) {
-            price.setText(String.format("%,d", fetchSumPriceWNameWMaxReport.sumAllPrices()));
-            setPieChartViewData();
-            setRecyclerView(fetchSumPriceWNameWMaxReport.getContainer().get(0).getName());
+            try {
+                price.setText(String.format("%,d", fetchSumPriceWNameWMaxReport.sumAllPrices()));
+                setPieChartViewData();
+                setRecyclerView(fetchSumPriceWNameWMaxReport.getContainer().get(0).getName());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     customProgressBar.dismiss();
                 }
-            },500);
+            }, 500);
 
             this.onCancelled();
         }
