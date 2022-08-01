@@ -12,7 +12,6 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Menu;
@@ -127,20 +126,21 @@ public class MainActivity extends BaseActivity {
 
 
     private void createNotifChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        //use this 'if' when minSdkVersion < 26
+        //if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
-            String offerChannelName = "Speech to Text";
-            String offerChannelDescription = "writing speech to text";
-            int offerChannelImportance = NotificationManager.IMPORTANCE_DEFAULT;
+        String offerChannelName = "Speech to Text";
+        String offerChannelDescription = "writing speech to text";
+        int offerChannelImportance = NotificationManager.IMPORTANCE_DEFAULT;
 
-            NotificationChannel notifChannel = new NotificationChannel(offerChannelId, offerChannelName, offerChannelImportance);
-            notifChannel.setDescription(offerChannelDescription);
-            //notifChannel.enableVibration(true);
-            notifChannel.enableLights(true);
-            notifChannel.setLightColor(Color.GREEN);
+        NotificationChannel notifChannel = new NotificationChannel(offerChannelId, offerChannelName, offerChannelImportance);
+        notifChannel.setDescription(offerChannelDescription);
+        //notifChannel.enableVibration(true);
+        notifChannel.enableLights(true);
+        notifChannel.setLightColor(Color.GREEN);
 
-            notifManager.createNotificationChannel(notifChannel);
-        }
+        notifManager.createNotificationChannel(notifChannel);
+        // }
 
     }
 
@@ -148,21 +148,23 @@ public class MainActivity extends BaseActivity {
 
         Intent intent = new Intent(this, SpeechActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
-            createNotifChannel();
+        //use this 'if' when minSdkVersion < 26
+        //if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
-            Notification.Builder notification = new Notification.Builder(this)
-                    .setVisibility(Notification.VISIBILITY_PUBLIC)
-                    .setSmallIcon(R.drawable.ic_notification_icon)
-                    .addAction(new Notification.Action(R.drawable.ic_mic_24dp, getString(R.string.button_name_speak), pendingIntent))
-                    .setContentTitle(getString(R.string.notification_title_speechToText))
-                    .setContentText(getString(R.string.notification_clickSpeak))
-                    .setChannelId(offerChannelId);
-            notifManager.notify(1, notification.build());
-        } else {
+        createNotifChannel();
+
+        Notification.Builder notification = new Notification.Builder(this)
+                .setVisibility(Notification.VISIBILITY_PUBLIC)
+                .setSmallIcon(R.drawable.ic_notification_icon)
+                .addAction(new Notification.Action(R.drawable.ic_mic_24dp, getString(R.string.button_name_speak), pendingIntent))
+                .setContentTitle(getString(R.string.notification_title_speechToText))
+                .setContentText(getString(R.string.notification_clickSpeak))
+                .setChannelId(offerChannelId);
+        notifManager.notify(1, notification.build());
+        /*} else {
 
             Notification.Builder notification = new Notification.Builder(this)
                     .setCategory(Notification.CATEGORY_MESSAGE)
@@ -175,7 +177,7 @@ public class MainActivity extends BaseActivity {
                     (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
             notificationManager.notify(1, notification.build());
 
-        }
+        }*/
     }
 
 
@@ -194,7 +196,6 @@ public class MainActivity extends BaseActivity {
         NavigationUI.setupWithNavController(navView, navController);
 
     }
-
 
 
     @Override
@@ -220,7 +221,6 @@ public class MainActivity extends BaseActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 
 
 }

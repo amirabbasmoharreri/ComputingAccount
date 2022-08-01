@@ -66,13 +66,15 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:hint="@string/editText_preremained"
-            android:textAlignment="center"/>
+            android:inputType="number"
+            android:textAlignment="center" />
 
         <EditText
             android:id="@+id/text_paid_initialize_report"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:hint="@string/editText_hint_paid"
+            android:inputType="number"
             android:layout_marginStart="30dp"
             android:textAlignment="center"/>
 
@@ -97,6 +99,7 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:hint="@string/editText_remained"
+            android:inputType="number"
             android:textAlignment="center"/>
 
         <EditText
@@ -105,6 +108,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/editText_hint_attach_ncount"
             android:layout_marginStart="30dp"
+            android:inputType="number"
             android:textAlignment="center"/>
 
     </LinearLayout>
