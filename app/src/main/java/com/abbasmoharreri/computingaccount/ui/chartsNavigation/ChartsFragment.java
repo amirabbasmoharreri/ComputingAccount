@@ -12,30 +12,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.abbasmoharreri.computingaccount.R;
 import com.abbasmoharreri.computingaccount.database.reports.FetchSumPriceWNameWMaxReport;
-import com.abbasmoharreri.computingaccount.database.reports.ReportWNameWMaxReport;
 import com.abbasmoharreri.computingaccount.module.AContainer;
 import com.abbasmoharreri.computingaccount.ui.adapters.WorkAdapter;
 import com.abbasmoharreri.computingaccount.ui.chartsmodel.PieChart;
-import com.abbasmoharreri.computingaccount.ui.home.HomeFragment;
 import com.abbasmoharreri.computingaccount.ui.popupdialog.CustomProgressBar;
 
-import java.sql.SQLClientInfoException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import lecho.lib.hellocharts.listener.DummyPieChartOnValueSelectListener;
 import lecho.lib.hellocharts.listener.PieChartOnValueSelectListener;
-import lecho.lib.hellocharts.model.ComboLineColumnChartData;
 import lecho.lib.hellocharts.model.SliceValue;
 import lecho.lib.hellocharts.view.PieChartView;
 
@@ -180,7 +170,7 @@ public class ChartsFragment extends Fragment implements PopupMenu.OnDismissListe
                 public void run() {
                     customProgressBar.dismiss();
                 }
-            }, 500);
+            }, 0);
 
             this.onCancelled();
         }

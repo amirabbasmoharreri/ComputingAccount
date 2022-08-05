@@ -115,6 +115,7 @@ public class AccountLanguageActivity extends AppCompatActivity implements View.O
 
     private void requestDrivePermission() {
         //TODO Requesting permission Drive Api
+
         Scope scope = new Scope(DriveScopes.DRIVE_FILE);
         if (!GoogleSignIn.hasPermissions(
                 GoogleSignIn.getLastSignedInAccount(this),
@@ -146,7 +147,8 @@ public class AccountLanguageActivity extends AppCompatActivity implements View.O
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
         } else if (requestCode == 500){
-            //TODO When granted permission of drive api , do ...
+            //TODO When granted permission of drive api , do some thing
+
             //saveToDriveAppFolder();
         }
 

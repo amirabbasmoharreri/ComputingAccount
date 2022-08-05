@@ -144,6 +144,8 @@ public class MainActivity extends BaseActivity {
 
     }
 
+    //TODO Move speechNotification to SplashActivity
+
     private void speechNotification() {
 
         Intent intent = new Intent(this, SpeechActivity.class);
