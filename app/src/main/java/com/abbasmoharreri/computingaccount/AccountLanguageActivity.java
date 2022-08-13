@@ -16,8 +16,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
-import com.google.android.gms.auth.api.identity.BeginSignInRequest;
-import com.google.android.gms.auth.api.identity.SignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -28,8 +26,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.api.services.drive.DriveScopes;
 
 import java.util.Locale;
+import java.util.Objects;
 
 public class AccountLanguageActivity extends AppCompatActivity implements View.OnClickListener {
+
 
     Button englishButton, farsiButton, googleAccountButton;
     TextView skipButton, emailGoogleAccount;
@@ -39,10 +39,8 @@ public class AccountLanguageActivity extends AppCompatActivity implements View.O
     static Resources resources;
     static DisplayMetrics displayMetrics;
     boolean showActivity = false;
+    GoogleSignInAccount googleAccount;
 
-
-    private SignInClient oneTapClient;
-    private BeginSignInRequest signInRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +66,10 @@ public class AccountLanguageActivity extends AppCompatActivity implements View.O
 
         if (showActivity) {
             Intent intent = new Intent(this, MainActivity.class);
+            getLastSignInGoogleAccount();
+            if (googleAccount != null) {
+                intent.putExtra("GoogleAccount", googleAccount);
+            }
             startActivity(intent);
         }
 
@@ -77,10 +79,15 @@ public class AccountLanguageActivity extends AppCompatActivity implements View.O
     @Override
     protected void onStart() {
         super.onStart();
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        //updateUI(account);
+        getLastSignInGoogleAccount();
+        updateUI(googleAccount);
     }
 
+
+    /**
+    * This method for updating condition of Google Button
+    * @param account if null (Button ON) - if not null (Button OFF)
+    * */
 
     private void updateUI(GoogleSignInAccount account) {
         if (account != null) {
@@ -93,26 +100,24 @@ public class AccountLanguageActivity extends AppCompatActivity implements View.O
         }
     }
 
-    private void request() {
 
-       /* oneTapClient = Identity.getSignInClient(this);
-        signInRequest = BeginSignInRequest.builder()
-                .setPasswordRequestOptions(BeginSignInRequest.PasswordRequestOptions.builder()
-                        .setSupported(true)
-                        .build())
-                .setGoogleIdTokenRequestOptions(BeginSignInRequest.GoogleIdTokenRequestOptions.builder()
-                        .setSupported(true)
-                        // Your server's client ID, not your Android client ID.
-                        .setServerClientId(getString(R.string.default_web_client_id))
-                        // Only show accounts previously used to sign in.
-                        .setFilterByAuthorizedAccounts(true)
-                        .build())
-                // Automatically sign in when exactly one credential is retrieved.
-                .setAutoSelectEnabled(true)
-                .build();*/
+    /**
+     * This method get Account information sign in last time
+     * */
+    private void getLastSignInGoogleAccount() {
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+        googleAccount = account;
+        try {
+            Log.e("Abbas Email Last SingIn (LanguageActivity): ", account.getEmail());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
+    /**
+     * This method for check permission of using Google Drive
+     * */
     private void requestDrivePermission() {
         //TODO Requesting permission Drive Api
 
@@ -126,10 +131,15 @@ public class AccountLanguageActivity extends AppCompatActivity implements View.O
                     GoogleSignIn.getLastSignedInAccount(this),
                     scope);
         } else {
-           // saveToDriveAppFolder();
+            // saveToDriveAppFolder();
         }
     }
 
+
+    /**
+     * This method for sending request for sing in to Google Account
+     * It's show popup for send request
+     * */
     private void requestSignIn() {
         GoogleSignInOptions signInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -137,6 +147,7 @@ public class AccountLanguageActivity extends AppCompatActivity implements View.O
         GoogleSignInClient client = GoogleSignIn.getClient(this, signInOptions);
         startActivityForResult(client.getSignInIntent(), 400);
         requestDrivePermission();
+
     }
 
     @Override
@@ -146,7 +157,7 @@ public class AccountLanguageActivity extends AppCompatActivity implements View.O
         if (requestCode == 400) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
-        } else if (requestCode == 500){
+        } else if (requestCode == 500) {
             //TODO When granted permission of drive api , do some thing
 
             //saveToDriveAppFolder();
@@ -154,47 +165,25 @@ public class AccountLanguageActivity extends AppCompatActivity implements View.O
 
     }
 
+
+    /**
+     * This method to handle answer of requesting for sign in to Google Account
+     * */
     private void handleSignInResult(Task<GoogleSignInAccount> data) {
 
         try {
             GoogleSignInAccount account = data.getResult(ApiException.class);
             // Signed in successfully, show authenticated UI.
+            Log.e("Abbas Email: ", Objects.requireNonNull(account.getEmail()));
+            googleAccount = account;
             updateUI(account);
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
+            e.printStackTrace();
             Log.w("AccountlanguageActivity", "signInResult:failed code=" + e.getStatusCode());
             updateUI(null);
         }
-
-
-        /*GoogleSignIn.getSignedInAccountFromIntent(data)
-                .addOnSuccessListener(new OnSuccessListener<GoogleSignInAccount>() {
-                    @Override
-                    public void onSuccess(GoogleSignInAccount googleSignInAccount) {
-                        GoogleAccountCredential credential = GoogleAccountCredential
-                                .usingOAuth2(AccountLanguageActivity.this, Collections.singleton((DriveScopes.DRIVE_FILE)));
-                        credential.setSelectedAccount(googleSignInAccount.getAccount());
-                        Drive googleDriveService = new Drive.Builder(
-                                AndroidHttp.newCompatibleTransport(),
-                                new GsonFactory(),
-                                credential)
-                                .setApplicationName("Computing Account")
-                                .build();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-
-                    }
-                });*/
-
-
-
-        /*GoogleSignInResult result= Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-        GoogleSignInAccount account=result.getSignInAccount();
-        Log.e("addsffdf", "handleSignInIntent: "+ account.getEmail() );*/
 
     }
 
@@ -223,8 +212,12 @@ public class AccountLanguageActivity extends AppCompatActivity implements View.O
                 break;
             case R.id.button_skip:
                 Intent intent = new Intent(this, MainActivity.class);
-                /*editor.putBoolean("showAccountLanguageActivity",true);
-                editor.apply();*/
+                editor = sharedPreferences.edit();
+                editor.putBoolean("showAccountLanguageActivity", true);
+                editor.apply();
+                if (googleAccount != null) {
+                    intent.putExtra("GoogleAccount", googleAccount);
+                }
                 startActivity(intent);
                 finish();
                 break;

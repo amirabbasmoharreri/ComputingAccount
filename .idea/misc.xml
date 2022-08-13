@@ -8,6 +8,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/drawable/ask_money.xml" value="0.145" />
+        <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/drawable/border.xml" value="0.145" />
+        <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/drawable/ic_add_24dp.xml" value="0.145" />
+        <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.145" />
+        <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/drawable/ic_folder_24dp.xml" value="0.145" />
+        <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/drawable/ic_lens_24dp.xml" value="0.145" />
+        <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/drawable/ic_more_vert_24dp.xml" value="0.145" />
+        <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/drawable/ic_payment_24dp.xml" value="0.145" />
+        <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/drawable/loan.xml" value="0.145" />
+        <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/drawable/receive_money.xml" value="0.145" />
+        <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/drawable/shadow.xml" value="0.145" />
+        <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/drawable/tab_color.xml" value="0.145" />
+        <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/drawable/top_navigation_button_shadow.xml" value="0.145" />
+        <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/drawable/ui_line.xml" value="0.145" />
+        <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/drawable/wallet.xml" value="0.145" />
         <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/layout-v26/activity_main.xml" value="0.10989583333333333" />
         <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/layout/activity_crave_debt.xml" value="0.11041666666666666" />
         <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/layout/activity_items.xml" value="0.25" />
@@ -19,10 +34,13 @@
         <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/layout/card_view_crde.xml" value="0.25" />
         <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/layout/card_view_items.xml" value="0.11041666666666666" />
         <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/layout/card_view_note.xml" value="0.264" />
+        <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/layout/card_view_received.xml" value="0.25" />
+        <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/layout/card_view_report.xml" value="0.25" />
+        <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/layout/card_view_sms.xml" value="0.25" />
         <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/layout/dialog_progress_bar.xml" value="0.25" />
         <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/layout/dialog_transfer_money_account.xml" value="0.25" />
         <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/layout/dialog_update_crde.xml" value="0.25" />
-        <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/layout/initialize_persons.xml" value="0.25" />
         <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/layout/initialize_received.xml" value="0.25" />
         <entry key="..\:/project/programing/Android/ComputingAccount/app/src/main/res/layout/initialize_reports.xml" value="0.25" />
