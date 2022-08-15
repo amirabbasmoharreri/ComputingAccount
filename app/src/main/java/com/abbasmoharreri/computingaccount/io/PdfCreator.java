@@ -32,7 +32,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.List;
 
-public class PdfCreator  {
+public class PdfCreator {
 
     private Context context;
     private String[] headerEnglish = {"Number", "Date", "Description", "Price", "Comment"};
@@ -70,14 +70,14 @@ public class PdfCreator  {
         if (!file.exists()) {
             file.mkdirs();
         }
-        String targetPdf = directory_path + "Report_Number_" +pdfName + ".pdf";
+        String targetPdf = directory_path + "Report_Number_" + pdfName + ".pdf";
         File filePath = new File(targetPdf);
         try {
 
             BaseFont myFont = BaseFont.createFont("res/font/yas.ttf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
             Font paraFont = new Font(myFont, 12);
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(filePath));
-            writer.setPageEvent(new PdfPageEventHelper(){
+            writer.setPageEvent(new PdfPageEventHelper() {
                 @Override
                 public void onEndPage(PdfWriter writer, Document document) {
                     addFooterImproved(writer);
@@ -152,7 +152,7 @@ public class PdfCreator  {
 
 
             PdfPTable salaryTable = new PdfPTable(headers.length);
-            float[] pointColumnWidths = {150F, 80F, 100F,80F,45F};
+            float[] pointColumnWidths = {150F, 80F, 100F, 80F, 45F};
             salaryTable.setWidths(pointColumnWidths);
 
             for (String header : headers) {
@@ -222,7 +222,6 @@ public class PdfCreator  {
             document.newPage();
 
             PdfPTable pictureTable = new PdfPTable(1);
-
             Image bgImage;
             for (int i = 0; i < pictureList.size(); i++) {
 
@@ -231,17 +230,18 @@ public class PdfCreator  {
                 bgImage.setScaleToFitHeight(true);
                 bgImage.setScaleToFitLineWhenOverflow(true);
                 bgImage.setAbsolutePosition(100, 250);
-                PdfPCell cell2 = new PdfPCell();
+                PdfPCell cell2 = new PdfPCell(bgImage,true);
                 cell2.setBorder(Rectangle.NO_BORDER);
-                cell2.addElement(bgImage);
+                //cell2.addElement(bgImage);
                 cell2.setVerticalAlignment(Element.ALIGN_CENTER);
                 cell2.setHorizontalAlignment(Element.ALIGN_CENTER);
                 pictureTable.addCell(cell2);
+                pictureTable.getFittingRows(500,20);
                 pictureTable.completeRow();
-
             }
 
             document.add(pictureTable);
+
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -251,8 +251,6 @@ public class PdfCreator  {
 
 
     }
-
-
 
 
     @SuppressLint("DefaultLocale")
