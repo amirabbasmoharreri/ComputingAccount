@@ -2,7 +2,6 @@ package com.abbasmoharreri.computingaccount.database.reports;
 
 import android.content.Context;
 import android.util.Log;
-import android.widget.LinearLayout;
 
 import com.abbasmoharreri.computingaccount.database.DataBase;
 import com.abbasmoharreri.computingaccount.database.DataBaseController;
@@ -12,6 +11,12 @@ import com.abbasmoharreri.computingaccount.text.TextProcessing;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+
+/**
+ * This Class for take data from DB about Crave and Debt
+ * @version 1.0
+ * */
 
 public class FetchCraveDebts extends DataBaseController {
 
@@ -29,6 +34,10 @@ public class FetchCraveDebts extends DataBaseController {
     }
 
 
+    /**
+     * This method for take all data from DB about Crave and Debt and create List<ACraveAndDebt>
+     * and take name of persons and set to objects in List
+     * */
     private void fetchList() {
 
         String query = "SELECT "
@@ -86,6 +95,9 @@ public class FetchCraveDebts extends DataBaseController {
     }
 
 
+    /**
+     * This method for take name of persons from DB with Person-ID
+     * */
     private void fetch_name_number() {
         String personName = "";
 
@@ -98,14 +110,26 @@ public class FetchCraveDebts extends DataBaseController {
     }
 
 
+    /**
+     * This method to return the List of Crave And Debt both of them together
+     * @return List<ACraveAndDebt>
+     * */
     public List<ACraveAndDebt> getList() {
         return aCraveAndDebts;
     }
 
+    /**
+     * This method returns the List of Crave separately
+     * @return List<ACraveAndDebt>
+     * */
     public List<ACraveAndDebt> getCraveList() {
         return aCraves;
     }
 
+    /**
+     * This method returns the List of Debt separately
+     * @return List<ACraveAndDebt>
+     * */
     public List<ACraveAndDebt> getDebtList() {
         return aDebts;
     }

@@ -9,6 +9,11 @@ import com.abbasmoharreri.computingaccount.module.AReport;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * This Class for closing The current Report and opening The new Report
+ * @version 1.0
+ * */
+
 public class CLoseAccount extends DataBaseController {
 
 
@@ -22,6 +27,9 @@ public class CLoseAccount extends DataBaseController {
     }
 
 
+    /**
+     * This method set all changes of data to database
+     * */
     public void commit() {
         //fetchPreReport();
         updatePreviousReport();
@@ -64,6 +72,11 @@ public class CLoseAccount extends DataBaseController {
     }
 
 
+    /**
+     * This method check Condition of current Report
+     * Is The Report Reported to the boss
+     * @return true or false (Type = Boolean)
+     * */
     public boolean checkCondition() {
         if (this.aReportPrevious.getCondition()) {
             return true;
@@ -73,6 +86,9 @@ public class CLoseAccount extends DataBaseController {
     }
 
 
+    /**
+     * This method for set time and change condition of the Report to reported the current report you want to close
+     * */
     private void updatePreviousReport() {
         Calendar calendar = Calendar.getInstance();
         this.aReportPrevious.setGregorianDate(calendar.getTime())
@@ -80,6 +96,9 @@ public class CLoseAccount extends DataBaseController {
     }
 
 
+    /**
+     * This method for create new Report and set all default value and other value from Previous Report
+     * */
     private void initializeNewReport() {
         this.aReportNew.setNumber(this.aReportPrevious.getNumber() + 1)
                 .setPreRemained(this.aReportPrevious.getRemained())
@@ -92,6 +111,9 @@ public class CLoseAccount extends DataBaseController {
     }
 
 
+    /**
+     * This method for updating data base and set all changes in it after Closing Account
+     * */
     private void updateDB() {
         updateReport(this.aReportPrevious);
         insertReport(this.aReportNew);

@@ -3,7 +3,6 @@ package com.abbasmoharreri.computingaccount.database.reports;
 import android.content.Context;
 import android.util.Log;
 
-import com.abbasmoharreri.computingaccount.module.ACraveAndDebt;
 import com.abbasmoharreri.computingaccount.database.DataBase;
 import com.abbasmoharreri.computingaccount.database.DataBaseController;
 import com.abbasmoharreri.computingaccount.module.AAccount;
@@ -12,6 +11,11 @@ import com.abbasmoharreri.computingaccount.module.AWork;
 import com.abbasmoharreri.computingaccount.text.TextProcessing;
 
 import java.util.Date;
+
+/**
+ * This Class for fetch data from DB
+ * @version 1.0
+ * */
 
 public class FetchData extends DataBaseController {
 
@@ -31,6 +35,11 @@ public class FetchData extends DataBaseController {
     }
 
 
+    /**
+     * This method for Getting Person_ID
+     * @param name (Type = String) Person Name
+     * @return id (Type = int)
+     * */
     public int update_ACraveDebt_PersonId(String name) {
 
         int id = get_Id_Person(name);
@@ -38,6 +47,12 @@ public class FetchData extends DataBaseController {
         return id;
     }
 
+
+    /**
+     * This method for getting The Report Data with The Report number
+     * @param reportNumber (Type = int) Report Number
+     * @return aReport (Type = AReport Class) an instance of AReport class
+     * */
     public AReport fetch_report(int reportNumber) {
         AReport aReport = new AReport();
 
@@ -77,6 +92,11 @@ public class FetchData extends DataBaseController {
     }
 
 
+    /**
+     * This method for computing the sum price of paid all WorkList with Report_ID
+     * @param id_report (Type = int) Report_ID
+     * @return aReport (Type = AReport Class) an instance of AReport class
+     * */
     public int sum_paid_work_list_with_report(int id_report) {
         int sumPaid = 0;
 
@@ -92,6 +112,12 @@ public class FetchData extends DataBaseController {
         return sumPaid;
     }
 
+
+    /**
+     * This method for counting the number of attachments with Report_ID
+     * @param id_report (Type = int) Report_ID
+     * @return sumAttachCount (Type = int) The number of Attachments
+     * */
     public int sum_attach_count_work_list_with_report(int id_report) {
         int sumAttachCount = 0;
 
@@ -108,6 +134,11 @@ public class FetchData extends DataBaseController {
     }
 
 
+    /**
+     * This method for computing the sum price of Received with Report_ID
+     * @param id_report (Type = int) Report_ID
+     * @return received (Type = int) The Sum of Received
+     * */
     public int sum_received_report(int id_report) {
         int received = 0;
 
@@ -124,6 +155,12 @@ public class FetchData extends DataBaseController {
         return received;
     }
 
+
+    /**
+     * This method for getting The wallet data
+     * @param accountNumber (Type = String) Account Number
+     * @return wallet (Type = AAccount Class) an instance of AAccount class
+     * */
     public AAccount fetch_wallet(String accountNumber) {
         AAccount wallet = new AAccount();
 
@@ -145,6 +182,12 @@ public class FetchData extends DataBaseController {
         return wallet;
     }
 
+
+    /**
+     * This method for getting The card data
+     * @param accountNumber (Type = String) Account Number
+     * @return card (Type = AAccount Class) an instance of AAccount class
+     * */
     public AAccount fetch_card(String accountNumber) {
         AAccount card = new AAccount();
 

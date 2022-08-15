@@ -6,6 +6,11 @@ import com.abbasmoharreri.computingaccount.module.ACraveAndDebt;
 import com.abbasmoharreri.computingaccount.database.DataBase;
 import com.abbasmoharreri.computingaccount.database.DataBaseController;
 
+/**
+ * This Class for getting data from DB for Showing to HomeFragment
+ * @version 1.0
+ * */
+
 public class FetchLatestInventory extends DataBaseController {
 
     private int remainedReport;
@@ -25,28 +30,49 @@ public class FetchLatestInventory extends DataBaseController {
     }
 
 
+    /**
+     * This method returns the remaining fund of The Report
+     * @return remainedReport (Type = int)
+     * */
     public int getRemainedReport() {
         return remainedReport;
     }
 
+    /**
+     * This method returns the sum Received of The Report
+     * @return sumReceivedReport (Type = int)
+     * */
     public int getSumReceivedReport() {
         return sumReceivedReport;
     }
 
+    /**
+     * This method returns the sum Crave
+     * @return sumCrave (Type = int)
+     * */
     public int getSumCrave() {
         return sumCrave;
     }
 
+    /**
+     * This method returns the sum Debt
+     * @return sumDebt (Type = int)
+     * */
     public int getSumDebt() {
         return sumDebt;
     }
 
-
+    /**
+     * This method returns the last number of Report
+     * @return max_reportNumber (Type = int)
+     * */
     public int getReportNumber() {
         return max_reportNumber();
     }
 
-
+    /**
+     * This method computing the remaining fund of The Report
+     * */
     private void fetchRemainedReport() {
 
         int remained = 0;
@@ -66,7 +92,9 @@ public class FetchLatestInventory extends DataBaseController {
 
     }
 
-
+    /**
+     * This method computing the sum Received of The Report
+     * */
     private void fetchReceivedReport() {
 
         try {
@@ -92,7 +120,9 @@ public class FetchLatestInventory extends DataBaseController {
 
     }
 
-
+    /**
+     * This method of computing the sum Crave
+     * */
     private void fetchSumCrave() {
 
         try {
@@ -118,6 +148,9 @@ public class FetchLatestInventory extends DataBaseController {
 
     }
 
+    /**
+     * This method of computing the sum Debt
+     * */
     private void fetchSumDebt() {
 
         try {

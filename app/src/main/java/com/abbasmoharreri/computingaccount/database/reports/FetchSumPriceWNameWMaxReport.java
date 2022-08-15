@@ -13,6 +13,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
+/**
+ * This Class for Fetch data from DB and computing the sum paid of the works with WorkName in Current Report
+ * for using this data in ChartsFragment
+ * @version 1.0
+ * */
 public class FetchSumPriceWNameWMaxReport extends DataBaseController {
 
     private List<AWork> aWorks;
@@ -31,6 +37,9 @@ public class FetchSumPriceWNameWMaxReport extends DataBaseController {
     }
 
 
+    /**
+     * This method for fetch all data of the works in current Report and add items to List<AWork> and completing other data in list
+     * */
     private void fetchWorks() {
         int reportId = get_Id_Report( max_reportNumber() );
 
@@ -87,6 +96,9 @@ public class FetchSumPriceWNameWMaxReport extends DataBaseController {
         fetch_name_number();
     }
 
+    /**
+     * This method for fetch names of persons and works and fetch report number with IDs
+     * */
     private void fetch_name_number() {
 
         String personName = "";
@@ -107,6 +119,9 @@ public class FetchSumPriceWNameWMaxReport extends DataBaseController {
     }
 
 
+    /**
+     * This method creates List of Work_IDs
+     * */
     private void setListIDS(int id) {
 
         if (!ids.contains( id )) {
@@ -116,6 +131,12 @@ public class FetchSumPriceWNameWMaxReport extends DataBaseController {
     }
 
 
+    /**
+     * This method for computing the sum prices of works with IDs separately and add these items to List<AContainer>
+     * for example :
+     * work = shopping --> Id = 1
+     * SumPrice of all works with Id=1 --> equals to 500,000 Rials
+     * */
     private void sumPrices() {
 
         List<Integer> workIds;
@@ -145,6 +166,10 @@ public class FetchSumPriceWNameWMaxReport extends DataBaseController {
 
     }
 
+    /**
+     *This method for computing the Sum prices of all works together
+     * @return sum (Type = Int)
+     * */
     public int sumAllPrices() {
         int sum = 0;
 
@@ -155,6 +180,11 @@ public class FetchSumPriceWNameWMaxReport extends DataBaseController {
     }
 
 
+    /**
+     * This method returns List of Works with same name
+     * @param name (Type = String) Work Name
+     * @return works (Type = List<AWork>)
+     * */
     public List<AWork> getWorkWName(String name) {
         List<AWork> works = new ArrayList<>();
         for (AContainer c : container) {
@@ -166,6 +196,11 @@ public class FetchSumPriceWNameWMaxReport extends DataBaseController {
         return works;
     }
 
+    /**
+     * This method returns the sum prices of works with same name
+     * @param name (Type = String) Work Name
+     * @return sum (Type = Int)
+     * */
     public int getSumPriceWithName(String name) {
         int sum = 0;
         for (AContainer c : container) {
@@ -181,6 +216,11 @@ public class FetchSumPriceWNameWMaxReport extends DataBaseController {
     }
 
 
+    /**
+     * This method returns the Works with same IDs
+     * @param id (Type = List<Integer>) List of All Work_IDs
+     * @return list (Type = List<AWork>)
+     * */
     private List<AWork> getAWorks(List<Integer> id) {
         List<AWork> list = new ArrayList<>();
 
@@ -198,6 +238,11 @@ public class FetchSumPriceWNameWMaxReport extends DataBaseController {
     }
 
 
+    /**
+     * this method returns list of the works with special structure for using in Chart
+     * this list include WorkName , SumPrice of these WorkName , IDs of these WorkName
+     * @return container (Type = List<AContainer>)
+     * */
     public List<AContainer> getContainer() {
         return container;
     }

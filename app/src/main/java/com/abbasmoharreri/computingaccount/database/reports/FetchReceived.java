@@ -6,12 +6,16 @@ import android.util.Log;
 import com.abbasmoharreri.computingaccount.database.DataBase;
 import com.abbasmoharreri.computingaccount.database.DataBaseController;
 import com.abbasmoharreri.computingaccount.module.AMoneyReceive;
-import com.abbasmoharreri.computingaccount.module.AWork;
 import com.abbasmoharreri.computingaccount.text.TextProcessing;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+/**
+ * This Class for fetch data of The Received price
+ * @version 1.0
+ * */
 
 public class FetchReceived extends DataBaseController {
 
@@ -25,6 +29,11 @@ public class FetchReceived extends DataBaseController {
         fetchList();
     }
 
+
+    /**
+     * This method for fetch all data about the Received price and create List<AMoneyReceived>
+     * and fetch report number and number of received and completing list
+     * */
     private void fetchList() {
 
         String query = "SELECT "
@@ -61,6 +70,10 @@ public class FetchReceived extends DataBaseController {
 
     }
 
+
+    /**
+     * This method for getting report number and picture linked to the received
+     * */
     private void fetch_name_number() {
 
         int reportNumber = 0;
@@ -75,6 +88,10 @@ public class FetchReceived extends DataBaseController {
     }
 
 
+    /**
+     * This method returns List of the Received price
+     * @return aMoneyReceived (Type = List<AMoneyReceived>)
+     * */
     public List<AMoneyReceive> getList() {
         return aMoneyReceives;
     }

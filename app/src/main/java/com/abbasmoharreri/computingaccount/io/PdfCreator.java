@@ -2,16 +2,8 @@ package com.abbasmoharreri.computingaccount.io;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Typeface;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.fonts.FontFamily;
 import android.os.Environment;
 
-import com.abbasmoharreri.computingaccount.MainActivity;
-import com.abbasmoharreri.computingaccount.R;
 import com.abbasmoharreri.computingaccount.module.APicture;
 import com.abbasmoharreri.computingaccount.module.AReport;
 import com.abbasmoharreri.computingaccount.module.AWork;
@@ -33,20 +25,12 @@ import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfName;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.pdf.PdfPageEvent;
 import com.itextpdf.text.pdf.PdfPageEventHelper;
 import com.itextpdf.text.pdf.PdfWriter;
-import com.itextpdf.text.pdf.draw.VerticalPositionMark;
-import com.itextpdf.text.pdf.languages.ArabicLigaturizer;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Date;
 import java.util.List;
-
-import static com.itextpdf.text.Font.BOLD;
 
 public class PdfCreator  {
 
@@ -67,7 +51,7 @@ public class PdfCreator  {
     public void createSalaryReportPdf(PdfLanguage pdfLanguage, List<AWork> workList, List<APicture> pictureList, String startDate, String endDate, AReport aReport) {
 
         TextProcessing textProcessing = new TextProcessing();
-
+        String pdfName = String.valueOf(aReport.getNumber());
 
         String[] headers;
         String[] titles;
@@ -81,12 +65,12 @@ public class PdfCreator  {
 
         Document document = new Document(PageSize.A4);
         // write the document content
-        String directory_path = Environment.getExternalStorageDirectory().getPath() + "/mypdf/";
+        String directory_path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath() + "/Computing Account PDFs/";
         File file = new File(directory_path);
         if (!file.exists()) {
             file.mkdirs();
         }
-        String targetPdf = directory_path + "test-2.pdf";
+        String targetPdf = directory_path + "Report_Number_" +pdfName + ".pdf";
         File filePath = new File(targetPdf);
         try {
 

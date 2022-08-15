@@ -8,9 +8,12 @@ import com.abbasmoharreri.computingaccount.module.AItem;
 import com.abbasmoharreri.computingaccount.module.APerson;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
+/**
+ * This Class for Fetch Names of the persons
+ * @version 1.0
+ * */
 public class FetchPersonNames extends DataBaseController {
 
     private Context context;
@@ -23,10 +26,10 @@ public class FetchPersonNames extends DataBaseController {
         fetchPersonNames();
     }
 
-
+    /**
+     * This method for fetch data from Person Table in DB
+     * */
     private void fetchPersonNames() {
-
-
 
         String query = "SELECT "
                 + DataBase.KEY_ID + ","
@@ -47,10 +50,18 @@ public class FetchPersonNames extends DataBaseController {
     }
 
 
+    /**
+     * This method returns The List name of the persons
+     * @return (Type = APerson Class)
+     * */
     public List<APerson> getList() {
         return personNames;
     }
 
+    /**
+     * This method creates the list of Item for using in ItemActivity
+     * @return (Type = AItem Class)
+     * */
     public List<AItem> getListItem() {
         List<AItem> aItems = new ArrayList<>();
 

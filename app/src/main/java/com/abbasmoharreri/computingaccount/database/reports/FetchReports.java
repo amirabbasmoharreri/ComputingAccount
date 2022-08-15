@@ -13,6 +13,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
+/**
+ * This Class for fetch all data of the Reports
+ * @version 1.0
+ * */
 public class FetchReports extends DataBaseController {
     private Context context;
     private List<AReport> reports;
@@ -26,6 +31,9 @@ public class FetchReports extends DataBaseController {
     }
 
 
+    /**
+     * This method fetches all data of the Reports and add these items to List<AReport>
+     * */
     private void fetchList() {
 
         String query = "SELECT "
@@ -66,6 +74,10 @@ public class FetchReports extends DataBaseController {
     }
 
 
+    /**
+     * This method returns List of The Reports
+     * @return reports (Type = List<AReport>)
+     * */
     public List<AReport> getList() {
         return reports;
     }

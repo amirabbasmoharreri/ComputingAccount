@@ -6,8 +6,12 @@ import com.abbasmoharreri.computingaccount.database.DataBase;
 import com.abbasmoharreri.computingaccount.database.DataBaseController;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+
+/**
+ * This Class for fetch Report numbers from DB
+ * @version 1.0
+ * */
 
 public class FetchReportNumbers extends DataBaseController {
 
@@ -23,6 +27,10 @@ public class FetchReportNumbers extends DataBaseController {
     }
 
 
+    /**
+     * this method for fetch all Report numbers from DB
+     * and add items to List<Integer>
+     * */
     private void fetchNumbers() {
 
         String query = "SELECT "
@@ -40,6 +48,10 @@ public class FetchReportNumbers extends DataBaseController {
     }
 
 
+    /**
+     * This method returns List of the report numbers
+     * @return numbers (Type = List<Integer>)
+     * */
     public List<Integer> getList() {
         return numbers;
     }
