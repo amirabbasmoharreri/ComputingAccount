@@ -14,6 +14,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -25,9 +26,11 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.preference.PreferenceManager;
 
 import com.abbasmoharreri.computingaccount.service.BackupService;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Locale;
+import java.util.Objects;
 
 
 public class MainActivity extends BaseActivity {
@@ -41,6 +44,7 @@ public class MainActivity extends BaseActivity {
     static Configuration configuration;
     static Resources resources;
     static DisplayMetrics displayMetrics;
+    GoogleSignInAccount googleAccount;
 
 
     @Override
@@ -52,6 +56,14 @@ public class MainActivity extends BaseActivity {
         } else {
             setTheme(R.style.Light_AppTheme);
         }
+        try {
+            googleAccount = getIntent().getParcelableExtra("GoogleAccount");
+            Log.e("Abbas Account Main : ", Objects.requireNonNull(googleAccount.getEmail()));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         setLanguage();
         setContentView(R.layout.activity_main);
         setNavigationMenu();
@@ -143,6 +155,8 @@ public class MainActivity extends BaseActivity {
         // }
 
     }
+
+    //TODO Move speechNotification to SplashActivity
 
     private void speechNotification() {
 

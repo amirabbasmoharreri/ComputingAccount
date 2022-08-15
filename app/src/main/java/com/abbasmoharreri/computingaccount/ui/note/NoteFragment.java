@@ -16,12 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.abbasmoharreri.computingaccount.R;
 import com.abbasmoharreri.computingaccount.SpeechActivity;
-import com.abbasmoharreri.computingaccount.broadcastreceiver.SmsController;
 import com.abbasmoharreri.computingaccount.database.DataBaseController;
-import com.abbasmoharreri.computingaccount.database.reports.ReportWMaxReport;
 import com.abbasmoharreri.computingaccount.ui.adapters.NoteAdapter;
-import com.abbasmoharreri.computingaccount.ui.adapters.WorkAdapter;
-import com.abbasmoharreri.computingaccount.ui.chartsNavigation.ChartsFragment;
 import com.abbasmoharreri.computingaccount.ui.popupdialog.CustomProgressBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -104,7 +100,7 @@ public class NoteFragment extends Fragment implements DialogInterface.OnDismissL
                 public void run() {
                     customProgressBar.dismiss();
                 }
-            },500);
+            },0);
             this.onCancelled();
         }
     }

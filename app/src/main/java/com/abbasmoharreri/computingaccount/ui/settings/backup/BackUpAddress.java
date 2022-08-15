@@ -6,11 +6,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.os.FileUtils;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.provider.DocumentsContract;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -21,18 +18,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceManager;
 import androidx.preference.PreferenceViewHolder;
 
 import com.abbasmoharreri.computingaccount.R;
-import com.abbasmoharreri.computingaccount.filemanager.FileManager;
 import com.abbasmoharreri.computingaccount.filemanager.Storage;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Objects;
 
 
@@ -226,13 +219,15 @@ public class BackUpAddress extends Preference implements View.OnClickListener, P
         protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
             super.onActivityResult(requestCode, resultCode, data);
 
+            //TODO fix problem when come back to this activity without choosing address
+
 
             if (requestCode == REQUEST_OPEN_DOCUMENT_TREE) {
                 assert data != null;
                 Uri folderUri = data.getData();
                 if (folderUri != null) {
 
-                    Log.e("Address0", folderUri.getPath());
+                    Log.e("Address0", Objects.requireNonNull(folderUri.getPath()));
 
                     Storage storage = new Storage(getApplicationContext(), new File(Objects.requireNonNull(folderUri.getPath())));
 

@@ -41,6 +41,8 @@ public class SplashActivity extends AppCompatActivity {
         showLogo();
         Handler handler = new Handler();
 
+        //TODO if fixing problem of connecting to google account loading MainActivity after SplashActivity
+
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {

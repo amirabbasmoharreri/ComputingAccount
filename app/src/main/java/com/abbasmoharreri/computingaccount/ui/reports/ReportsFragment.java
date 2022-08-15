@@ -537,7 +537,7 @@ public class ReportsFragment extends Fragment implements View.OnClickListener, A
                 public void run() {
                     customProgressBar.dismiss();
                 }
-            },500);
+            },0);
             this.onCancelled();
         }
     }
