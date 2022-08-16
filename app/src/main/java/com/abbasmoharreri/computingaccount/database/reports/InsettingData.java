@@ -33,6 +33,17 @@ public class InsettingData extends DataBaseController {
     }
 
 
+    /**
+     * This method for inserting Work into the WorkList in DB
+     * Work Steps:
+     *      1-Checking existence of items
+     *      2-Fetching Work name's ID
+     *      3-Inserting work to DB
+     *      4-Adding picture to the work and inserting it to Db
+     *      5-Updating Report Items
+     *      6-Updating Wallet and Card
+     * @param aWork (Type = AWork class)
+     * */
     public void insertWorkList(AWork aWork) {
 
         this.aWork = aWork;
@@ -50,6 +61,15 @@ public class InsettingData extends DataBaseController {
     }
 
 
+    /**
+     *This method for inserting Received money into the DB
+     * Work steps:
+     *      1-inserting Received money to DB
+     *      2-Updating Report Items
+     *      3-Updating Wallet and Card
+     *
+     * @param aMoneyReceive (Type = AMoneyReceive Class)
+     * */
     public void insertMoney(AMoneyReceive aMoneyReceive) {
         this.aMoneyReceive = aMoneyReceive;
         this.aMoneyReceive.setReportId( get_Id_Report( this.aMoneyReceive.getReportNumber() ) );
@@ -60,6 +80,14 @@ public class InsettingData extends DataBaseController {
 
     }
 
+
+    /**
+     * This method for checking existence of Items
+     * work Steps:
+     *      1-Checking existence Person Name
+     *      2-Checking existence Work Name
+     *      3-Fetching IDs of these items
+     * */
     private void checkExistItems() {
 
         if (!isExistItem( person, personDatabaseName )) {
@@ -73,6 +101,12 @@ public class InsettingData extends DataBaseController {
         fetch_work_number();
     }
 
+    /**
+     * This method for adding picture to works and inserting picture to DB
+     *
+     *
+     * @param aWork (Type = AWork class)
+     * */
     private void addPicture(AWork aWork) {
         if (aWork.getAttaches().size() != 0) {
             APicture aPicture = new APicture();
@@ -88,6 +122,12 @@ public class InsettingData extends DataBaseController {
     }
 
 
+    /**
+     * This method for adding picture to Received Money and inserting picture to DB
+     *
+     *
+     * @param aMoneyReceive (Type = AMoneyReceive class)
+     * */
     private void addPicture(AMoneyReceive aMoneyReceive) {
         if (aMoneyReceive.getAttaches().size() != 0) {
             APicture aPicture = new APicture();
@@ -102,6 +142,9 @@ public class InsettingData extends DataBaseController {
     }
 
 
+    /**
+     * This method for fetching IDs of Items
+     * */
     private void fetch_Id_Name() {
         int id_person = get_Id_Person( person.getName() );
         person.setId( id_person );
@@ -117,6 +160,9 @@ public class InsettingData extends DataBaseController {
     }
 
 
+    /**
+     * This method for fetching data of the numbering of works and set correct number for the works
+     * */
     private void fetch_work_number() {
         int subNumber = 1;
         int number = 1;
