@@ -8,11 +8,16 @@ import com.abbasmoharreri.computingaccount.module.AReport;
 import com.abbasmoharreri.computingaccount.module.AWork;
 import com.abbasmoharreri.computingaccount.text.TextProcessing;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
+/**
+ * This Class for Fetching works in current Report
+ * and it makes special structure for creating PDF Files
+ * @version 1.0
+ * */
 public class SalaryReport extends DataBaseController {
 
     private Context context;
@@ -47,6 +52,10 @@ public class SalaryReport extends DataBaseController {
     }
 
 
+    /**
+     * This method for Producing Persian Date
+     * and adding persian date to each works in workList (Type = List<AWork>)
+     * */
     private void fetchPeriodDate() {
 
         Date date = new Date();
@@ -70,6 +79,10 @@ public class SalaryReport extends DataBaseController {
     }
 
 
+    /**
+     * This method for detecting same work and adding unique of each works to salaryList (Type = List<AWork>)
+     * when the user checked condition of work in ItemActivity , otherwise adding all works to the list
+     * */
     private void createSalaryList() {
 
         List<Integer> workId = new ArrayList<>();
@@ -103,6 +116,9 @@ public class SalaryReport extends DataBaseController {
     }
 
 
+    /**
+     * This method for adding all Attaches to salaryList (Type = List<AWork>)
+     * */
     private void createPictureList() {
         for (AWork aWork : salaryList) {
             attachList.addAll(aWork.getAttaches());
@@ -110,24 +126,40 @@ public class SalaryReport extends DataBaseController {
     }
 
 
+    /**
+     * This method returns start of date in period of time , that report has
+     * Date --> Georgian Date
+     * */
     public String getStartGeorgianDate() {
         TextProcessing textProcessing = new TextProcessing();
 
         return textProcessing.convertDateToStringWithoutTime(startGeorgianDate);
     }
 
+    /**
+     * This method returns end of date in period of time , that report has
+     * Date --> Georgian Date
+     * */
     public String getEndGeorgianDate() {
         TextProcessing textProcessing = new TextProcessing();
 
         return textProcessing.convertDateToStringWithoutTime(endGeorgianDate);
     }
 
+    /**
+     * This method returns start of date in period of time , that report has
+     * Date --> Persian Date
+     * */
     public String getStartIranianDate() {
         TextProcessing textProcessing = new TextProcessing();
 
         return textProcessing.convertDateToStringWithoutTime(startIranianDate);
     }
 
+    /**
+     * This method returns end of date in period of time , that report has
+     * Date --> Persian Date
+     * */
     public String getEndIranianDate() {
         TextProcessing textProcessing = new TextProcessing();
 
@@ -135,14 +167,26 @@ public class SalaryReport extends DataBaseController {
         return textProcessing.convertDateToStringWithoutTime(endIranianDate);
     }
 
+    /**
+     * This method returns data of Report
+     * @return aReport (Type = AReport)
+     * */
     public AReport getAReport() {
         return aReport;
     }
 
+    /**
+     * This method returns list of all Attaches
+     * @return attacheList (Type = List<APicture>)
+     * */
     public List<APicture> getAttachList() {
         return attachList;
     }
 
+    /**
+     * This method returns list of the works
+     * @return salaryList (type = List<AWork>)
+     * */
     public List<AWork> getSalaryList() {
         return salaryList;
     }

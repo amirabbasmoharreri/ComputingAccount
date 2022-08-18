@@ -17,6 +17,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * This Class for managing DB
+ * @version 1.0
+ * */
 public class DataBaseController {
 
     protected Context context;
@@ -32,9 +36,11 @@ public class DataBaseController {
 
     //endregion
 
-
     //region closing DateBase
 
+    /**
+     * This method for closing DB and Cursor
+     * */
     public void close() {
         db.close();
         cursor.close();
@@ -42,9 +48,12 @@ public class DataBaseController {
 
     //endregion
 
-
     //region getting Notes
 
+    /**
+     * This method for getting Notes from DB
+     * @return stringList (Type = List<String>)
+     * */
     public List<String> fetchNotes() {
 
         List<String> stringList = new ArrayList<>();
@@ -71,6 +80,12 @@ public class DataBaseController {
 
     //region getting Lists
 
+    /**
+     * this method for fetching pictures of attachments of the work
+     * and returns list of them
+     * @param aWork (Type = AWork class)
+     * @return aPictures (Type = List<APicture>)
+     * */
     protected ArrayList<APicture> fetchPictureWorkList(AWork aWork) {
 
         ArrayList<APicture> aPictures = new ArrayList<>();
@@ -106,6 +121,12 @@ public class DataBaseController {
     }
 
 
+    /**
+     * this method for fetching pictures of attachments of the received money
+     * and returns list of them
+     * @param aMoneyReceive (Type = AMoneyReceive class)
+     * @return aPictures (Type = List<APicture>)
+     * */
     protected ArrayList<APicture> fetchPictureReceived(AMoneyReceive aMoneyReceive) {
 
         ArrayList<APicture> aPictures = new ArrayList<>();
@@ -140,9 +161,12 @@ public class DataBaseController {
 
     //endregion
 
-
     //region getting MAX
 
+    /**
+     * This method for getting the maximum work No.
+     * @return number (Type = int)
+     * */
     public int max_workNumber() {
 
         int number = 0;
@@ -161,6 +185,10 @@ public class DataBaseController {
         return number;
     }
 
+    /**
+     * This method for getting the maximum Report No.
+     * @return number (Type = int)
+     * */
     public int max_reportNumber() {
 
         int number = 0;
@@ -178,6 +206,10 @@ public class DataBaseController {
     }
 
 
+    /**
+     * This method for getting the maximum CraveAndDebt No.
+     * @return number (Type = int)
+     * */
     public int max_craveDebtNumber(int personId) {
 
         int number = 0;
@@ -196,6 +228,10 @@ public class DataBaseController {
         return number;
     }
 
+    /**
+     * This method for getting the maximum Received No.
+     * @return number (Type = int)
+     * */
     public int max_receiveNumber() {
         int number = 0;
 
@@ -213,10 +249,13 @@ public class DataBaseController {
 
     //endregion
 
-
     //region getting  IDs
 
-
+    /**
+     * This method for getting The Ids of the Work names with work name
+     * @param name (Type = String)
+     * @return id (Type = int)
+     * */
     public int get_Id_WorkName(String name) {
 
         int id = 0;
@@ -235,6 +274,11 @@ public class DataBaseController {
         return id;
     }
 
+    /**
+     * This method for getting The Ids of the reports with report number
+     * @param number (Type = int)
+     * @return id (Type = int)
+     * */
     public int get_Id_Report(int number) {
 
         int id = 0;
@@ -253,6 +297,11 @@ public class DataBaseController {
         return id;
     }
 
+    /**
+     * This method for getting The Ids of the persons with person name
+     * @param name (Type = String)
+     * @return id (Type = int)
+     * */
     public int get_Id_Person(String name) {
         int id = 0;
         cursor = db.query( DataBase.TABLE_PERSON
@@ -270,7 +319,11 @@ public class DataBaseController {
         return id;
     }
 
-
+    /**
+     * This method for getting The Ids of the received money with received money No.
+     * @param number (Type = int)
+     * @return id (Type = int)
+     * */
     protected int get_Id_Receive(int number) {
         int id = 0;
         cursor = db.query( DataBase.TABLE_RECEIVED
@@ -289,6 +342,11 @@ public class DataBaseController {
     }
 
 
+    /**
+     * This method for getting The Ids of the wallets with received money's id
+     * @param receivedId (Type = int)
+     * @return id (Type = int)
+     * */
     protected int get_Id_Wallet(int receivedId) {
         int id = 0;
         cursor = db.query( DataBase.TABLE_WALLET
@@ -307,6 +365,11 @@ public class DataBaseController {
     }
 
 
+    /**
+     * This method for getting The Ids of the cards with received money's id
+     * @param receivedId (Type = int)
+     * @return id (Type = int)
+     * */
     protected int get_Id_Card(int receivedId) {
         int id = 0;
         cursor = db.query( DataBase.TABLE_CARD
@@ -327,9 +390,13 @@ public class DataBaseController {
 
     //endregion
 
-
     //region getting name or number with Ids
 
+    /**
+     * This method for getting The names of the works with it's ids
+     * @param id (Type = int)
+     * @return name (Type = String)
+     * */
     protected String getName_workName(int id) {
         String name = "";
         cursor = db.query( DataBase.TABLE_WORK_NAME
@@ -348,6 +415,11 @@ public class DataBaseController {
     }
 
 
+    /**
+     * This method for getting The names of the persons with it's ids
+     * @param id (Type = int)
+     * @return name (Type = String)
+     * */
     protected String getName_person(int id) {
         String name = "";
         cursor = db.query( DataBase.TABLE_PERSON
@@ -366,6 +438,11 @@ public class DataBaseController {
     }
 
 
+    /**
+     * This method for getting The numbers of the reports with it's ids
+     * @param id (Type = int)
+     * @return name (Type = String)
+     * */
     protected int getNumber_report(int id) {
         int number = 0;
         cursor = db.query( DataBase.TABLE_REPORT
@@ -386,10 +463,15 @@ public class DataBaseController {
 
     //endregion
 
-
     //region  is Exists values
 
 
+    /**
+     * This method for checking existence of Items in their Tables of the DB with their name
+     * @param aItem (Type = AItem class)
+     * @param dataBaseName (Type = String)
+     * @return True or False (Type = boolean)
+     * */
     public boolean isExistItem(AItem aItem, String dataBaseName) {
 
         cursor = db.query( dataBaseName
@@ -405,6 +487,11 @@ public class DataBaseController {
         return cursor.moveToFirst();
     }
 
+    /**
+     * This method for checking existence of report in its Tables of the DB with its number
+     * @param aReport (Type = AReport class)
+     * @return True or False (Type = boolean)
+     * */
     public boolean isExistReport(AReport aReport) {
 
         cursor = db.query( DataBase.TABLE_REPORT
@@ -420,6 +507,11 @@ public class DataBaseController {
         return cursor.moveToFirst();
     }
 
+    /**
+     * This method for checking existence of picture in its Tables of the DB with its Picture
+     * @param aPicture (Type = APicture class)
+     * @return True or False (Type = boolean)
+     * */
     public boolean isExistPicture(APicture aPicture) {
 
         cursor = db.query( DataBase.TABLE_PICTURE
@@ -436,6 +528,11 @@ public class DataBaseController {
     }
 
 
+    /**
+     * This method for getting condition of the work with its id
+     * @param id (Type = int)
+     * @return True or False (Type = boolean)
+     * */
     protected boolean checkConditionWorkName(int id) {
 
         boolean condition = false;
@@ -454,9 +551,12 @@ public class DataBaseController {
 
     //endregion
 
-
     //region inserting data to db
 
+    /**
+     * This method for inserting Reports to DB
+     * @param aReport (Type = AReport class)
+     * */
     public void insertReport(AReport aReport) {
 
         ContentValues contentValues = new ContentValues();
@@ -474,6 +574,10 @@ public class DataBaseController {
 
     }
 
+    /**
+     * This method for inserting Works to DB
+     * @param aWork (Type = AWork class)
+     * */
     public void insertWork(AWork aWork) {
 
         ContentValues contentValues = new ContentValues();
@@ -495,6 +599,10 @@ public class DataBaseController {
     }
 
 
+    /**
+     * This method for inserting CraveAndDebt to DB
+     * @param aCraveAndDebt (Type = ACraveAndDebt class)
+     * */
     public void insertCraveDebt(ACraveAndDebt aCraveAndDebt) {
 
         ContentValues contentValues = new ContentValues();
@@ -509,6 +617,11 @@ public class DataBaseController {
         db.insert( DataBase.TABLE_CRAVE_DEBT, null, contentValues );
     }
 
+    /**
+     * This method for inserting Items to DB with data base name
+     * @param aItem (Type = AItem class)
+     * @param dataBaseName (Type = String)
+     * */
     public void insertItem(AItem aItem, String dataBaseName) {
 
         ContentValues contentValues = new ContentValues();
@@ -520,6 +633,10 @@ public class DataBaseController {
         db.insert( dataBaseName, null, contentValues );
     }
 
+    /**
+     * This method for inserting Received money to DB
+     * @param aMoneyReceive (Type = AMoneyReceive class)
+     * */
     public void insertReceive(AMoneyReceive aMoneyReceive) {
 
         ContentValues contentValues = new ContentValues();
@@ -533,6 +650,10 @@ public class DataBaseController {
     }
 
 
+    /**
+     * This method for inserting Wallets to DB
+     * @param aAccount (Type = AAccount class)
+     * */
     public void insertWallet(AAccount aAccount) {
 
         ContentValues contentValues = new ContentValues();
@@ -544,6 +665,10 @@ public class DataBaseController {
     }
 
 
+    /**
+     * This method for inserting Cards to DB
+     * @param aAccount (Type = AAccount class)
+     * */
     public void insertCard(AAccount aAccount) {
 
         ContentValues contentValues = new ContentValues();
@@ -555,6 +680,10 @@ public class DataBaseController {
     }
 
 
+    /**
+     * This method for inserting Pictures to DB
+     * @param aPicture (Type = APicture class)
+     * */
     public void insertPicture(APicture aPicture) {
         ContentValues contentValues = new ContentValues();
 
@@ -568,6 +697,10 @@ public class DataBaseController {
     }
 
 
+    /**
+     * This method for inserting Notes to DB
+     * @param comment (Type = String)
+     * */
     public void insertNote(String comment) {
         ContentValues contentValues = new ContentValues();
 
@@ -578,9 +711,12 @@ public class DataBaseController {
 
     //endregion
 
-
     //region Updating Data to db
 
+    /**
+     * This method for Updating Reports in DB
+     * @param aReport (Type = AReport class)
+     * */
     public void updateReport(AReport aReport) {
         ContentValues contentValues = new ContentValues();
         contentValues.put( DataBase.KEY_CONDITION, aReport.getCondition() );
@@ -596,6 +732,10 @@ public class DataBaseController {
 
     }
 
+    /**
+     * This method for Updating Received money in DB
+     * @param aMoneyReceive (Type = AMoneyReceive class)
+     * */
     public void updateReceive(AMoneyReceive aMoneyReceive) {
         ContentValues contentValues = new ContentValues();
         contentValues.put( DataBase.KEY_DATE, aMoneyReceive.getStringGregorianDate() );
@@ -606,6 +746,10 @@ public class DataBaseController {
         db.update( DataBase.TABLE_RECEIVED, contentValues, DataBase.KEY_ID + " =?", new String[]{String.valueOf( aMoneyReceive.getId() )} );
     }
 
+    /**
+     * This method for Updating Works in DB
+     * @param aWork (Type = AWork class)
+     * */
     public void updateWork(AWork aWork) {
         ContentValues contentValues = new ContentValues();
         contentValues.put( DataBase.KEY_REPORT_ID, aWork.getReportId() );
@@ -623,6 +767,10 @@ public class DataBaseController {
         db.update( DataBase.TABLE_WORK_LIST, contentValues, DataBase.KEY_ID + " =?", new String[]{String.valueOf( aWork.getId() )} );
     }
 
+    /**
+     * This method for Updating CraveAndDebt in DB
+     * @param aCraveAndDebt (Type = ACraveAndDebt class)
+     * */
     public void updateCraveDebt(ACraveAndDebt aCraveAndDebt) {
         ContentValues contentValues = new ContentValues();
         contentValues.put( DataBase.KEY_PERSON_ID, aCraveAndDebt.getPersonId() );
@@ -635,6 +783,11 @@ public class DataBaseController {
         db.update( DataBase.TABLE_CRAVE_DEBT, contentValues, DataBase.KEY_ID + " =?", new String[]{String.valueOf( aCraveAndDebt.getId() )} );
     }
 
+    /**
+     * This method for Updating Items in DB with data base name
+     * @param aItem (Type = AItem class)
+     * @param dataBaseName (Type = String)
+     * */
     public void updateItem(AItem aItem, String dataBaseName) {
         ContentValues contentValues = new ContentValues();
 
@@ -650,6 +803,10 @@ public class DataBaseController {
     }
 
 
+    /**
+     * This method for Updating Wallets in DB
+     * @param aAccount (Type = AAccount class)
+     * */
     public void updateWallet(AAccount aAccount) {
         ContentValues contentValues = new ContentValues();
         contentValues.put( DataBase.KEY_REMAINED, aAccount.getRemained() );
@@ -659,6 +816,10 @@ public class DataBaseController {
     }
 
 
+    /**
+     * This method for Updating Cards in DB
+     * @param aAccount (Type = AAccount class)
+     * */
     public void updateCard(AAccount aAccount) {
         ContentValues contentValues = new ContentValues();
         contentValues.put( DataBase.KEY_REMAINED, aAccount.getRemained() );
@@ -667,6 +828,10 @@ public class DataBaseController {
         db.update( DataBase.TABLE_CARD, contentValues, DataBase.KEY_ID + " =?", new String[]{String.valueOf( aAccount.getId() )} );
     }
 
+    /**
+     * This method for Updating Pictures in DB
+     * @param aPicture (Type = APicture class)
+     * */
     public void updatePicture(APicture aPicture) {
         ContentValues contentValues = new ContentValues();
         contentValues.put( DataBase.KEY_REPORT_ID, aPicture.getReportId() );
@@ -680,45 +845,81 @@ public class DataBaseController {
 
     //endregion  to
 
-
     //region Deleting Data from db
 
+    /**
+     * This method for Deleting Reports from DB
+     * @param aReport (Type = AReport class)
+     * */
     public void deleteReport(AReport aReport) {
         db.delete( DataBase.TABLE_REPORT, DataBase.KEY_ID + " =?", new String[]{String.valueOf( aReport.getId() )} );
     }
 
+    /**
+     * This method for Deleting Works from DB
+     * @param aWork (Type = AWork class)
+     * */
     public void deleteWork(AWork aWork) {
         db.delete( DataBase.TABLE_WORK_LIST, DataBase.KEY_ID + " =?", new String[]{String.valueOf( aWork.getId() )} );
     }
 
 
+    /**
+     * This method for Deleting Items from DB with data base name
+     * @param aItem (Type = AItem class)
+     * @param dataBaseName (Type = String)
+     * */
     public void deleteItem(AItem aItem, String dataBaseName) {
         db.delete( dataBaseName, DataBase.KEY_ID + " =?", new String[]{String.valueOf( aItem.getId() )} );
     }
 
+    /**
+     * This method for Deleting CraveAndDebt from DB
+     * @param aCraveAndDebt (Type = ACraveAndDebt class)
+     * */
     public void deleteCraveDebt(ACraveAndDebt aCraveAndDebt) {
         db.delete( DataBase.TABLE_CRAVE_DEBT, DataBase.KEY_ID + " =?", new String[]{String.valueOf( aCraveAndDebt.getId() )} );
     }
 
+    /**
+     * This method for Deleting Receive money from DB
+     * @param aMoneyReceive (Type = AMoneyReceive class)
+     * */
     public void deleteReceive(AMoneyReceive aMoneyReceive) {
         db.delete( DataBase.TABLE_RECEIVED, DataBase.KEY_ID + " =?", new String[]{String.valueOf( aMoneyReceive.getId() )} );
     }
 
+    /**
+     * This method for Deleting Pictures from DB
+     * @param aPicture (Type = APicture class)
+     * */
     public void deletePicture(APicture aPicture) {
         db.delete( DataBase.TABLE_PICTURE, DataBase.KEY_ID + " =?", new String[]{String.valueOf( aPicture.getId() )} );
     }
 
 
+    /**
+     * This method for Deleting Wallets from DB
+     * @param aAccount (Type = AAccount class)
+     * */
     public void deleteWalletReceive(AAccount aAccount) {
         db.delete( DataBase.TABLE_WALLET, DataBase.KEY_ID + " =?", new String[]{String.valueOf( aAccount.getId() )} );
     }
 
 
+    /**
+     * This method for Deleting Cards from DB
+     * @param aAccount (Type = AAccount class)
+     * */
     public void deleteCardReceive(AAccount aAccount) {
         db.delete( DataBase.TABLE_CARD, DataBase.KEY_ID + " =?", new String[]{String.valueOf( aAccount.getId() )} );
     }
 
 
+    /**
+     * This method for Deleting Notes from DB
+     * @param comment (Type = String)
+     * */
     public void deleteNote(String comment) {
         db.delete( DataBase.TABLE_NOTE, DataBase.KEY_COMMENT + " =?", new String[]{String.valueOf( comment )} );
     }

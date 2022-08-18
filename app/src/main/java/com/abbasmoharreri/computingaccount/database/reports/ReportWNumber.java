@@ -12,6 +12,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * This Class for fetching works with Report number
+ * @version 1.0
+ * */
 public class ReportWNumber extends DataBaseController {
 
 
@@ -26,6 +30,10 @@ public class ReportWNumber extends DataBaseController {
     }
 
 
+    /**
+     * This method for fetch all works with Report number From DB and adding to aWorks (Type = List<AWork>)
+     * @param number (Type = int)
+     * */
     private void fetchWorks(int number) {
         int reportId = get_Id_Report( number );
 
@@ -79,6 +87,9 @@ public class ReportWNumber extends DataBaseController {
     }
 
 
+    /**
+     * This method for completing data of the list like person name and Work name and adding attaches
+     * */
     private void fetch_name_number(int number) {
 
         String personName = "";
@@ -97,6 +108,10 @@ public class ReportWNumber extends DataBaseController {
     }
 
 
+    /**
+     * This method returns list of works
+     * @return aWorks (Type  = List<AWork>)
+     * */
     public List<AWork> getList() {
         return this.aWorks;
     }

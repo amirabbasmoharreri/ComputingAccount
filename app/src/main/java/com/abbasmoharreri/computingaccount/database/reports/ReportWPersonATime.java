@@ -12,6 +12,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
+/**
+ * This Class for fetching works with Person name and period of time
+ * @version 1.0
+ * */
 public class ReportWPersonATime extends DataBaseController {
 
     private Context context;
@@ -25,6 +30,13 @@ public class ReportWPersonATime extends DataBaseController {
     }
 
 
+
+    /**
+     * This method for fetching works with person name and period of time from DB and adding to aWorks (Type = List<AWork>)
+     * @param person (Type  = String)
+     * @param startDate (Type = Date)
+     * @param endDate (Type = Date)
+     * */
     private void fetchWPersonATime(String person, Date startDate, Date endDate) {
 
         int personId = get_Id_Person( person );
@@ -82,6 +94,10 @@ public class ReportWPersonATime extends DataBaseController {
     }
 
 
+    /**
+     * This method for completing data of the list like Work name and Report number and adding Attaches
+     * @param person (Type = String)
+     * */
     private void fetch_name_number(String person) {
 
         String workName = "";
@@ -101,6 +117,10 @@ public class ReportWPersonATime extends DataBaseController {
     }
 
 
+    /**
+     * This method returns list of the Works
+     * @return aWorks (Type = List<AWork>)
+     * */
     public List<AWork> getList() {
         return this.aWorks;
     }
