@@ -7,7 +7,7 @@ This program is made to adjust the salary form<br/>
 # When opening the app:<br/>
 
 after the showing logo you can sign in to google account for using google drive<br/>
-or Choosing language of app<br/>
+or Choosing language of the app<br/>
 (This Feature Not Compelete)<br/>
 
 ![Enter to App](https://user-images.githubusercontent.com/42645973/185730254-9a53c7c7-c231-453a-8c09-7dcf0e4bc65c.gif)
@@ -86,6 +86,7 @@ no limitation on adding attachments now <br/>
 
 # How to add Crave and Debt : <br/>
 
+This Feature doesn't affect to computing of the report, it is for you don't forget how much you lent or how much you borrowed<br/>
 
 ![Add Crave and Debt](https://user-images.githubusercontent.com/42645973/185730636-d8ff1299-18ba-428c-933b-db2d7828282f.gif)
 
@@ -121,6 +122,9 @@ filters :
 
 # How to add Note: <br/>
 
+This feature use the speech-to-text to save any task that was done when You were busy<br/> 
+for you don't forget these tasks to add to the app nomally<br/>
+The feature doesn't affect to anywhere of the app<br/>
 
 ![Note Fragment](https://user-images.githubusercontent.com/42645973/185730804-a8e33da2-bd94-4ef4-8ce2-fc3d9af0944f.gif)
 
@@ -129,6 +133,8 @@ filters :
 
 # How to close account of the current Report:<br/>
 
+This option closes the current report and creates a new report<br/>
+after that, Home Fragment doesn't show works of the closed report<br/>
 
 ![Close Account](https://user-images.githubusercontent.com/42645973/185733065-c50b7fe5-0a44-47a7-b69a-b2b3a18b78ef.gif)
 
@@ -137,7 +143,7 @@ filters :
 
 # How to get a pdf of the Report:<br/>
 
-These pdfs saving on this address:
-    internal storage\Downloads\Computing Account PDfs
+These pdfs saving on this address:<br/>
+    internal storage\Downloads\Computing Account PDfs<br/>
 
 ![create pdf](https://user-images.githubusercontent.com/42645973/185733188-93c2ae24-3bf0-47d2-804b-3a532a0b4353.gif)
