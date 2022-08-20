@@ -10,8 +10,9 @@ after the showing logo you can sign in to google account for using google drive<
 or Choosing language of the app<br/>
 (This Feature Not Compelete)<br/>
 
-![Enter to App](https://user-images.githubusercontent.com/42645973/185730254-9a53c7c7-c231-453a-8c09-7dcf0e4bc65c.gif)
-
+<p align="center">
+ <img src="https://user-images.githubusercontent.com/42645973/185730254-9a53c7c7-c231-453a-8c09-7dcf0e4bc65c.gif" alt="animated" />
+</p>
 
 
 # How to add Report Items:<br/>
@@ -108,7 +109,7 @@ This Feature doesn't affect to computing of the report, it is for you don't forg
 
 # How to get data of other Reports with filters: <br/>
 
-filters : 
+filters : <br/>
     - Report with Work name and Time<br/>
     - Report with Time<br/>
     - Report with Person name and Time<br/>
