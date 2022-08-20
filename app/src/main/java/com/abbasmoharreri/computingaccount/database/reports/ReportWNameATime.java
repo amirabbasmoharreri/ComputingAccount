@@ -12,6 +12,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
+/**
+ * This Class for Fetching works with Work name and period of time
+ * @version 1.0
+ * */
 public class ReportWNameATime extends DataBaseController {
 
     private Context context;
@@ -23,6 +28,13 @@ public class ReportWNameATime extends DataBaseController {
         fetchWNameATime( workName, startDate, endDate );
     }
 
+
+    /**
+     * This method for Fetching works with Work name and period of time From DB
+     * @param workName (Type = String)
+     * @param startDate (Type = Date)
+     * @param endDate (Type = Date)
+     * */
     private void fetchWNameATime(String workName, Date startDate, Date endDate) {
 
         int workNameId = get_Id_WorkName( workName );
@@ -80,6 +92,10 @@ public class ReportWNameATime extends DataBaseController {
     }
 
 
+    /**
+     * This method for completing data of Work List like Person name and Report number and adding Attaches to it
+     * @param workName (Type = String)
+     * */
     private void fetch_name_number(String workName) {
 
         String personName = "";
@@ -98,6 +114,10 @@ public class ReportWNameATime extends DataBaseController {
     }
 
 
+    /**
+     * This method returns list of Works
+     * @return aWorks (Type = List<AWork>)
+     * */
     public List<AWork> getList() {
         return this.aWorks;
     }

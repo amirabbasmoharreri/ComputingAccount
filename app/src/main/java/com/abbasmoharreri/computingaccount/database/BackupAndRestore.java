@@ -18,12 +18,22 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.nio.channels.FileChannel;
 
+
+/**
+ * This Class for create backup and restoring it to DB
+ * @version 1.0
+ * */
 public class BackupAndRestore {
 
     PackageManager packageManager;
     PackageInfo packageInfo;
     SharedPreferences sharedPreferences;
 
+    /**
+     * This method for restoring backup to DB
+     * @param context (Type = Context) context of the app
+     * @param address (Type = String) address in storage for saving backup
+     * */
     public void importDB(Context context, String address) {
 
         try {
@@ -48,6 +58,10 @@ public class BackupAndRestore {
         }
     }
 
+    /**
+     * This method for creating backup from DB
+     * @param context (Type = Context) context of the app
+     * */
     public void exportDB(Context context) {
 
 

@@ -13,6 +13,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
+
+/**
+ * This method for counting number of each works
+ * @version 1.0
+ * */
 public class ReportWCountATime extends DataBaseController {
 
     private Context context;
@@ -20,6 +25,12 @@ public class ReportWCountATime extends DataBaseController {
     private HashMap<String, Integer> aWorkCount;
 
 
+    /**
+     * This method is constructor
+     * @param context (Type = Context) context of the app
+     * @param startDate (Type = Date)
+     * @param endDate (Type = Date)
+     * */
     public ReportWCountATime(Context context, Date startDate, Date endDate) {
         super( context );
         this.aWorks = new ArrayList<>();
@@ -28,6 +39,11 @@ public class ReportWCountATime extends DataBaseController {
     }
 
 
+    /**
+     * This method for fetching data from DB and adding these items to aWorks (Type = List<AWork>)
+     * @param startDate (Type = Date)
+     * @param endDate (Type = Date)
+     * */
     private void fetchWTime(Date startDate, Date endDate) {
 
 
@@ -79,6 +95,9 @@ public class ReportWCountATime extends DataBaseController {
     }
 
 
+    /**
+     * This method for completing numbering and names into the List of works
+     * */
     private void fetch_name_number() {
 
         String personName = "";
@@ -100,6 +119,9 @@ public class ReportWCountATime extends DataBaseController {
     }
 
 
+    /**
+     * This method for counting number of works with Work Name and adding these numbers into aWorkCount (Type = HashMap<String , Integer>)
+     * */
     private void countingWorks() {
 
         String workName = "";
@@ -122,10 +144,18 @@ public class ReportWCountATime extends DataBaseController {
     }
 
 
+    /**
+     * This method returns HashMap of counting of works
+     * @return aWorkCount (Type = HashMap<String , Integer>)
+     * */
     public HashMap<String, Integer> getCountList() {
         return this.aWorkCount;
     }
 
+    /**
+     * This method returns list of all Works in this period of time
+     * @return aWork (Type = List<AWork>)
+     * */
     public List<AWork> getList() {
         return this.aWorks;
     }

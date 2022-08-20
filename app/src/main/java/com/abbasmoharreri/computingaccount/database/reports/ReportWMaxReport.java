@@ -12,6 +12,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * This Class for fetch All Works in current Report
+ * @version 1.0
+ * */
 public class ReportWMaxReport extends DataBaseController {
 
     private Context context;
@@ -25,6 +29,10 @@ public class ReportWMaxReport extends DataBaseController {
     }
 
 
+    /**
+     * This method for fetching all works in current Report from DB
+     * and adding to aWork (Type = List<AWork>)
+     * */
     private void fetchWorks() {
         int reportId = get_Id_Report( max_reportNumber() );
 
@@ -76,6 +84,9 @@ public class ReportWMaxReport extends DataBaseController {
     }
 
 
+    /**
+     * This method for completing data of the list like Person Name and Work Name and Report Number
+     * */
     private void fetch_name_number() {
 
         String personName = "";
@@ -95,6 +106,10 @@ public class ReportWMaxReport extends DataBaseController {
     }
 
 
+    /**
+     * This method returns list of the Works
+     * @return aWorks (Type = List<AWork>)
+     * */
     public List<AWork> getList() {
         return this.aWorks;
     }

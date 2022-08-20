@@ -12,6 +12,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
+/**
+ * This Class for fetching works with work name in current Report
+ * @version 1.0
+ * */
 public class ReportWNameWMaxReport extends DataBaseController {
 
     private List<AWork> aWorks;
@@ -27,6 +32,10 @@ public class ReportWNameWMaxReport extends DataBaseController {
     }
 
 
+    /**
+     * This method for fetching works with work name in current Report from DB and adding to aWorks (Type = List<AWork>)
+     * @param workName (Type = String)
+     * */
     private void fetchWName(String workName) {
 
         int workNameId = get_Id_WorkName( workName );
@@ -83,6 +92,10 @@ public class ReportWNameWMaxReport extends DataBaseController {
     }
 
 
+    /**
+     * This method for completing data of the list like Person name and Report number and adding Attaches
+     * @param workName (type = String)
+     * */
     private void fetch_name_number(String workName) {
 
         String personName = "";
@@ -100,6 +113,10 @@ public class ReportWNameWMaxReport extends DataBaseController {
     }
 
 
+    /**
+     * This method returns list of the works
+     * @return aWorks (Type = List<AWork>)
+     * */
     public List<AWork> getList() {
         return this.aWorks;
     }

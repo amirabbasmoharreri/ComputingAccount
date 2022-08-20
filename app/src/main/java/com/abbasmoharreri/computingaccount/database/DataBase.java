@@ -4,6 +4,11 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+
+/**
+ * This Class for Creating DB
+ * @version 1.0
+ * */
 public class DataBase extends SQLiteOpenHelper {
 
     public final static String DATABASE_NAME = "ComputingAccount";
